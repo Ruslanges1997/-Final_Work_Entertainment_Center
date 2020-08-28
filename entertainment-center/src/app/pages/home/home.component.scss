@@ -1,0 +1,35 @@
+.home_section {
+    background: url(../../../assets/images/star_wars_home.jpg);
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+    // background-size: cover;
+}
+.invisible {
+    opacity: 0;
+    animation-name: move;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+// @keyframes move {
+//     form {
+//         opacity: 0;
+//     }
+//     to {
+//         opacity: 1;
+//     }
+// }
+
+.home_info {
+    margin-top: 100px;
+    position: absolute;
+    color: white;
+    .aaaa {
+        opacity: 0.5;
+    }
+}
+
+.invisible {
+    transition-property: opacity;
+    transition-duration: 3s;
+}

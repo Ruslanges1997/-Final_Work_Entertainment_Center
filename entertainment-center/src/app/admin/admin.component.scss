@@ -1,0 +1,45 @@
+/* Убираем отступы */
+/* Убираем отступы */
+* {
+    margin: 0;
+    padding: 0;
+}
+/* Задаем ширину меню */
+#menu {
+    width: 210px;
+    margin: 15px;
+}
+/* Стили для наших пунктов меню */
+#menu ul {
+    list-style: none;
+}
+#menu li {
+    list-style: none;
+    display: block;
+    line-height: 32px;
+    height: 32px;
+    margin: 7px 0;
+    width: 206px;
+}
+#menu li a {
+    display: block;
+    height: 33px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 32px;
+    padding: 0 0 0 25px;
+    text-decoration: none;
+    color: #006a35;
+    background: #95df8e;
+    border: solid 1px #006a35;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Подсветка наведденого пункта */
+#menu li a:hover {
+    background: #35c835;
+    color: #fff;
+}
