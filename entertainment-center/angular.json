@@ -94,35 +94,37 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "entertainment-center:serve"
+            
+              "scripts": []
+            }
           },
-          "configurations": {
-            "production": {
-              "devServerTarget": "entertainment-center:serve:production"
+          "lint": {
+            "builder": "@angular-devkit/build-angular:tslint",
+            "options": {
+              "tsConfig": [
+                "tsconfig.app.json",
+                "tsconfig.spec.json",
+                "e2e/tsconfig.json"
+              ],
+              "exclude": [
+                "**/node_modules/**"
+              ]
+            }
+          },
+          "e2e": {
+            "builder": "@angular-devkit/build-angular:protractor",
+            "options": {
+              "protractorConfig": "e2e/protractor.conf.js",
+              "devServerTarget": "entertainment-center:serve"
+            },
+            "configurations": {
+              "production": {
+                "devServerTarget": "entertainment-center:serve:production"
+              }
             }
           }
         }
       }
-    }},
-  "defaultProject": "entertainment-center"
-}
+    },
+    "defaultProject": "entertainment-center"
+  }

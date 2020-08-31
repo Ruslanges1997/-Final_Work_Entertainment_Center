@@ -22,6 +22,9 @@
     "@angular/platform-browser-dynamic": "~9.1.12",
     "@angular/router": "~9.1.12",
     "firebase": "^7.19.0",
+    "ngx-bootstrap": "^5.6.1",
+    "ngx-google-map": "^1.0.0",
+    "ngx-slider": "0.0.5",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

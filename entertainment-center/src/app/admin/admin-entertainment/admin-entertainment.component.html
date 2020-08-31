@@ -1,45 +1,123 @@
 <p>admin-entertainment works!</p>
 
+<!-- <button type="button" [disabled]="discountForm.invalid" class="btn btn-dark mt-3" (click)="addDiscount()"
+[textContent]="!editStatus ? 'Add' : 'Update'"></button> -->
 
-<div class="container_tabale">
-    <div class="row">
-            <div class="mobile-table">
-                <table class="iksweb">
-                    <thead>
-                        <tr>
-                            <th>Заголовок</th>
-                            <th>Заголовок</th>
-                            <th>Заголовок</th>
-                            <th>Заголовок</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                        </tr>
-                        <tr>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                        </tr>
-                        <tr>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                            <td colspan="2">Ячейка</td>
-                        </tr>
-                        <tr>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                            <td>Ячейка</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        
+<!-- <button type="button" class="" (click)="addEntertainment()" [textContent]=" 'Add' "></button> -->
+
+<ng-template #addCategoryModals>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Category model</h4>
+        <button type="button" class="close pull-right" aria-label="Close">
+
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
+    <div class="modal-body">
+        <form #entertainmentForm="ngForm">
+            <div class="form-group">
+                <label for="eNameGame">Name game: </label>
+                <input [(ngModel)]="eNameGame" name="eNameGame" type="text" class="form-control" id="eNameGame"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="eDescriptionGame"> Description Game: </label>
+                <textarea [(ngModel)]="eDescriptionGame" name="eDescriptionGame" class="form-control"
+                    style="height: 200px;" id="eDescriptionGame" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="eTimeGame"> Time Game: </label>
+                <input [(ngModel)]="eTimeGame" name="eTimeGame" type="text" class="form-control" id="eTimeGame"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="ePriceGame"> Price Game: </label>
+                <input [(ngModel)]="ePriceGame" name="ePriceGame" type="text" class="form-control" id="ePriceGame"
+                    required>
+            </div>
+
+            <!-- <div class="custom-file">
+
+            </div> -->
+
+            <div class="custom-file">
+                <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="eImageGame" required>
+                <label class="custom-file-label" for="eImageGame">Choose file...</label>
+            </div>
+
+            <div class="entertainmentImage mb-3 mt-3">
+                <img [src]="eImageGame" alt="">
+
+            </div>
+            <button type="button" class="" (click)="addEntertainment()" [textContent]=" 'Add' "></button>
+        </form>
+
+    </div>
+</ng-template>
+
+
+
+<button type="button" class="btn  btn-dark" (click)="addCategoryModal(addCategoryModals) ">Add Category</button>
+
+
+<div class="">
+    <!-- <div class="mobile-table"> -->
+    <!-- <table class="table table-hover  table-bordered"> -->
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <!-- <th>Id</th>
+                <th>Title</th>
+                <th>Text</th>
+                <th>Image</th>
+                <th>Delete</th>
+                <th>Edite</th> -->
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name Game</th>
+                <th>Description Game</th>
+                <th>Time Game</th>
+                <th>Price Game</th>
+                <th>Delete</th>
+                <th>Edite</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- public id: number,
+            public imageGame: string,
+            public nameGame: string,
+            public descriptionGame: string,
+            public timeGame: string,
+            public priceGame:number -->
+            <tr *ngFor="let e of adminEntertainment; let i=index">
+                <td>{{ e.id}}</td>
+                <!-- <td>{{ e.imageGame }}</td> -->
+                <td><img [src]="e.imageGame" alt="" class="image_tabel"></td>
+                <td>{{ e.nameGame }}</td>
+                <td>{{ e.descriptionGame }}</td>
+                <td>{{ e.timeGame }}</td>
+                <td>{{ e.priceGame }}</td>
+                <td>
+                    <input type="button" value="Delete" (click)="deleteEntertainment(e)">
+                </td>
+                <td>
+                    <input type="button" value="Edite">
+                </td>
+            </tr>
+            <!-- <tr *ngFor="let e of adminEntertainment; let i=index">
+                <td>{{ e.id}}</td>
+                <td>{{ e.title }}</td>
+                <td>{{ e.text }}</td>
+                <td><img [src]="e.image" alt="" class="image_tabel"></td>
+                <td>
+                    <input type="button" value="Delete" (click)="deleteEntertainment(e)">
+                </td>
+                <td>
+                    <input type="button" value="Edite">
+                </td>
+            </tr> -->
+    </table>
+    <!-- </div> -->
 </div>

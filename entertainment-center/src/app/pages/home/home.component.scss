@@ -1,35 +1,80 @@
-.home_section {
-    background: url(../../../assets/images/star_wars_home.jpg);
-    background-repeat: no-repeat;
-    height: 100vh;
-    position: relative;
-    // background-size: cover;
+@import "../../../stylings/variables";
+@import "../../../stylings/mixin";
+.home_section-info {
+    background-image: url(../../../assets/images/home/fon_home1.jpg);
+    height: 84vh;
+    @include positionSectionHome(cover, fixed, no-repeat);
+    // @include flexbox(column, nowrap, center, center);
 }
-.invisible {
-    opacity: 0;
-    animation-name: move;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-}
-// @keyframes move {
-//     form {
-//         opacity: 0;
-//     }
-//     to {
-//         opacity: 1;
-//     }
-// }
 
 .home_info {
-    margin-top: 100px;
+    transform: scale(0.9);
     position: absolute;
-    color: white;
-    .aaaa {
-        opacity: 0.5;
+    line-height: 3;
+    text-align: center;
+    color: $text_color;
+    animation: home_info 1.5s linear;
+    span {
+        color: $detailColor;
+    }
+    h1 {
+        font-family: "Volkon-Bold";
+        font-size: 25px;
+    }
+}
+@keyframes home_info {
+    0% {
+        opacity: 0;
+        // margin-top: 400px;
+        transform: scale(0.1);
+    }
+    20% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    70% {
+        opacity: 0.4;
+    }
+    90% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(0.9);
     }
 }
 
-.invisible {
-    transition-property: opacity;
-    transition-duration: 3s;
+.home_section-gallery {
+    background: url(../../../assets/images/home/fon_galary.jpg);
+    height: 85vh;
+    // background-repeat: no-repeat;
+    // position: relative;
+    // background-size: cover;
+    // background-attachment: fixed;
+    @include positionSectionHome(cover, fixed, no-repeat);
+    .home_slider {
+        height: 500px;
+        width: 860px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
+}
+// .slide {
+//     border-radius: 30px;
+// }
+// .slider-nav {
+//     background-color: black;
+// }
+
+.home_section-map {
+    background-color: green;
+    // background: url(https://www.google.com/maps/place/LAZER+PARK/@49.8097866,23.9731644,16.5z/data=!4m12!1m6!3m5!1s0x0:0x7ef6ecb28f0f97d5!2sLAZER+PARK!8m2!3d49.8098845!4d23.9735665!3m4!1s0x0:0x7ef6ecb28f0f97d5!8m2!3d49.8098845!4d23.9735665);
+    height: 70vh;
+    position: relative;
 }

@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PagesComponent } from './pages/pages.component';
 import { HomeComponent } from './pages/home/home.component';
 import { OrderBirthdayComponent } from './pages/order-birthday/order-birthday.component';
+import { GamesDetailsComponent } from './pages/games-details/games-details.component';
 import { GamesComponent } from './pages/games/games.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { OurTeamComponent } from './pages/our-team/our-team.component';
@@ -25,6 +26,14 @@ import { environment } from '../environments/environment.prod';
 import { AdminComponent } from './admin/admin.component';
 import { AdminEntertainmentComponent } from './admin/admin-entertainment/admin-entertainment.component';
 import { AdminBirthdayComponent } from './admin/admin-birthday/admin-birthday.component';
+import { BirthdayCategoryComponent } from './admin/birthday-category/birthday-category.component';
+import { AdminCategoryMenuComponent } from './admin/admin-category-menu/admin-category-menu.component';
+import { AdminMenuProductComponent } from './admin/admin-menu-product/admin-menu-product.component';
+import { NgxGoogleMapModule } from 'ngx-google-map'
+
+import { SliderModule } from 'ngx-slider';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -41,6 +50,10 @@ import { AdminBirthdayComponent } from './admin/admin-birthday/admin-birthday.co
     AdminComponent,
     AdminEntertainmentComponent,
     AdminBirthdayComponent,
+    BirthdayCategoryComponent,
+    AdminCategoryMenuComponent,
+    AdminMenuProductComponent,
+    GamesDetailsComponent,
 
   ],
   imports: [
@@ -52,6 +65,10 @@ import { AdminBirthdayComponent } from './admin/admin-birthday/admin-birthday.co
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    ModalModule.forRoot(),
+    SliderModule,
+    NgxGoogleMapModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

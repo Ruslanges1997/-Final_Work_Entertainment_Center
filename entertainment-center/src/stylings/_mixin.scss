@@ -1,0 +1,6 @@
+@mixin positionSectionHome($c, $f, $nr) {
+    position: relative;
+    background-size: $c;
+    background-attachment: $f;
+    background-repeat: $nr;
+}

@@ -1,16 +1,36 @@
 
 
-<div id="menu">
-    <ul>
-        <li>
-            <a class="nav-link" [routerLink]="[ 'admin-entertainment' ]"
-                routerLinkActive="bg-dark text-light">entertainment</a></li>
-        <li>
-            <a class="nav-link" [routerLink]="[ 'admin-birthday' ]"
-                routerLinkActive="bg-dark text-light">admin-birthday</a>
-        </li>
+<section class="section_admin">
+
+
+    <div id="menu">
+        <ul>
+            <li>
+                <a class="nav-link" [routerLink]="[ 'admin-entertainment' ]"
+                    routerLinkActive="bg-dark text-light">admin-entertainment</a>
+            </li>
+            <li>
+                <a class="nav-link" [routerLink]="[ 'admin-birthday' ]"
+                    routerLinkActive="bg-dark text-light">admin-birthday</a>
+            </li>
+            <li>
+                <a class="nav-link" [routerLink]="[ 'birthday-category' ]"
+                    routerLinkActive="bg-dark text-light">birthday-category</a>
+            </li>
+            <li>
+                <a class="nav-link" [routerLink]="[ 'admin-category-menu' ]"
+                    routerLinkActive="bg-dark text-light">admin-menu-product</a>
+            </li>
+            <li>
+                <a class="nav-link" [routerLink]="[ 'admin-menu-product' ]"
+                    routerLinkActive="bg-dark text-light">admin-category-menu</a>
+            </li>
+            <!-- <router-outlet></router-outlet> -->
+        </ul>
+    </div>
+
+    <div class="containerE">
         <router-outlet></router-outlet>
-    </ul>
-</div>
+    </div>
 
-
+</section>

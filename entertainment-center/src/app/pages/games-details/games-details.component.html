@@ -1,0 +1,31 @@
+<section class="game_container">
+    <div class="containerE ">
+        <a class="" [routerLink]="[ '/games']">
+            All game <i>
+                << </i>
+        </a>
+        <div class="box_detail">
+            <div>
+                <img class="img_detail" [src]="game?.imageGame" alt="">
+            </div>
+
+            <div class="game_info-txt">
+                <div class="name_game">
+                    <!-- <h1>Назва Гри: LAzer Tak</h1> -->
+                    <h1>Назва Гри: {{game?.nameGame}}.</h1>
+                </div>
+                <div class="description_game">
+
+                    <p>Опис гри:{{game?.descriptionGame}}.</p>
+                </div>
+                <div class="time_game">
+                    <p>Тривалість гри: {{game?.timeGame}} хв.</p>
+                </div>
+                <div class="price_game">
+                    <p>Вартість гри за {{game?.timeGame}} хв  з особи становить {{game?.priceGame}} грн.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

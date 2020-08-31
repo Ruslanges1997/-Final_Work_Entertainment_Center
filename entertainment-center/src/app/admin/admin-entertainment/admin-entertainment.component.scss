@@ -1,48 +1,66 @@
-table.iksweb {
-    text-decoration: none;
-    border-collapse: collapse;
-    width: 756px;
-    text-align: center;
+// table.iksweb {
+//     text-decoration: none;
+//     border-collapse: collapse;
+//     width: 756px;
+//     text-align: center;
+// }
+// .iksweb {
+//     width: 100%;
+// }
+
+// table.iksweb th {
+//     font-weight: normal;
+//     font-size: 20px;
+//     color: #ffffff;
+//     background-color: #000000;
+// }
+
+// table.iksweb td {
+//     font-size: 20px;
+//     color: #010c14;
+// }
+
+// table.iksweb td,
+// table.iksweb th {
+//     white-space: pre-wrap;
+//     padding: 30px 15px;
+//     line-height: 20px;
+//     vertical-align: middle;
+//     border: 5px solid #354251;
+// }
+
+// table.iksweb tr:hover {
+//     background-color: #f9fafb;
+// }
+
+// table.iksweb tr:hover td {
+//     color: #028bed;
+//     cursor: default;
+// }
+
+// .mobile-table {
+//     width: 100%;
+//     max-width: 100%;
+//     overflow-x: auto;
+// }
+
+// .container_tabale {
+//     width: 940px;
+//     height: 100%;
+//     margin: 0px auto;
+//     overflow: hidden;
+// }
+
+.entertainmentImage {
+    width: 200px;
+    height: 200px;
 }
 
-table.iksweb th {
-    font-weight: normal;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #000000;
+.image_tabel{
+    width: 200px;
+    height: 100px;
 }
 
-table.iksweb td {
-    font-size: 20px;
-    color: #010c14;
-}
-
-table.iksweb td,
-table.iksweb th {
-    white-space: pre-wrap;
-    padding: 30px 15px;
-    line-height: 20px;
-    vertical-align: middle;
-    border: 5px solid #354251;
-}
-
-table.iksweb tr:hover {
-    background-color: #f9fafb;
-}
-
-table.iksweb tr:hover td {
-    color: #028bed;
-    cursor: default;
-}
-
-.mobile-table {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-}
-.container_tabale{
-    width: 940px;
-    height: 100%;
-    margin: 0px auto;
-    overflow: hidden;
+table,tr,td,th,thead,tbody,table{
+    border: 2px solid black;
 }
