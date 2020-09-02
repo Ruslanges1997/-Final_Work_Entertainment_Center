@@ -5,7 +5,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Entertainment } from 'src/app/shared/models/entertainment.model';
 import { IEntertainment } from '../../shared/interfaces/entertainment.interface';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-
+import { IOurTeam } from '../../shared/interfaces/our-team.interface';
+import { Observable, } from 'rxjs';
 
 @Component({
   selector: 'app-admin-entertainment',
@@ -14,19 +15,17 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 
 export class AdminEntertainmentComponent implements OnInit {
-  // eID = 1;
-  // eTitle: string;
-  // eText: string;
-  // eImage: string;
-
   eID = 1;
   eNameGame: string;
   eDescriptionGame: string;
   eImageGame: string;
   eTimeGame: string;
   ePriceGame: number;
-  currEntertainment: IEntertainment;
-  // eImage: string = 'https://www.lapiec-pizza.com.ua/wp-content/uploads/2020/05/aktsiya-dlya-sajta-21.jpg';
+  uploadProgress: Observable<number>;
+  editStatus: boolean;
+  imageStatus: boolean;
+  // currEntertainment: IEntertainment;
+  
   adminEntertainment: Array<IEntertainment> = [];
   constructor(
     private entertainmentService: EntertainmentService,
@@ -40,17 +39,16 @@ export class AdminEntertainmentComponent implements OnInit {
     ignoreBackdropClick: true
   };
 
-  addCategoryModal(template: TemplateRef<any>): void { //Відкриває модалку для Входу
+  openGameModals(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
 
   }
 
   ngOnInit(): void {
-    // this.getEntertainment();
-    this.entertainmentFireCloudCategories();
+    this.getEntertainmentFireCloud();
   }
 
-  private entertainmentFireCloudCategories(): void {
+  private getEntertainmentFireCloud(): void {
     this.entertainmentService.getFireCloudEntertainment().subscribe(
       collection => {
         this.adminEntertainment = collection.map(document => {
@@ -61,64 +59,80 @@ export class AdminEntertainmentComponent implements OnInit {
       }
     );
   }
-  // addEntertainment(): void {
 
-  // }
-  // private getEntertainment(): void {
-  //   this.entertainmentService.getFireCloudEntertainment().subscribe(data => {
-  //     this.adminEntertainment = data;
-  //   });
-  // }
-  // addEntertainment(): void {
-  //   const newEntertainment = new Entertainment(this.eID, this.eTitle, this.eText, this.eImage);
+  addOrUpdateEntertainment(): void {
+    const newEntertainment = new Entertainment(this.eID,
+      this.eImageGame,
+      this.eNameGame,
+      this.eDescriptionGame,
+      this.eTimeGame,
+      this.ePriceGame);
+    if (!this.editStatus) {
+      delete newEntertainment.id;
+      this.entertainmentService.postFireCloudEntertainment({ ...newEntertainment })
+        .then(message => console.log(message))
+        .catch(err => console.log(err));
 
-  //   delete newEntertainment.id;
-  //   this.entertainmentService.postFireCloudEntertainment({ ...newEntertainment })
-  //     .then(message => console.log(message))
-  //     .catch(err => console.log(err));
+      console.log(newEntertainment)
+    } else {
+      this.entertainmentService.updateFireCloudEntertainment({ ...newEntertainment })
+        .then(message => console.log(message))
+        .catch(err => console.log(err));
+      this.editStatus = false;
+    }
+    this.closeModal();
 
-  //   console.log(newEntertainment)
-  // }
-
-  addEntertainment(): void {
-    const newEntertainment = new Entertainment(this.eID,this.eImageGame, this.eNameGame, this.eDescriptionGame, this.eTimeGame, this.ePriceGame);
-    delete newEntertainment.id;
-    this.entertainmentService.postFireCloudEntertainment({ ...newEntertainment })
-      .then(message => console.log(message))
-      .catch(err => console.log(err));
-
-    console.log(newEntertainment)
   }
 
 
   uploadFile(event): void {
     const file = event.target.files[0]
-    console.log(file)
     const type = file.type.slice(file.type.indexOf('/') + 1)
-    console.log(type)
     const name = file.name.slice(0, file.name.lastIndexOf('.')).toLowerCase();
-    console.log(name)
     const filePath = `images/entertainment/${name}.${type}`;
     const upload = this.afStorage.upload(filePath, file);
+    this.uploadProgress = upload.percentageChanges();
     upload.then(image => {
       this.afStorage.ref(`images/entertainment/${image.metadata.name}`).getDownloadURL().subscribe(url => {
         this.eImageGame = url;
+        this.imageStatus = true;
       });
     });
   }
 
 
-
-
-  deleteEntertainment(e: IEntertainment): void {
-
-    this.entertainmentService.deleteFireCloudEntertainment(e.id.toString())
+  deleteEntertainment(game: IEntertainment): void {
+    this.entertainmentService.deleteFireCloudEntertainment(game.id.toString())
       .then(message => console.log(message))
       .catch(err => console.log(err));
   }
 
 
+  editeEntertaiment(template: TemplateRef<any>, game: IEntertainment): void {
+    this.modalRef = this.modalService.show(template, this.modalRefconfig);
+    this.eID = game.id
+    this.eImageGame = game.imageGame
+    this.eNameGame = game.nameGame
+    this.eDescriptionGame = game.descriptionGame
+    this.eTimeGame = game.timeGame
+    this.ePriceGame = game.priceGame
+    this.imageStatus = true;
+    this.editStatus = true;
+  }
 
+  closeModal(): void {
+    this.resetForm();
+  }
+
+  private resetForm(): void {
+    this.eNameGame = "";
+    this.eDescriptionGame = "";
+    this.eTimeGame = "";
+    this.ePriceGame = null;
+    this.imageStatus = false;
+    this.editStatus = false;
+    this.modalRef.hide();
+  }
 
 
 }

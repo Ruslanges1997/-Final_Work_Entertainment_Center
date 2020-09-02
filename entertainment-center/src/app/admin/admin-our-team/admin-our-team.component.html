@@ -1,0 +1,97 @@
+<!-- <p>admin-entertainment works!</p> -->
+
+<!-- <button type="button" [disabled]="discountForm.invalid" class="btn btn-dark mt-3" (click)="addDiscount()"
+[textContent]="!editStatus ? 'Add' : 'Update'"></button> -->
+
+<!-- <button type="button" class="" (click)="addEntertainment()" [textContent]=" 'Add' "></button> -->
+
+
+<!-- <button type="button" class="btn  btn-dark" (click)="openTeamModal(ourTeamModal) ">Add worker</button> -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between ">
+        <div>
+            <h5>Our Team</h5>
+        </div>
+        <div>
+            <button type="button" class="btn  btn-dark" (click)="openTeamModal(ourTeamModal) ">Add worker</button>
+        </div>
+    </div>
+
+
+    <!-- <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control" placeholder="filter Name En "> -->
+    <input type="search" name="searchName" class="searchName" placeholder="filter profesion ">
+
+
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID </th>
+                <th>Name </th>
+                <th>Profesion </th>
+                <th>Image</th>
+                <th>Edite</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let worker of ourTeamAdmin; let i=index">
+                <td>{{ worker.id}}</td>
+                <td>{{ worker.nameWorker }}</td>
+                <td>{{ worker.professionWorker }}</td>
+                <td>
+                    <img [src]="worker.imageWorker" alt="" class="image_tabel">
+                </td>
+                <td>
+                    <input type="button" class="btn btn-warning" (click)="editeWorker(ourTeamModal,worker)"
+                        value="Edite">
+                </td>
+                <td>
+                    <input type="button" class="btn btn-danger" (click)="deleteWorker(worker)" value="Delete">
+                </td>
+            </tr>
+    </table>
+
+</div>
+
+<ng-template #ourTeamModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Our team</h4>
+        <button type="button" class="close pull-right" (click)="closeModal()" aria-label="Close">
+
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #teamForm="ngForm">
+            <div class="form-group">
+                <label for="wName">Name Worker: </label>
+                <input [(ngModel)]="wName" name="wName" type="text" class="form-control" id="wName" required>
+            </div>
+            <div class="form-group">
+                <label for="wProfession">ProfessionWorker: </label>
+                <input [(ngModel)]="wProfession" name="wProfession" type="text" class="form-control" id="wProfession"
+                    required>
+            </div>
+
+            <div class="custom-file" *ngIf="!imageStatus">
+                <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="wImage" required>
+                <label class="custom-file-label" for="wImage">Choose file...</label>
+            </div>
+
+            <div class="progress mb-3 mt-3" *ngIf="!imageStatus">
+                <div [style.width]="(uploadProgress | async) + '%'" class="progress-bar progress-bar-striped bg-dark"
+                    role="progressbar" aria-valuemin="0" aria-valuemax="100" required>
+                </div>
+            </div>
+
+            <div class="productImage mb-3 mt-3" *ngIf="imageStatus">
+                <img [src]="wImage" style="width: 200px; height: 100px;" alt="">
+            </div>
+
+            <button type="button" class="btn btn-dark" [disabled]="teamForm.invalid" (click)="addOrUpdateWorker()"
+                [textContent]="!editStatus ? 'Add Worker' : 'Update Worker'">
+            </button>
+        </form>
+    </div>
+</ng-template>

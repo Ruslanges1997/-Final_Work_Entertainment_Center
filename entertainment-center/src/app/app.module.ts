@@ -34,6 +34,7 @@ import { NgxGoogleMapModule } from 'ngx-google-map'
 import { SliderModule } from 'ngx-slider';
 
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AdminOurTeamComponent } from './admin/admin-our-team/admin-our-team.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AdminCategoryMenuComponent,
     AdminMenuProductComponent,
     GamesDetailsComponent,
+    AdminOurTeamComponent,
 
   ],
   imports: [

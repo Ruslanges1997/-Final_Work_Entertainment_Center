@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IOurTeam } from '../../shared/interfaces/our-team.interface';
+import { OurTeamService } from '../../shared/services/our-team.service';
 
 @Component({
   selector: 'app-our-team',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OurTeamComponent implements OnInit {
 
-  constructor() { }
+  ourTeamArr: Array<IOurTeam> = [];
+
+  constructor(
+    private ourTeamService: OurTeamService
+  ) { }
 
   ngOnInit(): void {
+    this.getOurTem();
   }
+
+  private getOurTem(): void {
+    this.ourTeamService.getFireCloudOurTeam().subscribe(data => {
+      this.ourTeamArr = data.map(document => {
+        const data = document.payload.doc.data() as IOurTeam;
+        const id = document.payload.doc.id;
+        return { id, ...data }
+      })
+    })
+  }
+
 
 }

@@ -14,6 +14,9 @@
     text-align: center;
     color: $text_color;
     animation: home_info 1.5s linear;
+    a {
+        text-decoration: none;
+    }
     span {
         color: $detailColor;
     }

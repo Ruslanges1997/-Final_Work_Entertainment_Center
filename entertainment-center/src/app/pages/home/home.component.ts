@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit {
   // visibility: boolean = true;
   ngOnInit(): void {
     const slideItems = [
-      { src: 'https://placeimg.com/600/600/any', },
-      { src: 'https://placeimg.com/600/600/nature', },
       { src: 'https://placeimg.com/600/600/sepia', },
+      { src: '../../../assets/images/home/fon_home.jpg', },
+      { src: '../../../assets/images/home/fon_home1.jpg', },
       { src: 'https://placeimg.com/600/600/people', },
       { src: 'https://placeimg.com/600/600/tech', }
     ];

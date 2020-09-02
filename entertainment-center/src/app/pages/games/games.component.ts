@@ -12,15 +12,13 @@ import { IEntertainment } from '../../shared/interfaces/entertainment.interface'
 })
 
 export class GamesComponent implements OnInit {
-  entertainmentArr: Array<any> = []
+  entertainmentArr: Array<IEntertainment> = []
   entertainment: string
   constructor(
-  
-    private firecloud: AngularFirestore,
-   
+    // private fireCloud: AngularFirestore,
     private entertainmentService: EntertainmentService
   ) {
-   console.log(this.entertainmentArr)
+    console.log(this.entertainmentArr)
   }
 
   ngOnInit(): void {

@@ -5,7 +5,7 @@
 @import "stylings/variables";
 
 
-.row {
+.rowE {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -17,4 +17,25 @@
   margin: 0px auto;
   position: relative;
   overflow: hidden;
+}
+
+@keyframes opasity {
+  0% {
+      opacity: 0;
+  }
+  20% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 0.1;
+  }
+  70% {
+      opacity: 0.4;
+  }
+  90% {
+      opacity: 0.9;
+  }
+  100% {
+      opacity: 1;
+  }
 }

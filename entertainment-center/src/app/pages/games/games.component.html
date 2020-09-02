@@ -2,38 +2,27 @@
 
 <section class="games_section">
     <div class="containerE">
-        <div class="row">
-
-
+        <div class="rowE">
             <div class="card_game" *ngFor="let e of entertainmentArr">
-
                 <img [src]="e.imageGame">
 
                 <div class="element_card">
                     <h3>{{e.nameGame}}</h3>
                 </div>
+
                 <div class="element_card">
-                    <!-- <p>{{e.descriptionGame| slice:0:40}}</p> -->
                     <p>Триваліть гри {{e.timeGame }} хв</p>
                 </div>
 
                 <div class="element_card">
                     <a class="" [routerLink]="[ '/games/',e.id]">
                         <button type="button" class="btn_detail">
-                            <!-- <a class="" [routerLink]="[ '/games-details']">
+
                             Detail
-                        </a> -->
-                        Detail
                         </button>
-                        
                     </a>
                 </div>
-
             </div>
         </div>
     </div>
-
-
-
-
 </section>

@@ -16,6 +16,8 @@ import { AdminBirthdayComponent } from './admin/admin-birthday/admin-birthday.co
 import { BirthdayCategoryComponent } from './admin/birthday-category/birthday-category.component';
 import { AdminCategoryMenuComponent } from './admin/admin-category-menu/admin-category-menu.component';
 import { AdminMenuProductComponent } from './admin/admin-menu-product/admin-menu-product.component';
+import { AdminOurTeamComponent } from './admin/admin-our-team/admin-our-team.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -32,6 +34,7 @@ const routes: Routes = [
       { path: 'birthday-category', component: BirthdayCategoryComponent },
       { path: 'admin-category-menu', component: AdminCategoryMenuComponent },
       { path: 'admin-menu-product', component: AdminMenuProductComponent },
+      { path: 'admin-our-team', component: AdminOurTeamComponent },
     ]
   }
 ];

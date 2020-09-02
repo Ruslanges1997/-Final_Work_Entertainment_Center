@@ -1,15 +1,5 @@
 import { IEntertainment } from '../interfaces/entertainment.interface';
 
-
-// export class Entertainment implements IEntertainment {
-//     constructor(
-//                  public id: number,
-//                  public title: string,
-//                  public text: string,
-//                  public image?: string,
-// ){ }
-// }
-
 export class Entertainment implements IEntertainment {
     constructor(
                  public id: number,
@@ -21,9 +11,3 @@ export class Entertainment implements IEntertainment {
 ){ }
 }
 
-// id: number;
-// imageGame: string;
-// nameGame: string;
-// descriptionGame: string;
-// timeGame: string;
-// priceGame: string;

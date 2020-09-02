@@ -1,1 +1,19 @@
-<p>our-team works!</p>
+<!-- <p>our-team works!</p> -->
+
+<section class="team_section">
+    <div class="containerE">
+        <div class="row">
+            <div class="card_game" *ngFor="let worker of ourTeamArr">
+                <img [src]="worker.imageWorker">
+                <div class="element_card">
+                    <h3>{{worker.nameWorker}}</h3>
+                </div>
+                <div class="element_card">
+                    <h3>{{worker.professionWorker}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

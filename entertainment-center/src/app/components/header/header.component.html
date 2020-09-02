@@ -5,40 +5,51 @@
     </div> -->
     <div class="containerE">
         <div class="center_navbar">
-            <div class="logo" class="logo_header">
-                <a class="navbar-brand" routerLink="home">
-                    <span>
-                        <h3>Lazer Park</h3>
-                    </span>
-                    <span>  <img class="logo_imgs" src="../../../assets/images/home/logo.png" alt="logo_smal"></span>
-                </a>
-            </div>
+            <!-- <div class="logo" class="logo_header">
+           
+            </div> -->
 
             <nav class="">
-                <ul class="navbar_nav">
-                    <li class=" li_header ">
-                        <a class="nav-link" [routerLink]="[ 'games' ]">
+                <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{eee:true}">
+                    <a routerLink="home">Главная</a>
+                </li> -->
+
+                <ul class="navbar_nav ">
+
+                    <li class=" li_header   " routerLinkActive="active_link">
+                        <a routerLink="home">
+                            <span>
+                                <h3>Lazer Park</h3>
+                            </span>
+                            <span>
+                                <img class="logo_imgs" src="../../../assets/images/home/logo.png" alt="logo_smal">
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class=" li_header  " routerLinkActive="active_link">
+                        <a class="" [routerLink]="[ 'games' ]">
                             <span>
                                 <h3> Entertainment</h3>
                             </span>
                         </a>
                     </li>
-                    <li class=" li_header">
-                        <a class="nav-link" [routerLink]="[ 'order-birthday']">
+                    <li class=" li_header" routerLinkActive="active_link">
+                        <a class="link " [routerLink]="[ 'order-birthday']">
                             <span>
                                 <h3>Birthday</h3>
                             </span>
                         </a>
                     </li>
-                    <li class=" li_header">
-                        <a class="nav-link" [routerLink]="[ 'menu']">
+                    <li class=" li_header" routerLinkActive="active_link">
+                        <a class="link " [routerLink]="[ 'menu']">
                             <span>
                                 <h3>Menu</h3>
                             </span>
                         </a>
                     </li>
-                    <li class=" li_header">
-                        <a class="nav-link" [routerLink]="[ 'our-team']">
+                    <li class=" li_header" routerLinkActive="active_link">
+                        <a class="link " [routerLink]="[ 'our-team']">
                             <span>
                                 <h3>Our Team</h3>
                             </span>
@@ -51,18 +62,18 @@
                             </span>
                         </a>
                     </li> -->
-                    <li class=" li_header">
-                        <a class="nav-link" [routerLink]="[ 'admin']">
+                    <li class=" li_header" routerLinkActive="active_link">
+                        <a class="link " [routerLink]="[ 'admin']">
                             <span>
                                 <h3>Admin</h3>
                             </span>
                         </a>
-                        <br>
-                        <a class="" [routerLink]="[ 'office']">
+                        <!-- <br>
+                        <a class="link " [routerLink]="[ 'office']" routerLinkActive="active_link">
                             <span>
                                 <h3>Office</h3>
                             </span>
-                        </a>
+                        </a> -->
                     </li>
                 </ul>
             </nav>

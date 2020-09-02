@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { DocumentChangeAction, AngularFirestore, DocumentReference } from '@angular/fire/firestore';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IEntertainment } from '../interfaces/entertainment.interface';
 
@@ -10,12 +9,8 @@ import { IEntertainment } from '../interfaces/entertainment.interface';
 })
 export class EntertainmentService {
 
-
   constructor(
-
-    private htpp: HttpClient,
     private fireCloud: AngularFirestore,
-
   ) { }
 
   getFireCloudEntertainment(): Observable<DocumentChangeAction<unknown>[]> {
@@ -26,14 +21,12 @@ export class EntertainmentService {
     return this.fireCloud.collection('entertainment').add(entertainment);
   }
 
-
-
   deleteFireCloudEntertainment(id: string): Promise<void> {
     return this.fireCloud.collection('entertainment').doc(id).delete();
   }
 
-  // updateFireCloudEntertainment(discount: IDiscount): Promise<void> {
-  //   return this.firecloud.collection('discounts').doc(discount.id.toString()).update(discount);
-  // }
+  updateFireCloudEntertainment(game: IEntertainment): Promise<void> {
+    return this.fireCloud.collection('entertainment').doc(game.id.toString()).update(game);
+  }
 
 }
