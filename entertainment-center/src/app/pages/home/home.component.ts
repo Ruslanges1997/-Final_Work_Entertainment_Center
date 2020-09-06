@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Slider } from 'ngx-slider';
+import { GalleryService } from '../../shared/services/gallery.service';
+import { IGallery } from 'src/app/shared/interfaces/gallary.interface';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,24 +10,70 @@ import { Slider } from 'ngx-slider';
 export class HomeComponent implements OnInit {
   public slider = new Slider();
 
+  imageArr: any;
+  // newFoto: any = { src: 'https://placeimg.com/600/600/people' }
+
+  // slideItems = [];
+  showDots = false;
+
+  slideItems = [
+    // { src: 'https://placeimg.com/600/600/sepia' },
+    // { src: 'https://firebasestorage.googleapis.com/v0/b/entertainment-center-2fa4c.appspot.com/o/images%2Fgallery%2Fskywalker_burger.jpeg?alt=media&token=76429964-c21b-4e9e-82ba-e8f61f8fe404' },
+    // { src: 'https://firebasestorage.googleapis.com/v0/b/entertainment-center-2fa4c.appspot.com/o/images%2Fgallery%2Fskywalker_burger.jpeg?alt=media&token=76429964-c21b-4e9e-82ba-e8f61f8fe404' },
+
+    // { src: '../../../assets/images/home/fon_home.jpg' },
+    { src: '../../../assets/images/home/fon_home1.jpg' },
+    { src: 'https://placeimg.com/600/600/people' },
+    // { src: 'https://placeimg.com/600/600/tech' }
+  ];
 
   color: boolean = false;
-  constructor() {
+  constructor(
+    private galleryService: GalleryService,
+  ) {
     this.slider.config.loop = true;
     this.slider.config.showPreview = false;
+
   }
   // visibility: boolean = true;
   ngOnInit(): void {
-    const slideItems = [
-      { src: 'https://placeimg.com/600/600/sepia', },
-      { src: '../../../assets/images/home/fon_home.jpg', },
-      { src: '../../../assets/images/home/fon_home1.jpg', },
-      { src: 'https://placeimg.com/600/600/people', },
-      { src: 'https://placeimg.com/600/600/tech', }
-    ];
-    this.slider.items = slideItems;
 
+    // this.slideItems = [
+    //   // { src: 'https://placeimg.com/600/600/sepia', },
+    //   { src: 'https://placeimg.com/600/600/sepia', },
+    //   { src: '../../../assets/images/home/fon_home.jpg', },
+    //   // { src: '../../../assets/images/home/fon_home1.jpg', },
+    //   // { src: 'https://placeimg.com/600/600/people', },
+    //   // { src: 'https://placeimg.com/600/600/tech', }
+    // ];
+
+    this.slider.items = this.slideItems;
+    this.getGalleryFireCloud();
   }
+
+  private getGalleryFireCloud(): void {
+    this.galleryService.getFireCloudImage().subscribe(
+      colection => {
+        this.imageArr = colection.map(document => {
+          const id = document.payload.doc.id;
+          const data = document.payload.doc.data() as IGallery;
+          return { id, ...data }
+
+        })
+      }
+    )
+    // console.log(this.imageArr)
+  }
+
+  // addFoto(): void {
+  //   this.slideItems.push(this.newFoto)
+  //   console.log(this.newFoto)
+  //   console.log(this.slideItems)
+
+  // }
+
+
+
 
   // @HostListener('window:scroll')
   // checkScroll() {

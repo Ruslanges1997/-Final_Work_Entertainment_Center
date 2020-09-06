@@ -54,7 +54,7 @@
     border-radius: 10px;
     height: 400px;
     width: 300px;
-    background:  $bgColor;;
+    background: $bgColor;
     margin-bottom: 10px;
     display: flex;
     overflow: hidden;
@@ -62,15 +62,18 @@
     flex-direction: column;
     color: $text_color;
     text-align: center;
+    animation: opasity 1s linear;
 
     .image {
         width: 100%;
         &:hover {
             h2 {
                 opacity: 1;
-                
-                animation: opasity 1s linear;
-                color: white;
+                animation: opasity 0.5s linear;
+                // // color: white;
+                color: black;
+                font-size: 20px;
+                font-weight: 900;
             }
         }
     }
@@ -78,7 +81,6 @@
         position: relative;
         top: -20px;
         opacity: 0;
-      
     }
     .title {
         text-align: center;
@@ -91,7 +93,6 @@
         margin: 0px 5px;
         letter-spacing: 1px;
         line-height: 20px;
-        
     }
 }
 
@@ -99,4 +100,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+.active_link-menu {
+    button {
+        background: #cfa671;
+        color: #fff;
+    }
 }

@@ -13,7 +13,7 @@
 }
 
 .btn_all-game {
-    animation: opasity 1s linear;
+    animation: opasity 0.5s linear;
 }
 
 .game_info-txt {
@@ -25,6 +25,7 @@
     justify-content: space-around;
     flex-direction: column;
 }
+
 .game_container {
     min-height: 68vh;
     width: 100%;

@@ -1,1 +1,168 @@
-<p>admin-menu-product works!</p>
+<!-- <p>admin-menu-product works!</p> -->
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <div>
+            <h5>Product</h5>
+        </div>
+        <div>
+            <button type="button" class="btn  btn-dark" (click)="addProductModal(ProductModals) ">Add Product</button>
+        </div>
+    </div>
+
+    <div class="form-group" class="searchName">
+        <!-- <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control" placeholder="filter Name En "> -->
+    </div>
+
+    <table class="table table-hover  table-bordered">
+        <thead>
+            <tr>
+                <!-- [class.active]="order === 'id'"  (click)="setOrder('id')"-->
+                <th scope="col ">
+                    ID
+                    <!-- <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span> (click)="setOrder('nameUA')" -->
+                </th>
+                <th scope="col">
+                    Category
+                    <!-- <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>  (click)="setOrder('nameEN')"-->
+                </th>
+                <th scope="col">
+                    Name EN
+                    <!-- Name EN <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span> (click)="setOrder('nameUA')"-->
+                </th>
+                <th scope="col">
+                    Name UA
+                    <!-- <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>  (click)="setOrder('description')"-->
+                </th>
+                <th scope="col">
+                    Description
+                    <!--  <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>  (click)="setOrder('weight')"-->
+                </th>
+                <th scope="col">
+                    Weight
+                    <!-- <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span> -->
+
+                </th>
+                <th scope="col">
+                    Price
+                    <!--  <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>  (click)="setOrder('price')"-->
+                </th>
+                <th scope="col">
+                    Image
+                </th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let product of adminProducts ; let i=index">
+                <td>{{ product.id }}</td>
+                <td>{{ product.category.nameUA }}</td>
+                <td>{{ product.nameEN }}</td>
+                <td>{{ product.nameUA }}</td>
+                <td>{{ product.description | slice:0:50 }}</td>
+                <td>{{ product.weight }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <img [src]="product.image" style="width: 100px; height: 100px;" alt="">
+                </td>
+                <td>
+                    <!-- (click)="editProduct(ProductModals, product)" -->
+                    <input type="button" value="edit" class="btn btn-warning">
+                </td>
+                <td>
+                    <!-- (click)="deleteProduct(product)"  -->
+                    <input type="button" value="delete" class="btn btn-danger">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<ng-template #ProductModals>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Category model</h4>
+        <button type="button" class="close pull-right" aria-label="Close">
+
+            <span aria-hidden="true" (click)="closeModal()">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <form #productForm="ngForm">
+            <div class="form-group">
+                <label for="categoryChoose">Choose category</label>
+                <select [(ngModel)]="categoryName" name="categoryName" (change)="setCategory()" class="custom-select"
+                    id="categoryChoose " required>
+                    <option *ngFor="let category of categoriesArr">
+                        {{ category.nameEN }}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nameEN">Name EN</label>
+                <input [(ngModel)]="productNameEN" name="productNameEN" type="text" id="nameEN" class="form-control"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="nameUA">Name UA</label>
+                <input [(ngModel)]="productNameUA" name="productNameUA" type="text" id="nameUA" class="form-control"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea [(ngModel)]="productDescription" name="productDescription" class="form-control"
+                    id="description" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight</label>
+                <!-- *ngIf="!disabledBtn" -->
+                <input [(ngModel)]="productWeight" name="productWeight" type="text" id="weight" class="form-control"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input [(ngModel)]="productPrice" name="productPrice" type="number" id="price" class="form-control"
+                    required>
+            </div>
+            <div class="custom-file" *ngIf="!imageStatus">
+                <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="image" required>
+                <label class="custom-file-label" for="image">Choose file...</label>
+            </div>
+            <div class="progress mb-3 mt-3" *ngIf="!imageStatus">
+                <div [style.width]="(uploadProgress | async) + '%'" class="progress-bar progress-bar-striped bg-warning"
+                    role="progressbar" aria-valuemin="0" aria-valuemax="100" required></div>
+            </div>
+            <div class="productImage mb-3 mt-3" *ngIf="imageStatus">
+                <img [src]="productImage" alt="">
+                <!-- (click)="deleteImage(deleteImageConfirm)" -->
+                <span>
+                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                        <path fill-rule="evenodd"
+                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                    </svg>
+                </span>
+            </div>
+            <!-- [disabled]="disabledBtn"  -->
+            <button type="button" class="btn btn-dark mt-3" [disabled]="productForm.invalid" (click)="addProduct()"
+                [textContent]="!editStatus ? 'Add' : 'Update'"></button>
+        </form>
+    </div>
+</ng-template>
+
+
+
+
+
+<!--   
+  <ng-template #deleteImageConfirm>
+    <div class="modal-body text-center">
+      <p>Do you want to confirm?</p>
+      <button type="button" class="btn btn-default" (click)="confirmImage()">Yes</button>
+      <button type="button" class="btn btn-primary" (click)="declineImage()">No</button>
+    </div>
+  </ng-template> -->

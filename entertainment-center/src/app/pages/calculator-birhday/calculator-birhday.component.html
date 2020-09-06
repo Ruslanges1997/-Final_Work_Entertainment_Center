@@ -1,0 +1,188 @@
+<!-- <p>calculator-birhday works!</p> -->
+
+<section class="calculator_section">
+    <div class="containerE">
+        <div class="rowE">
+            <div class="calculator_block">
+                <!-- <button class="datepicker__btn">
+                    <span>Дата святкування</span>
+                </button> -->
+                <div class="time_birhday">
+                    <div class=" margin_content">
+                        <button class="time_btn" (click)="openModalTime(timeBirthday)">
+                            <span>Початок свята </span>
+                            <input type="text" [disabled]="disInput" placeholder="{{ value }}" class="time_input">
+                        </button>
+                    </div>
+                </div>
+                <div class="count_people  margin_content ">
+                    <span>
+
+                        <h2>Кількість гостей</h2>
+                    </span>
+                    <span>
+                        <button (click)="countPeople (false)">-</button>
+                    </span>
+                    <span>
+                        <button (click)="countPeople(true)">+</button>
+                    </span>
+                    <span>
+                        {{counterPeople}}
+                    </span>
+                </div>
+
+                <div class="count_menu  margin_content ">
+                    <span>
+
+                        <a class="nav_link" routerLinkActive="active_link-menu "
+                            [routerLink]="[ '/calculator-birthday/pizza']">
+                            <button type="button" class="btn_name-assortment ">PIZZA</button>
+                        </a>
+                    </span>
+                    <span>
+                        <a class="nav_link" routerLinkActive="active_link-menu "
+                            [routerLink]="[ '/calculator-birthday/burger']">
+                            <button type="button" class="btn_name-assortment ">Бургери</button>
+                        </a>
+                    </span>
+                    <span>
+                        <a class="nav_link" routerLinkActive="active_link-menu "
+                            [routerLink]="[ '/calculator-birthday/drinks']">
+                            <button type="button" class="btn_name-assortment ">Напої</button>
+                        </a>
+                    </span>
+                    <span>
+                        <a class="nav_link" routerLinkActive="active_link-menu "
+                            [routerLink]="[ '/calculator-birthday/salad']">
+                            <button type="button" class="btn_name-assortment ">Салат</button>
+                        </a>
+                    </span>
+                </div>
+                <div class="titele_menu">
+                    <h2>Меню</h2>
+                </div>
+
+                <!-- <div class="birthday_menu  margin_content " *ngFor="let product of productsArr">
+                    <div class=" margin_content">
+                        <div class="count_pepole  margin_content ">
+                            <span>
+                                <h3>{{product?.nameUA}}</h3>
+                            </span>
+
+                            <app-counter [product]="product"></app-counter>
+                            <span>
+                                {{product.count}}
+
+                            </span>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="birthday_menu  margin_content " *ngFor="let product of productsArr">
+                    <div class=" margin_content">
+                        <div class="count_pepole  margin_content ">
+                            <span>
+                                <h3>{{product?.nameUA}}</h3>
+                            </span>
+
+                            <app-counter [product]="product"></app-counter>
+                            <span>
+                                {{product.count}}
+
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="btn_order">
+                    <button type="button" (click)="orderBirthday()">Замовити </button>
+                </div>
+                <!-- <div class="titele_games">
+                    <h2>Розваги</h2>
+                </div>
+                <div class="birthday_menu  margin_content " *ngFor="let games of entertainmentArr">
+                    <div class=" margin_content">
+                        <div class="count_pepole  margin_content ">
+                            <span>
+                                <h3>{{games?.nameGame}}</h3>
+                            </span>
+                        
+                            <app-counter [product]="games"></app-counter>
+                            <span>
+                                {{games.count}}
+                            </span>
+                        </div>
+                    </div>
+           </div>   -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<ng-template #timeBirthday>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Оберіть час початку свята</h4>
+        <p>Дата святкування:</p>
+
+        <button type="button" class="close pull-right" aria-label="Close">
+            <span aria-hidden="true" (click)="closeModal()">&times;</span>
+        </button>
+
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="d-flex justify-content-between">
+                <ul class="modal_time">
+                    <li>
+                        <button class="time_btn-modal" id="btn-gold" (click)="setValue('11:00')" name="mybutton"
+                            value="11:00">
+                            11:00
+                        </button>
+
+                    </li>
+                    <li>
+                        <button class="time_btn-modal" (click)="setValue('12:00')" name="mybutton" value="12:00">
+                            12:00
+                        </button>
+
+                    </li>
+                    <li>
+                        <button class="time_btn-modal" (click)="setValue('13:00')" name="mybutton" value="13:00">
+                            13:00
+                        </button>
+                    </li>
+                    <li>
+                        <button class="time_btn-modal" (click)="setValue('14:00')" name="mybutton" value="14:00 ">
+                            14:00
+                        </button>
+                    </li>
+                    <li>
+                        <button class="time_btn-modal" (click)="setValue('15:00')" name="mybutton" value="15:00 ">
+                            15:00
+                        </button>
+                    </li>
+                    <li>
+
+                        <button class="time_btn-modal" (click)="setValue('16:00')" name="mybutton" value="16:00 ">
+                            16:00
+                        </button>
+                    </li>
+                    <li>
+                        <button class="time_btn-modal" (click)="setValue('17:00')" name="mybutton" value="17:00 ">
+                            17:00
+                        </button>
+                    </li>
+                    <li>
+                        <button class="time_btn-modal" (click)="setValue('18:00')" name="mybutton" value="18:00 ">
+                            18:00
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</ng-template>

@@ -67,7 +67,7 @@ export class AdminOurTeamComponent implements OnInit {
       this.ourTeamService.updateFireCloudTeam({ ...newWorker })
         .then(messege => console.log(messege))
         .catch(err => console.log(err))
-        this.editStatus = false;
+      this.editStatus = false;
     }
     this.closeModal();
   }
@@ -99,7 +99,7 @@ export class AdminOurTeamComponent implements OnInit {
         this.wImage = url;
       });
     });
-   
+
   }
 
   closeModal(): void {

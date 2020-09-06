@@ -16,9 +16,7 @@ export class GamesDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     this.getViewGame();
-
   }
 
 
@@ -32,9 +30,6 @@ export class GamesDetailsComponent implements OnInit {
         console.log(dataID)
         this.game = { dataID, ...data };
       }
-
     );
-
   }
-
 }

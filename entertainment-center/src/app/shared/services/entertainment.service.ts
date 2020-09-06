@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { DocumentChangeAction, AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { IEntertainment } from '../interfaces/entertainment.interface';
+import { IProduct } from '../interfaces/menu-product.interface';
 
 
 @Injectable({
@@ -29,4 +30,5 @@ export class EntertainmentService {
     return this.fireCloud.collection('entertainment').doc(game.id.toString()).update(game);
   }
 
+  
 }

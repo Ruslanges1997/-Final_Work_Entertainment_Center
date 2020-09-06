@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
-
 import { HomeComponent } from './pages/home/home.component';
 import { OrderBirthdayComponent } from './pages/order-birthday/order-birthday.component';
 import { GamesComponent } from './pages/games/games.component';
@@ -17,14 +15,21 @@ import { BirthdayCategoryComponent } from './admin/birthday-category/birthday-ca
 import { AdminCategoryMenuComponent } from './admin/admin-category-menu/admin-category-menu.component';
 import { AdminMenuProductComponent } from './admin/admin-menu-product/admin-menu-product.component';
 import { AdminOurTeamComponent } from './admin/admin-our-team/admin-our-team.component';
-
+import { AdminGalleryComponent } from './admin/admin-gallery/admin-gallery.component';
+import { CalculatorBirhdayComponent } from './pages/calculator-birhday/calculator-birhday.component'
+// import { MenuComponentDetail } from './pages/menu-details/menu-details.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'games', component: GamesComponent },
   { path: 'games/:id', component: GamesDetailsComponent },
   { path: 'order-birthday', component: OrderBirthdayComponent },
-  { path: 'menu', component: MenuComponent },
+  { path: 'calculator-birthday', component: CalculatorBirhdayComponent },
+  { path: 'calculator-birthday/:category', component: CalculatorBirhdayComponent },
+  // { path: 'menu', component: MenuComponent },
+  // { path: 'menu/:id', component: MenuComponent },
+  { path: 'menu/:category', component: MenuComponent },
+  
   { path: 'our-team', component: OurTeamComponent },
   {
     path: 'admin', component: AdminComponent, children: [
@@ -35,6 +40,7 @@ const routes: Routes = [
       { path: 'admin-category-menu', component: AdminCategoryMenuComponent },
       { path: 'admin-menu-product', component: AdminMenuProductComponent },
       { path: 'admin-our-team', component: AdminOurTeamComponent },
+      { path: 'admin-gallery', component: AdminGalleryComponent },
     ]
   }
 ];
@@ -45,4 +51,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
