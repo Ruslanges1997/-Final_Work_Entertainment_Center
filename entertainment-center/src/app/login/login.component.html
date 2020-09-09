@@ -1,0 +1,69 @@
+
+<section class="registrer_section">
+    <div class="containerE">
+        <div class="rowE">
+
+            <div class="login_card" *ngIf="!switch">
+                <ul class="links_sign">
+                    <li class="signin_active acti"><a>Sign in</a></li>
+                    <li class="signup_active acti"><a (click)="switchForm()">Sign up </a></li>
+                </ul>
+                <form novalidate (ngSubmit)="loginUser()" class="form_sign">
+                    <div class="form_group">
+                        <label class="label" for="userEmail">Email address</label>
+                        <input type="email" class="form-control" #adminEmail="ngModel" id="userEmail"
+                            [(ngModel)]="userEmail" name="userEmail " placeholder="Enter email" required>
+                    </div>
+                    <div class="form_group">
+                        <label class="label" for="userPassword">Password</label>
+                        <input type="password" class="form-control" #adminPassword="ngModel" id="userPassword"
+                            [(ngModel)]="userPassword" placeholder="Enter password" name="password" required>
+                    </div>
+                    <button [disabled]="adminEmail.invalid || adminPassword.invalid" type="submit"
+                        class="btn_primary ">Login In</button>
+                </form>
+            </div>
+
+            <div class=" login_card" *ngIf="switch">
+                <div class="login-card">
+                    <ul class="links_sign">
+                        <li routerLinkActive="active_link" class="signin_active  acti">
+                            <a (click)="switchForm()">
+                                <span>Sign in</span>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active_link" class="signup_active  acti">
+                            <a>
+                                <span>Sign up</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <form (ngSubmit)="registerUser()">
+                        <div class="form_group">
+                            <label class="label" for="firstName">First Name</label>
+                            <input type="text" class="form-control" placeholder="Enter first name" id="firstName"
+                                [(ngModel)]="firstName" name="firstName">
+                        </div>
+                        <div class="form_group">
+                            <label class="label" for="lastName">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Enter last name" id="lastName"
+                                [(ngModel)]="lastName" name="lastName">
+                        </div>
+                        <div class="form_group">
+                            <label class="label" for="userEmail">Email address</label>
+                            <input type="email" class="form-control" placeholder="Enter email" id="userEmail"
+                                [(ngModel)]="userEmail" name="userEmail">
+                        </div>
+                        <div class="form_group">
+                            <label class="label" for="userPassword">Password</label>
+                            <input type="text" class="form-control" id="userPassword" placeholder="Enter password"
+                                [(ngModel)]="userPassword" name="userPassword">
+                        </div>
+                        <button type="submit" class="btn_primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

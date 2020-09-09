@@ -1,22 +1,12 @@
-<!-- <p>header works!</p> -->
-<header>
-    <!-- <div>
-        <img class="logo" src="../../../assets/images/header_bg.jpg" alt="Logo.two">
-    </div> -->
+<header [class.mobileHead]="!menuBurgerNav">
     <div class="containerE">
-        <div class="center_navbar">
-            <!-- <div class="logo" class="logo_header">
-           
-            </div> -->
-
-            <nav class="">
-                <!-- <li routerLinkActive="active" [routerLinkActiveOptions]="{eee:true}">
-                    <a routerLink="home">Главная</a>
-                </li> -->
-
-                <ul class="navbar_nav ">
-
-                    <li class=" li_header   " routerLinkActive="active_link">
+        <div class="center_navbar ">
+            <nav>
+                <button type="button" class="menu_burger-btn" (click)="openMenuNav()">
+                    <span>menu</span>
+                </button>
+                <ul class="navbar_nav  ">
+                    <li class=" li_header" routerLinkActive="active_link">
                         <a routerLink="home">
                             <span>
                                 <h3>Lazer Park</h3>
@@ -42,11 +32,6 @@
                         </a>
                     </li>
                     <li class=" li_header" routerLinkActive="active_link">
-                        <!-- <a class="link " [routerLink]="[ 'menu']">
-                            <span>
-                                <h3>Menu</h3>
-                            </span>
-                        </a>  -->
                         <a class="link " [routerLink]="[ '/menu/pizza']">
                             <span>
                                 <h3>Menu</h3>
@@ -71,17 +56,17 @@
                     </li>
 
                     <li class=" li_header" routerLinkActive="active_link">
-                        <a class="link " [routerLink]="[ 'admin']">
+                        <a class="link " [routerLink]="['admin-login']" *ngIf="!loginStatus">
                             <span>
-                                <h3>Admin</h3>
+                                <h3>Exit</h3>
                             </span>
                         </a>
-                        <!-- <br>
-                        <a class="link " [routerLink]="[ 'office']" routerLinkActive="active_link">
+
+                        <a [routerLink]="[ '/'+loginUrl ]" *ngIf="loginStatus">
                             <span>
-                                <h3>Office</h3>
+                                <h3>{{ loginName|titlecase }}</h3>
                             </span>
-                        </a> -->
+                        </a>
                     </li>
                 </ul>
             </nav>

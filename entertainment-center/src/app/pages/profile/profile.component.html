@@ -1,0 +1,18 @@
+<section class="profile_section">
+
+    <div class="container ">
+        <div class="">
+            <div>
+                <h3>Hello {{ firstName |titlecase}} {{ lastName |titlecase}}</h3>
+            </div>
+
+            <div>
+                <h3>Email: {{ userEmail }}</h3>
+            </div>
+
+
+            <button type="button" class="btn_primary" (click)="signOut()">Sign Out</button>
+        </div>
+
+    </div>
+</section>

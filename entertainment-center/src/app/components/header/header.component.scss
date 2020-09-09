@@ -8,10 +8,13 @@ header {
     height: 150px;
     width: 100%;
     // background: rgb(44, 23, 23);
+    // overflow: hidden;
     z-index: 10;
     background: url(../../../assets/images/home/header_bg.jpg) 100% 67% no-repeat;
     background-size: cover;
-
+    .menu_burger-btn {
+        display: none;
+    }
     .logo {
         background-repeat: no-repeat;
         background-size: cover;
@@ -19,15 +22,16 @@ header {
     }
     span {
         color: $text_color;
-    }
-    span:hover {
-        color: lightblue;
+        // &:hover {
+        //     color: lightblue;
+        // }
     }
     h3 {
         font-family: "Nosifer";
-        font-size: 19px;
+        font-size: 20px;
     }
 }
+
 .logo_imgs {
     width: 160px;
 }
@@ -36,7 +40,6 @@ header {
     margin: 0 20px;
     position: absolute;
     display: flex;
-
     top: 50%;
     left: 50%;
     margin-right: -50%;
@@ -57,13 +60,85 @@ a:link {
 }
 
 .li_header {
-    margin: 10px 9px;
+    margin: 0px 6px;
 }
 
 .active_link {
-    span{
+    span {
         color: red;
     }
 }
 
+@media screen and (max-width: 1000px)  {
+    header {
+        height: 70px;
+        // position: relative;
+        // background: url(../../../assets/images/home/header_bg.jpg) 100% 67% no-repeat;
+        // background: black;
+        h3 {
+            font-size: 15px;
+            transform: scale(1.1);
+        }
+    }
+    .center_navbar {
+        padding: 10px;
+    }
+    .li_header {
+        margin: 0px 9px;
+    }
+    .logo_imgs {
+        width: 140px;
+    }
+}
 
+@media screen and (max-width: 600px) {
+    header {
+        height: 70px;
+        position: relative;
+        background: $bgColor;
+        transition: 1s;
+        font-size: 20px;
+        font-family: "Volkon-Bold";
+        .menu_burger-btn {
+            width: 150px;
+            height: 50px;
+            border-radius: 50px;
+            background: border-box;
+            outline: none;
+            display: block;
+        }
+    }
+    .navbar_nav {
+        display: none;
+    }
+    .center_navbar{
+        margin: 0px auto;
+    }
+    .mobileHead {
+        height: 350px;
+        transition: 1s;
+        background: $bgColor;
+        z-index: 11;
+        h3 {
+            font-size: 20px;
+            margin: 10px 0px;
+        }
+        .center_navbar{
+            margin: 0px auto;
+        }
+        .navbar_nav {
+            animation: opasity 0.5s linear;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+          
+        }
+        .menu_burger-btn {
+            margin: 20px auto 10px auto;
+        }
+    }
+
+    .logo_imgs {
+        display: none;
+    }
+}

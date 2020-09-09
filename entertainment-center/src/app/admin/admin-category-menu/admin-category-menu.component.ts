@@ -3,7 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { IMenuCategory } from 'src/app/shared/interfaces/meny-category.interface';
 import { MenuCategory } from 'src/app/shared/models/menu-category.models';
 import { MenuCategoryService } from 'src/app/shared/services/menu-category.service';
-
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-admin-category-menu',
@@ -16,19 +16,30 @@ export class AdminCategoryMenuComponent implements OnInit {
   catNameEN: string;
   catNameUA: string;
   menuCategoryAdminArr: Array<MenuCategory> = [];
+  soretedAdminCategoryMenu: Array<MenuCategory> = [];
 
   constructor(
     private modalService: BsModalService,
     private catService: MenuCategoryService,
-
-  ) { }
+    private orderPipe: OrderPipe,
+  ) {
+    this.soretedAdminCategoryMenu = orderPipe.transform(this.menuCategoryAdminArr, 'name');
+  }
 
   modalRef: BsModalRef;
   modalRefconfig = {
     backdrop: true,
     ignoreBackdropClick: true
   };
-
+  
+  order: string = 'name';
+  reverse: boolean = false;
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
 
   ngOnInit(): void {
     this.getMenuCategoryFireCloud();

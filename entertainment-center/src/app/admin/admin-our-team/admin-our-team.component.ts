@@ -5,6 +5,7 @@ import { IOurTeam } from '../../shared/interfaces/our-team.interface';
 import { OurTeamService } from '../../shared/services/our-team.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
+import { OrderPipe } from 'ngx-order-pipe';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class AdminOurTeamComponent implements OnInit {
   editStatus: boolean;
   imageStatus: boolean;
   ourTeamAdmin: Array<OurTeam> = [];
+  ourTeamAdminSorter: Array<OurTeam> = [];
   uploadProgress: Observable<number>;
 
   modalRef: BsModalRef;
@@ -31,8 +33,20 @@ export class AdminOurTeamComponent implements OnInit {
   constructor(
     private modalService: BsModalService,
     private afStorage: AngularFireStorage,
-    private ourTeamService: OurTeamService
-  ) { }
+    private ourTeamService: OurTeamService,
+    private orderPipe: OrderPipe,
+  ) {
+    this.ourTeamAdminSorter = orderPipe.transform(this.ourTeamAdmin, 'name')
+  }
+  order: string;
+  reverse: boolean = false;
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
+
 
   ngOnInit(): void {
     this.getOurTeamFireCloud();
@@ -57,8 +71,8 @@ export class AdminOurTeamComponent implements OnInit {
 
   addOrUpdateWorker(): void {
     const newWorker = new OurTeam(this.wID, this.wName, this.wProfession, this.wImage)
-    delete newWorker.id;
     if (!this.editStatus) {
+      delete newWorker.id;
       this.ourTeamService.postFireCloudOurTeam({ ...newWorker })
         .then(messege => console.log(messege))
         .catch(err => console.log(err))
@@ -90,6 +104,7 @@ export class AdminOurTeamComponent implements OnInit {
 
   uploadFile(event): void {
     const file = event.target.files[0]
+    console.log(file)
     const type = file.type.slice(file.type.indexOf('/') + 1)
     const name = file.name.slice(0, file.name.lastIndexOf('.')).toLowerCase();
     const filePath = `images/our-team/${name}.${type}`;
@@ -97,6 +112,7 @@ export class AdminOurTeamComponent implements OnInit {
     upload.then(image => {
       this.afStorage.ref(`images/our-team/${image.metadata.name}`).getDownloadURL().subscribe(url => {
         this.wImage = url;
+        this.imageStatus = true;
       });
     });
 

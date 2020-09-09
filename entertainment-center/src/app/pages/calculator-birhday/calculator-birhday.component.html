@@ -1,5 +1,4 @@
 <!-- <p>calculator-birhday works!</p> -->
-
 <section class="calculator_section">
     <div class="containerE">
         <div class="rowE">
@@ -16,24 +15,26 @@
                     </div>
                 </div>
                 <div class="count_people  margin_content ">
-                    <span>
-
-                        <h2>Кількість гостей</h2>
-                    </span>
-                    <span>
-                        <button (click)="countPeople (false)">-</button>
-                    </span>
-                    <span>
-                        <button (click)="countPeople(true)">+</button>
-                    </span>
-                    <span>
-                        {{counterPeople}}
-                    </span>
+                    <div>
+                        <span>
+                            <h2>Кількість гостей</h2>
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <button type="button" class="count_btn-people" (click)="countPeople (false)">-</button>
+                        </span>
+                        <span>
+                            {{counterPeople}}
+                        </span>
+                        <span>
+                            <button type="button" class="count_btn-people" (click)="countPeople(true)">+</button>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="count_menu  margin_content ">
                     <span>
-
                         <a class="nav_link" routerLinkActive="active_link-menu "
                             [routerLink]="[ '/calculator-birthday/pizza']">
                             <button type="button" class="btn_name-assortment ">PIZZA</button>
@@ -77,51 +78,52 @@
                         </div>
                     </div>
                 </div> -->
+
+
+
                 <div class="birthday_menu  margin_content " *ngFor="let product of productsArr">
-                    <div class=" margin_content">
-                        <div class="count_pepole  margin_content ">
-                            <span>
-                                <h3>{{product?.nameUA}}</h3>
-                            </span>
+                    <div class="count_menu-prod">
+                        <span>
+                            <h3>{{product?.nameUA}}</h3>
+                        </span>
+                        <span>
+                            <h3>{{product?.price}}</h3>
+                        </span>
 
-                            <app-counter [product]="product"></app-counter>
-                            <span>
-                                {{product.count}}
-
-                            </span>
-                        </div>
+                        <app-counter [product]="product"></app-counter>
+                        <span>
+                            <h3>{{product?.price * product?.count}}</h3>
+                        </span>
+                        <!-- <span>
+                            {{product.count}}
+                        </span> -->
                     </div>
+                    <div class="btn_order">
+                        <button type="button" (click)="orderBirthday(product)">Замовити </button>
+                    </div>
+                </div>
+                <!-- <div class="btn_order">
+                    <button type="button" (click)="orderBirthday(product.price)">Замовити </button>
+                </div> -->
 
-                </div>
-                <div class="btn_order">
-                    <button type="button" (click)="orderBirthday()">Замовити </button>
-                </div>
-                <!-- <div class="titele_games">
+                <div class="titele_games">
                     <h2>Розваги</h2>
                 </div>
                 <div class="birthday_menu  margin_content " *ngFor="let games of entertainmentArr">
-                    <div class=" margin_content">
-                        <div class="count_pepole  margin_content ">
-                            <span>
-                                <h3>{{games?.nameGame}}</h3>
-                            </span>
-                        
-                            <app-counter [product]="games"></app-counter>
-                            <span>
-                                {{games.count}}
-                            </span>
-                        </div>
+                    <div class="count_game  ">
+                        <span>
+                            <h3>{{games?.nameGame}}</h3>
+                        </span>
+                        <app-counter [product]="games"></app-counter>
+                        <!-- <span>
+                            {{games.count}}
+                        </span> -->
                     </div>
-           </div>   -->
-
+                </div>
             </div>
         </div>
     </div>
 </section>
-
-
-
-
 
 <ng-template #timeBirthday>
     <div class="modal-header">

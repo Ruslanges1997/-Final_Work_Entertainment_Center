@@ -14,6 +14,15 @@
 
 .btn_all-game {
     animation: opasity 0.5s linear;
+    outline-style: none;
+    padding: 12px;
+    background: #0f0e15;
+    text-align: center;
+    width: 30%;
+    border-radius: 50px;
+    color: $text_color;
+    font-family: "Volkon-Bold";
+    margin-bottom: 10px;
 }
 
 .game_info-txt {
@@ -35,5 +44,50 @@
 
     h1 {
         font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .box_detail {
+        animation: opasity 1s linear;
+    }
+
+    .img_detail {
+        width: 300px;
+        height: 300px;
+    }
+
+    .game_info-txt {
+        font-size: 19px;
+        line-height: 25px;
+        letter-spacing: 2px;
+    }
+
+    .game_container {
+        min-height: 73vh;
+        align-items: center;
+        h1 {
+            font-size: 20px;
+        }
+    }
+    .btn_all-game {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box_detail {
+        display: flex;
+        flex-direction: column;
+    }
+    .img_detail {
+        // width: 90%;
+        height: 300px;
+        // margin: 10px 20px;
+    }
+    .media_phone {
+        margin: 10px 20px;
+        width: 90%;
+        letter-spacing: 2px;
     }
 }

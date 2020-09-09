@@ -27,7 +27,7 @@
             </h1>
 
             <h1 class="home_info-one">
-                Після твого активного відпочину ми здивуєм тебе нашим смачнезним <a [routerLink]="[ '/menu']">
+                Після твого активного відпочину ми здивуєм тебе нашим смачним <a [routerLink]="[ '/menu']">
                     <span> Menu .</span> </a>
             </h1>
 
@@ -43,26 +43,28 @@
 
 <section class="home_section-gallery">
     <div class="home_slider ">
-        <ngx-slider [init]="slider">
+        <!-- <ngx-slider [init]="slider">
             <div ngxSlickItem *ngFor="let item of slideItems" class="slide">
-                <!-- <img src="https://i.picsum.photos/id/{{ slide.src}}/300/200.jpg" alt="" width="100%"> -->
+             
+            </div>
+        </ngx-slider> -->
+        <ngx-slider [init]="slider">
+            <div ngxSlickItem *ngFor="let item of imageArr" class="slide">
+                <img [src]="item.image" alt="">
             </div>
         </ngx-slider>
+    </div>
+    <!-- <img src="https://i.picsum.photos/id/{{ slide.src}}/300/200.jpg" alt="" width="100%"> -->
 
-
-        <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+    <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
             (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
             (beforeChange)="beforeChange($event)">
             <div ngxSlickItem *ngFor="let slide of slides" class="slide">
                 <img src="https://i.picsum.photos/id/{{slide}}/300/200.jpg" alt="" width="100%">
             </div>
         </ngx-slick-carousel> -->
-
-
-    </div>
-
+    <!-- </div> -->
     <!-- <button (click)="addFoto()">addFoto</button> -->
-
 </section>
 
 <section class="home_section-map">

@@ -26,16 +26,31 @@
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
-                <th>ID </th>
-                <th>Name </th>
-                <th>Profesion </th>
-                <th>Image</th>
+                <th [class.active]="order === 'id'" (click)="setOrder('id')">ID
+                    <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'nameWorker' " (click)="setOrder('nameWorker')">
+                    Name <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+
+                <th [class.active]="order === 'professionWorker' " (click)="setOrder('professionWorker')">
+                    Profesion <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'imageWorker' " (click)="setOrder('imageWorker')">
+                    Image <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+
                 <th>Edite</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let worker of ourTeamAdmin; let i=index">
+            <!-- :'case-insensitive' -->
+            <tr *ngFor="let worker of ourTeamAdmin | orderBy: order:reverse; let i=index">
                 <td>{{ worker.id}}</td>
                 <td>{{ worker.nameWorker }}</td>
                 <td>{{ worker.professionWorker }}</td>

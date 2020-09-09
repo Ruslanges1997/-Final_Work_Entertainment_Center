@@ -17,6 +17,7 @@ import { AdminCategoryMenuComponent } from './admin/admin-category-menu/admin-ca
 import { AdminMenuProductComponent } from './admin/admin-menu-product/admin-menu-product.component';
 import { AdminOurTeamComponent } from './admin/admin-our-team/admin-our-team.component';
 import { AdminGalleryComponent } from './admin/admin-gallery/admin-gallery.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { PagesComponent } from './pages/pages.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -30,6 +31,8 @@ import { CalculatorBirhdayComponent } from './pages/calculator-birhday/calculato
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment.prod';
 
@@ -42,6 +45,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader'
 import { loaderConfig } from './preloader-config';
 import { CounterComponent } from './components/counter/counter.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +70,8 @@ import { CounterComponent } from './components/counter/counter.component';
     AdminGalleryComponent,
     CalculatorBirhdayComponent,
     CounterComponent,
+    LoginComponent,
+    ProfileComponent,
 
 
   ],
@@ -73,12 +80,15 @@ import { CounterComponent } from './components/counter/counter.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    OrderModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+    // AngularFireAuth,
     ModalModule.forRoot(),
     SliderModule,
+
     NgxGoogleMapModule,
     NgxUiLoaderModule.forRoot(loaderConfig),
     NgxUiLoaderRouterModule,

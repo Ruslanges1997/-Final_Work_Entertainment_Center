@@ -23,11 +23,8 @@ export class MenuCategoryService {
     return this.fireCloud.collection('menu-category').add(mCategory);
   }
 
-
   deleteFireCloudMenuCategory(id: string): Promise<void> {
     return this.fireCloud.collection('menu-category').doc(id).delete();
   }
-
-
 }
 

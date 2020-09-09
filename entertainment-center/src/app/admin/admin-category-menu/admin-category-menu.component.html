@@ -18,29 +18,30 @@
 
         <thead>
             <tr>
-                <th>ID</th>
-                <th>nameEN</th>
-                <th>nameUA</th>
+                <!-- <th>ID</th> -->
+                <!-- <th>nameEN</th> -->
+                <!-- <th>nameUA</th> -->
                 <!-- <th>Edite</th> -->
-                <th>Delete</th>
-                <!-- <th [class.active]="order === 'id'" (click)="setOrder('id')">
-                    №
+                <!-- <th>Delete</th> -->
+                <th [class.active]="order === 'id'" (click)="setOrder('id')">
+                    ID
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                 </th>
                 <th [class.active]="order === 'nameEN'" (click)="setOrder('nameEN')">
                     Name EN
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                 </th>
-                <th [class.active]="order === 'NameUA'" (click)="setOrder('NameUA')">
+                <th [class.active]="order === 'nameUA'" (click)="setOrder('nameUA')">
                     Name UA
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                 </th>
-                <th>Delete</th> -->
+                <th>Delete</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr *ngFor="let category of menuCategoryAdminArr">
+            <!-- :'case-insensitive' -->
+            <tr *ngFor="let category of menuCategoryAdminArr| orderBy: order:reverse; let i=index">
                 <td>{{category.id}}</td>
                 <td>{{category.nameEN}}</td>
                 <td>{{category.nameUA}}</td>
@@ -57,7 +58,6 @@
     <div class="modal-header">
         <h4 class="modal-title pull-left">Category model</h4>
         <button type="button" class="close pull-right" aria-label="Close">
-
             <span aria-hidden="true" (click)="closeModal()">&times;</span>
         </button>
     </div>

@@ -7,6 +7,7 @@ import { IEntertainment } from '../../shared/interfaces/entertainment.interface'
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { IOurTeam } from '../../shared/interfaces/our-team.interface';
 import { Observable, } from 'rxjs';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-admin-entertainment',
@@ -25,13 +26,16 @@ export class AdminEntertainmentComponent implements OnInit {
   editStatus: boolean;
   imageStatus: boolean;
   // currEntertainment: IEntertainment;
-  
+  soretedAdminEntertainment: Array<IEntertainment> = [];
   adminEntertainment: Array<IEntertainment> = [];
   constructor(
     private entertainmentService: EntertainmentService,
     private afStorage: AngularFireStorage,
     private modalService: BsModalService,
-  ) { }
+    private orderPipe: OrderPipe,
+  ) {
+    this.soretedAdminEntertainment = orderPipe.transform(this.adminEntertainment, 'name');
+  }
 
   modalRef: BsModalRef;
   modalRefconfig = {
@@ -39,6 +43,14 @@ export class AdminEntertainmentComponent implements OnInit {
     ignoreBackdropClick: true
   };
 
+  order: string = 'name';
+  reverse: boolean = false;
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
   openGameModals(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
 

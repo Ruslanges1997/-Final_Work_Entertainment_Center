@@ -77,6 +77,56 @@
     height: 70vh;
 }
 
-.fa-circle::before {
-    visibility: visible;
+// .fa-circle::before {
+//     visibility: visible;
+// }
+
+@media screen and (max-width: 1000px) {
+    .home_section-info {
+        height: 92vh;
+    }
+    .home_info {
+        transform: scale(0.9);
+        position: absolute;
+        line-height: 3;
+        text-align: center;
+        color: $text_color;
+        h1 {
+            font-size: 22px;
+        }
+    }
+    .home_section-gallery {
+        height: 60vh;
+        .home_slider {
+            height: 300px;
+            width: 550px;
+        }
+    }
+    .home_section-map {
+        height: 40vh;
+    }
+    .map {
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .home_section-info {
+        height: 60vh;
+    }
+    .home_info {
+        line-height: 2;
+        h1 {
+            font-size: 15px;
+        }
+       
+    }
+    .home_section-gallery {
+        height: 50vh;
+        .home_slider {
+            width: 100%;
+            height: 90%;
+        }
+    }
+   
 }

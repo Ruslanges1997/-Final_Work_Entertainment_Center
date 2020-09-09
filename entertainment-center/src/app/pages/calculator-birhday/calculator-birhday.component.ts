@@ -54,17 +54,13 @@ export class CalculatorBirhdayComponent implements OnInit {
         collection.forEach(document => {
           const data = document.data();
           const id = document.id;
-
           this.productsArr.push({ id, ...data });
-
         });
         // this.categorys = this.productsArr[0].category.nameUA;
-
         console.log(this.productsArr)
         // console.log(this.categorys )
       }
     );
-
   }
 
   getEntertainment(): void {
@@ -76,8 +72,6 @@ export class CalculatorBirhdayComponent implements OnInit {
       })
     })
   }
-
-
 
   modalRef: BsModalRef;
   modalRefconfig = {
@@ -122,9 +116,9 @@ export class CalculatorBirhdayComponent implements OnInit {
   // orderBirthday(product: IProduct): void {
   //   console.log(product)
   // }
-
-  orderBirthday(): void {
-
+  
+  orderBirthday(product: IProduct): void {
+    console.log(product)
   }
 
 }

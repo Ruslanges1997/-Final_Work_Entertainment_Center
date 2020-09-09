@@ -5,6 +5,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Gallery } from '../../shared/models/gallary.model';
 import { GalleryService } from '../../shared/services/gallery.service';
 import { IGallery } from 'src/app/shared/interfaces/gallary.interface';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-admin-gallery',
@@ -12,14 +13,13 @@ import { IGallery } from 'src/app/shared/interfaces/gallary.interface';
   styleUrls: ['./admin-gallery.component.scss']
 })
 export class AdminGalleryComponent implements OnInit {
-  // imageArr: any
   imageName: string;
   imageStatus: boolean;
   galleryID = 1;
   galleryImage: string;
-  // imageArr:
 
   imageArr: Array<IGallery> = [];
+  imageArrSorted: Array<IGallery> = [];
   uploadProgress: Observable<number>;
 
 
@@ -33,10 +33,23 @@ export class AdminGalleryComponent implements OnInit {
     private modalService: BsModalService,
     private afStorage: AngularFireStorage,
     private galleryService: GalleryService,
-  ) { }
+    private orderPipe: OrderPipe,
+  ) {
+    this.imageArrSorted = orderPipe.transform(this.imageArr, 'name')
+  }
 
   ngOnInit(): void {
     this.getGalleryFireCloud();
+  }
+
+  order: string = 'name';
+  reverse: boolean = false;
+
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
   }
 
   private getGalleryFireCloud(): void {
@@ -46,11 +59,9 @@ export class AdminGalleryComponent implements OnInit {
           const id = document.payload.doc.id;
           const data = document.payload.doc.data() as IGallery;
           return { id, ...data }
-
         })
       }
     )
-    // console.log(this.imageArr)
   }
 
   openModalAdd(template: TemplateRef<any>): void {
@@ -58,25 +69,23 @@ export class AdminGalleryComponent implements OnInit {
   }
 
   closeModal(): void {
-
+    this.imageName = "";
+    this.imageStatus = false;
+    this.modalRef.hide();
   }
+
   addImage(): void {
     const newImage = new Gallery(this.galleryID,
       this.imageName,
       this.galleryImage,
-
-
     );
-
     delete newImage.id;
     this.galleryService.postFireImage({ ...newImage })
       .then(messege => console.log(messege))
       .catch(err => console.log(err))
 
+    this.closeModal();
   }
-
-
-
 
   uploadFile(event): void {
     const file = event.target.files[0]
@@ -92,7 +101,6 @@ export class AdminGalleryComponent implements OnInit {
         console.log(image.metadata.name)
       })
     })
-
   }
 
 }

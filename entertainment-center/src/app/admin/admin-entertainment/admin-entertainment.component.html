@@ -54,8 +54,8 @@
                 <img [src]="eImageGame" class="entertainmentImage" alt="">
             </div>
 
-            <button type="button" [disabled]="entertainmentForm.invalid"  class="btn btn-dark mt-3" (click)="addOrUpdateEntertainment()"
-                [textContent]="!editStatus ? 'Add' : 'Update'">
+            <button type="button" [disabled]="entertainmentForm.invalid" class="btn btn-dark mt-3"
+                (click)="addOrUpdateEntertainment()" [textContent]="!editStatus ? 'Add' : 'Update'">
             </button>
 
         </form>
@@ -67,18 +67,41 @@
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
-                <th>Id</th>
-                <th>Image</th>
-                <th>Name Game</th>
-                <th>Description Game</th>
-                <th>Time Game</th>
-                <th>Price Game</th>
+                <th [class.active]="order === 'id'" (click)="setOrder('id')">
+                    ID<span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'imageGame'" (click)="setOrder('imageGame')">
+                    Image<span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'nameGame'" (click)="setOrder('nameGame')">
+                    Name Game<span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+
+                <th [class.active]="order === 'descriptionGame'" (click)="setOrder('descriptionGame')">
+                    Description Game<span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+
+                <th [class.active]="order === 'timeGame'" (click)="setOrder('timeGame')">
+                    Time Game<span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+
+                <th [class.active]="order === 'priceGame'" (click)="setOrder('priceGame')">
+                    Price Game<span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+
                 <th>Edite</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let game of adminEntertainment; let i=index">
+            <!-- :'case-insensitive' -->
+            <tr *ngFor="let game of adminEntertainment | orderBy: order:reverse; let i=index">
                 <td>{{ game.id}}</td>
                 <td><img [src]="game.imageGame" alt="" class="image_tabel"></td>
                 <td>{{ game.nameGame }}</td>

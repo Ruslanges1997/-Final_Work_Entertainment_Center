@@ -21,28 +21,28 @@
 
         <thead>
             <tr>
-                <th>ID</th>
-                <th>nameImage</th>
-                <th>Image</th>
+                <!-- <th>ID</th>
+                <th></th>
+                <th>Image</th> -->
                 <!-- <th>Delete</th> -->
-                <!-- <th [class.active]="order === 'id'" (click)="setOrder('id')">
-                    №
+                <th [class.active]="order === 'id'" (click)="setOrder('id')">
+                    ID
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                 </th>
-                <th [class.active]="order === 'nameEN'" (click)="setOrder('nameEN')">
-                    Name EN
+                <th [class.active]="order === 'imageName'" (click)="setOrder('imageName')">
+                    Name image
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                 </th>
-                <th [class.active]="order === 'NameUA'" (click)="setOrder('NameUA')">
-                    Name UA
+                <th [class.active]="order === 'image'" (click)="setOrder('image')">
+                    Image
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                 </th>
-                <th>Delete</th> -->
+                <th>Delete</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr *ngFor="let image of imageArr">
+            <tr *ngFor="let image of imageArr  | orderBy: order:reverse ;">
                 <td>{{image.id}}</td>
                 <td>{{image.imageName}}</td>
                 <td>
@@ -50,6 +50,8 @@
                 </td>
                 <!-- <td>Edite</td> -->
                 <td>
+                    <button class="btn btn-danger">Delete</button>
+
                     <!-- <button class="btn btn-danger" (click)="deleteCategoryMenu(category)">Delete</button> -->
                 </td>
             </tr>
@@ -82,11 +84,12 @@
                     <label class="custom-file-label" for="image">Choose file...</label>
                 </div>
                 <div class="progress mb-3 mt-3" *ngIf="!imageStatus">
-                    <div [style.width]="(uploadProgress | async) + '%'" class="progress-bar progress-bar-striped bg-warning"
-                        role="progressbar" aria-valuemin="0" aria-valuemax="100" required></div>
+                    <div [style.width]="(uploadProgress | async) + '%'"
+                        class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-valuemin="0"
+                        aria-valuemax="100" required></div>
                 </div>
                 <div class="productImage mb-3 mt-3" *ngIf="imageStatus">
-                    <img [src]="galleryImage" alt="">
+                    <img [src]="galleryImage" alt="" style="width: 200px; height: 100px;">
                     <!-- (click)="deleteImage(deleteImageConfirm)" -->
                     <span>
                         <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor"

@@ -8,12 +8,13 @@
     background-size: cover;
     min-height: 85vh;
     width: 100%;
- 
     // font-family: "Volkon-Bold";
+    // font-size: 20px;
+    // font-weight: 900;
 }
 
 .calculator_block {
-    margin-top: 70px;
+    margin-top: 17px;
     min-height: 500px;
     width: 100%;
     background: lightblue;
@@ -35,16 +36,19 @@
     top: 0;
     outline: 0;
     border: 0;
-    background-color: #e5097f;
+    background-color: $bgColor;
     border-radius: 34px;
     span {
         color: #fff;
+        font-size: 15px;
+        text-align: center;
+        align-items: center;
     }
 }
 
 .time_input {
     line-height: 30px;
-    border: 2px solid #e5097f;
+    border: 2px solid $bgColor;
     background-color: #fff;
     max-width: 60%;
     text-align: center;
@@ -91,13 +95,45 @@
     justify-content: space-around;
     width: 200px;
     height: 60px;
-    color: #e5097f;
+    color: $bgColor;
 }
 
 .count_menu {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    color: #e5097f;
+    color: $bgColor;
     font-size: 20px;
+}
+
+.count_menu {
+    button {
+        background: $bgColor;
+        width: 100px;
+        height: 50px;
+        border-radius: 10px;
+        outline: none;
+        color: white;
+    }
+}
+.count_menu-prod,
+.count_game {
+    align-items: center;
+    text-align: center;
+    // h3 {
+    //     font-size: 20px;
+    //     font-weight: 900;
+    // }
+    display: flex;
+    span {
+        margin: 5px 10px;
+        align-items: center;
+    }
+}
+
+.count_btn-people {
+    border-radius: 20px;
+    color: white;
+    background: $bgColor;
+    outline: none;
 }

@@ -8,7 +8,7 @@ import { MenuProductService } from 'src/app/shared/services/menu-product.service
 import { IProduct } from 'src/app/shared/interfaces/menu-product.interface';
 import { IMenuCategory } from 'src/app/shared/interfaces/meny-category.interface';
 import { AngularFireStorage } from '@angular/fire/storage';
-
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-admin-menu-product',
@@ -33,7 +33,7 @@ export class AdminMenuProductComponent implements OnInit {
   adminProducts: Array<IProduct> = [];
   imageStatus: boolean;
   editStatus: boolean;
-
+  adminProductsSorted: Array<IProduct> = [];
   categoryName: string;
   modalRef: BsModalRef;
   modalRefconfig = {
@@ -46,7 +46,22 @@ export class AdminMenuProductComponent implements OnInit {
     private catService: MenuCategoryService,
     private modalService: BsModalService,
     private afStorage: AngularFireStorage,
-  ) { }
+    private orderPipe: OrderPipe,
+  ) {
+    this.adminProductsSorted = orderPipe.transform(this.adminProducts, 'name');
+
+  }
+
+
+  order: string = 'name';
+  reverse: boolean = false;
+
+  setOrders(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
 
   ngOnInit(): void {
     this.getMenuCategoryFireCloud();

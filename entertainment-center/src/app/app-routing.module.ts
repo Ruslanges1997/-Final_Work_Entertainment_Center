@@ -18,6 +18,10 @@ import { AdminOurTeamComponent } from './admin/admin-our-team/admin-our-team.com
 import { AdminGalleryComponent } from './admin/admin-gallery/admin-gallery.component';
 import { CalculatorBirhdayComponent } from './pages/calculator-birhday/calculator-birhday.component'
 // import { MenuComponentDetail } from './pages/menu-details/menu-details.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+
+import { AuthGuard } from './shared/guards/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -29,10 +33,12 @@ const routes: Routes = [
   // { path: 'menu', component: MenuComponent },
   // { path: 'menu/:id', component: MenuComponent },
   { path: 'menu/:category', component: MenuComponent },
-  
+
   { path: 'our-team', component: OurTeamComponent },
+  { path: 'admin-login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
   {
-    path: 'admin', component: AdminComponent, children: [
+    path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
       { path: '', redirectTo: 'admin-entertainment', pathMatch: 'full' },
       { path: 'admin-entertainment', component: AdminEntertainmentComponent },
       { path: 'admin-birthday', component: AdminBirthdayComponent },

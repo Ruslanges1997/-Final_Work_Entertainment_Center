@@ -5,7 +5,7 @@
                 << </i>
         </a> -->
         <a class="" [routerLink]="[ '/games']">
-            <button type="button" class="btn_all-game">
+            <button type="button" class="btn_all-game media_phone">
                 All game
             </button>
         </a>
@@ -13,10 +13,10 @@
         <div class="box_detail">
 
             <div>
-                <img class="img_detail" [src]="game?.imageGame" alt="">
+                <img class="img_detail media_phone " [src]="game?.imageGame" alt="imageGame">
             </div>
 
-            <div class="game_info-txt">
+            <div class="game_info-txt media_phone">
                 <div class="name_game">
                     <!-- <h1>Назва Гри: LAzer Tak</h1> -->
                     <h1>Назва Гри: {{game?.nameGame}}.</h1>

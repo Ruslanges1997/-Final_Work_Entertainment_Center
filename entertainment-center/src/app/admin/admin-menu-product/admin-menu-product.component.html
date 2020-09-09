@@ -18,45 +18,48 @@
         <thead>
             <tr>
                 <!-- [class.active]="order === 'id'"  (click)="setOrder('id')"-->
-                <th scope="col ">
-                    ID
-                    <!-- <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span> (click)="setOrder('nameUA')" -->
-                </th>
-                <th scope="col">
-                    Category
-                    <!-- <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>  (click)="setOrder('nameEN')"-->
-                </th>
-                <th scope="col">
-                    Name EN
-                    <!-- Name EN <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span> (click)="setOrder('nameUA')"-->
-                </th>
-                <th scope="col">
-                    Name UA
-                    <!-- <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>  (click)="setOrder('description')"-->
-                </th>
-                <th scope="col">
-                    Description
-                    <!--  <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>  (click)="setOrder('weight')"-->
-                </th>
-                <th scope="col">
-                    Weight
-                    <!-- <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span> -->
 
+                <th [class.active]="order === 'id'" (click)="setOrders('id')">
+                    ID <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
                 </th>
-                <th scope="col">
-                    Price
-                    <!--  <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>  (click)="setOrder('price')"-->
+
+                <th [class.active]="order === 'category.nameUA '" (click)="setOrders('category.nameUA ')">
+                    Category<span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
                 </th>
-                <th scope="col">
-                    Image
+                <th [class.active]="order === 'nameEN'" (click)="setOrders('nameEN')">
+                    Name EN <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
                 </th>
+                <th [class.active]="order === 'nameUA'" (click)="setOrders('nameUA')">
+                    Name UA <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'description'" (click)="setOrders('description')">
+                    Description <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'weight'" (click)="setOrders('weight')">
+                    Weight <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'price'" (click)="setOrders('price')">
+                    Price <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'image'" (click)="setOrders('image')">
+                    Image <span [hidden]="reverse">▼</span>
+                    <span [hidden]="!reverse">▲</span>
+                </th>
+
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
-
-            <tr *ngFor="let product of adminProducts ; let i=index">
+            <!-- :'case-insensitive' -->
+            <tr *ngFor="let product of adminProducts | orderBy: order:reverse ; let i=index">
                 <td>{{ product.id }}</td>
                 <td>{{ product.category.nameUA }}</td>
                 <td>{{ product.nameEN }}</td>
@@ -131,11 +134,11 @@
                 <label class="custom-file-label" for="image">Choose file...</label>
             </div>
             <div class="progress mb-3 mt-3" *ngIf="!imageStatus">
-                <div [style.width]="(uploadProgress | async) + '%'" class="progress-bar progress-bar-striped bg-warning"
+                <div [style.width]="(uploadProgress | async) + '%'" class="progress-bar progress-bar-striped bg-dark"
                     role="progressbar" aria-valuemin="0" aria-valuemax="100" required></div>
             </div>
-            <div class="productImage mb-3 mt-3" *ngIf="imageStatus">
-                <img [src]="productImage" alt="">
+            <div class=" mb-3 mt-3" *ngIf="imageStatus">
+                <img [src]="productImage"  style="width:465px;"  alt="">
                 <!-- (click)="deleteImage(deleteImageConfirm)" -->
                 <span>
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor"

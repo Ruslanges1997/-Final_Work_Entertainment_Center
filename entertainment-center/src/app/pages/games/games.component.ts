@@ -4,7 +4,6 @@ import { EntertainmentService } from '../../shared/services/entertainment.servic
 import { IEntertainment } from '../../shared/interfaces/entertainment.interface';
 // import { NavigationEnd, Router,Event, ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
@@ -17,9 +16,7 @@ export class GamesComponent implements OnInit {
   constructor(
     // private fireCloud: AngularFirestore,
     private entertainmentService: EntertainmentService
-  ) {
-    console.log(this.entertainmentArr)
-  }
+  ) { }
 
   ngOnInit(): void {
     this.getEntertainment();
@@ -35,7 +32,4 @@ export class GamesComponent implements OnInit {
       })
     })
   }
-
-
-
 }
