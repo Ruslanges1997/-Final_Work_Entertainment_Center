@@ -54,14 +54,12 @@
                             </span>
                         </a>
                     </li>
-
                     <li class=" li_header" routerLinkActive="active_link">
                         <a class="link " [routerLink]="['admin-login']" *ngIf="!loginStatus">
                             <span>
                                 <h3>Exit</h3>
                             </span>
                         </a>
-
                         <a [routerLink]="[ '/'+loginUrl ]" *ngIf="loginStatus">
                             <span>
                                 <h3>{{ loginName|titlecase }}</h3>

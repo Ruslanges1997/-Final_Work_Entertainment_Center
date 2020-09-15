@@ -2,13 +2,14 @@ import { IMenuCategory } from './meny-category.interface';
 
 
 export interface IProduct {
-    id: number;
+    id: number ;
     category: IMenuCategory;
     nameEN: string;
     nameUA: string;
     description: string;
     weight: string;
-    price: number;
+    priceMenu: number;
     image: string;
-    count: number;
+    countMenu: number;
+    totalPrice?: any;
 }

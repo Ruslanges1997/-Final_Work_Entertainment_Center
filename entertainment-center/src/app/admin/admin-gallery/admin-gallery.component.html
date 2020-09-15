@@ -29,11 +29,11 @@
                     ID
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                 </th>
-                <th [class.active]="order === 'imageName'" (click)="setOrder('imageName')">
+                <th [class.active]="order === 'title'" (click)="setOrder('title')">
                     Name image
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                 </th>
-                <th [class.active]="order === 'image'" (click)="setOrder('image')">
+                <th [class.active]="order === 'src'" (click)="setOrder('src')">
                     Image
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
                 </th>
@@ -44,9 +44,9 @@
         <tbody>
             <tr *ngFor="let image of imageArr  | orderBy: order:reverse ;">
                 <td>{{image.id}}</td>
-                <td>{{image.imageName}}</td>
+                <td>{{image.title}}</td>
                 <td>
-                    <img [src]="image.image" style="width: 100px; height: 100px;" alt="">
+                    <img [src]="image.src" style="width: 100px; height: 100px;" alt="">
                 </td>
                 <!-- <td>Edite</td> -->
                 <td>

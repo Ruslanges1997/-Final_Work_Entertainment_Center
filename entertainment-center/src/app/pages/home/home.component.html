@@ -35,10 +35,8 @@
                 А обслоговувати тебе буде наша крута <a [routerLink]="[ '/our-team']">
                     <span> команда . </span> </a>
             </h1>
-
         </div>
     </div>
-
 </section>
 
 <section class="home_section-gallery">
@@ -49,9 +47,9 @@
             </div>
         </ngx-slider> -->
         <ngx-slider [init]="slider">
-            <div ngxSlickItem *ngFor="let item of imageArr" class="slide">
+            <!-- <div ngxSlickItem *ngFor="let item of imageArr" class="slide">
                 <img [src]="item.image" alt="">
-            </div>
+            </div> -->
         </ngx-slider>
     </div>
     <!-- <img src="https://i.picsum.photos/id/{{ slide.src}}/300/200.jpg" alt="" width="100%"> -->

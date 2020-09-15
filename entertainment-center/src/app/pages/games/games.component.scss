@@ -7,6 +7,7 @@
     // background: linear-gradient(90deg, rgba(7, 17, 69, 1) 0%, rgba(26, 58, 80, 1) 50%, rgba(0, 0, 0, 1) 100%);
     // display: flex;
     background-image: url(../../../assets/images/home/fon_home1.jpg);
+    margin-top: 150px;
 }
 
 .element_card {
@@ -51,6 +52,7 @@
 @media screen and (max-width: 1000px) {
     .games_section {
         min-height: 92vh;
+        margin-top: 70px;
     }
     .element_card {
         margin: 10px auto;
@@ -69,6 +71,9 @@
 }
 
 @media screen and (max-width: 500px) {
+    .games_section{
+        margin-top: 0px;
+    }
     .card_game {
         width: 100%;
         margin: 20px 20px;

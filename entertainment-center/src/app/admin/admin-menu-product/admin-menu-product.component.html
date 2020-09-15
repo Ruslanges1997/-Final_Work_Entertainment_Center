@@ -44,7 +44,7 @@
                     Weight <span [hidden]="reverse">▼</span>
                     <span [hidden]="!reverse">▲</span>
                 </th>
-                <th [class.active]="order === 'price'" (click)="setOrders('price')">
+                <th [class.active]="order === 'priceMenu'" (click)="setOrders('priceMenu')">
                     Price <span [hidden]="reverse">▼</span>
                     <span [hidden]="!reverse">▲</span>
                 </th>
@@ -66,7 +66,7 @@
                 <td>{{ product.nameUA }}</td>
                 <td>{{ product.description | slice:0:50 }}</td>
                 <td>{{ product.weight }}</td>
-                <td>{{ product.price }}</td>
+                <td>{{ product.priceMenu }}</td>
                 <td>
                     <img [src]="product.image" style="width: 100px; height: 100px;" alt="">
                 </td>

@@ -1,12 +1,16 @@
 import { IProduct } from './menu-product.interface'
+import { IEntertainment } from './entertainment.interface';
 
 
 
 export interface ICalculator {
     id: number;
-    productOrder: Array<IProduct>;
-    // nameEN: string;
-    // namePeople: string;
-    // price?: number;
-    // countPeople: number;
+    time: string;
+    date: string;
+    countPeoples: number;
+    // calculatorArray: any;
+    // count?: number;
+    productOrder?: Array<IProduct>;
+    entertainmentOrder?: Array<IEntertainment>;
+
 }

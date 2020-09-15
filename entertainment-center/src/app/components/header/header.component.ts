@@ -17,8 +17,12 @@ export class HeaderComponent implements OnInit {
     if (scrollPosition >= 0) {
       this.menuBurgerNav = true;
     }
-
+    if (scrollPosition >= 0) {
+      this.menuBurgerNav = true;
+    }
   }
+
+
 
   loginName: string;
   loginUrl: string;

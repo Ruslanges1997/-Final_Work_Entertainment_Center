@@ -6,5 +6,6 @@ export interface IEntertainment {
     descriptionGame: string;
     timeGame: string;
     priceGame: number;
-    count:number  ;
+    count: number;
+    totalPriceGame?:number;
 }

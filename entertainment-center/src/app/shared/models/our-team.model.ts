@@ -4,8 +4,7 @@ export class OurTeam implements IOurTeam {
     constructor(
                    public id: number,
                    public nameWorker: string,
-                   public  professionWorker: string,
+                   public professionWorker: string,
                    public imageWorker: string,
-               
     ) { }   
 }

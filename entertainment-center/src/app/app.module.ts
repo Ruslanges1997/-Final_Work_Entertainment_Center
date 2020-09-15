@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -36,8 +36,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment.prod';
 
-
-
 import { NgxGoogleMapModule } from 'ngx-google-map'
 import { SliderModule } from 'ngx-slider';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -47,6 +45,19 @@ import { loaderConfig } from './preloader-config';
 import { CounterComponent } from './components/counter/counter.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatBadgeModule } from '@angular/material/badge'
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -72,8 +83,6 @@ import { ProfileComponent } from './pages/profile/profile.component';
     CounterComponent,
     LoginComponent,
     ProfileComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -88,13 +97,23 @@ import { ProfileComponent } from './pages/profile/profile.component';
     // AngularFireAuth,
     ModalModule.forRoot(),
     SliderModule,
-
     NgxGoogleMapModule,
     NgxUiLoaderModule.forRoot(loaderConfig),
     NgxUiLoaderRouterModule,
-
+    NoopAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatTabsModule,
 
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

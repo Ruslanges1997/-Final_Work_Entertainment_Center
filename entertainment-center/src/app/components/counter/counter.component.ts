@@ -16,6 +16,7 @@ export class CounterComponent implements OnInit {
 
   ngOnInit(): void {
     this.product.count = 0
+
   }
 
 
@@ -30,5 +31,8 @@ export class CounterComponent implements OnInit {
     }
     this.changeCount.emit(true);
   }
-  
+
+
+
+
 }

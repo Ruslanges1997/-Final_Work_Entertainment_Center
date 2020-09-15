@@ -5,19 +5,15 @@
         <div class="rowE">
             <div class="card_game" *ngFor="let e of entertainmentArr">
                 <img [src]="e.imageGame">
-
                 <div class="element_card">
                     <h3>{{e.nameGame}}</h3>
                 </div>
-
                 <div class="element_card">
                     <p>Триваліть гри {{e.timeGame }} хв</p>
                 </div>
-
                 <div class="element_card">
                     <a class="" [routerLink]="[ '/games/',e.id]">
                         <button type="button" class="btn_detail">
-
                             Detail
                         </button>
                     </a>

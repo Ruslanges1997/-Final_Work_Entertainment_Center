@@ -35,13 +35,13 @@
     flex-direction: column;
 }
 
-.game_container {
-    min-height: 68vh;
+.game_section {
+    min-height: 85vh;
     width: 100%;
     background-image: url(../../../assets/images/home/fon_home1.jpg);
     align-items: center;
     display: flex;
-
+    margin-top: 150px;
     h1 {
         font-size: 25px;
     }
@@ -63,8 +63,9 @@
         letter-spacing: 2px;
     }
 
-    .game_container {
-        min-height: 73vh;
+    .game_section {
+        min-height: 83vh;
+        margin-top: 70px;
         align-items: center;
         h1 {
             font-size: 20px;
@@ -76,6 +77,9 @@
 }
 
 @media screen and (max-width: 600px) {
+    .game_section{
+        margin-top: 0px;
+    }
     .box_detail {
         display: flex;
         flex-direction: column;

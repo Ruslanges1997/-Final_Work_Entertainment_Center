@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
     this.slider.config.showDots = false;
     this.slider.config.loop = true;
     this.slider.config.showPreview = false;
+    
   }
   // visibility: boolean = true;
   ngOnInit(): void {

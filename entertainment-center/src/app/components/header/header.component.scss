@@ -1,16 +1,19 @@
 @import "../../../stylings/variables";
 
 header {
-    position: sticky;
+    // position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 150px;
     width: 100%;
+
     // background: rgb(44, 23, 23);
     // overflow: hidden;
     z-index: 10;
     background: url(../../../assets/images/home/header_bg.jpg) 100% 67% no-repeat;
+        // background: #0f0e15;
     background-size: cover;
     .menu_burger-btn {
         display: none;
@@ -69,7 +72,7 @@ a:link {
     }
 }
 
-@media screen and (max-width: 1000px)  {
+@media screen and (max-width: 1000px) {
     header {
         height: 70px;
         // position: relative;
@@ -111,9 +114,10 @@ a:link {
     .navbar_nav {
         display: none;
     }
-    .center_navbar{
+    .center_navbar {
         margin: 0px auto;
     }
+  
     .mobileHead {
         height: 350px;
         transition: 1s;
@@ -123,7 +127,7 @@ a:link {
             font-size: 20px;
             margin: 10px 0px;
         }
-        .center_navbar{
+        .center_navbar {
             margin: 0px auto;
         }
         .navbar_nav {
@@ -131,7 +135,6 @@ a:link {
             display: flex;
             flex-direction: column;
             text-align: center;
-          
         }
         .menu_burger-btn {
             margin: 20px auto 10px auto;

@@ -10,7 +10,8 @@ export class Product implements IProduct {
         public nameUA: string,
         public description: string,
         public weight: string,
-        public price: number,
+        public priceMenu: number,
         public image: string,
-        public count: number = 1) { }
+        public countMenu: number = 1,
+        public totalPrice?: any) { }
 }
