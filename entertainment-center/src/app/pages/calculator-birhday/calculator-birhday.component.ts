@@ -120,7 +120,6 @@ export class CalculatorBirhdayComponent implements OnInit {
     this.counterPeopleB = this.counterPeople;
   }
 
-
   private getTotal(): void {
     const localProducts = JSON.parse(localStorage.getItem('myOrder'))
     this.totalPrice = localProducts.reduce((total, menu) => total + (menu.priceMenu * menu.count), 0);
@@ -138,7 +137,6 @@ export class CalculatorBirhdayComponent implements OnInit {
       console.log(this.entertainmentOrders)
     }
   }
-
   addToBasket(product: any): void {
     this.calculatorService.addBasket(product);
     this.getBasket()
