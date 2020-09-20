@@ -9,7 +9,7 @@ export class Entertainment implements IEntertainment {
         public timeGame: string,
         public priceGame: number,
         public count: number = 1,
-        public totalPriceGame?: any,
+        // public totalPriceGame?: number ,
     ) { }
 }
 

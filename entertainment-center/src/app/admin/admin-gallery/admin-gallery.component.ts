@@ -17,7 +17,7 @@ export class AdminGalleryComponent implements OnInit {
   imageStatus: boolean;
   galleryID = 1;
   galleryImage: string;
-
+  searchName:string;
   imageArr: Array<IGallery> = [];
   imageArrSorted: Array<IGallery> = [];
   uploadProgress: Observable<number>;

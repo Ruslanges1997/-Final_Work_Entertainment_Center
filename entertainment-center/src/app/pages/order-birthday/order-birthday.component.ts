@@ -11,5 +11,11 @@ export class OrderBirthdayComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  // btnStandart():void{
+  //   console.log("btnStandart")
+  // }
+  // btnHimself():void{
+  //   console.log("bетHimself")
+  // }
 
 }

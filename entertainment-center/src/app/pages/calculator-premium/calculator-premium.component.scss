@@ -1,0 +1,222 @@
+@import "../../../stylings/variables";
+@import "../../../stylings/mixin";
+
+.calculator_standart_section {
+    background: #e7e7e7;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 85vh;
+    width: 100%;
+    margin-top: 100px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.count_btn-people {
+    border-radius: 20px;
+    color: white;
+    background: $bgColor;
+    outline: none;
+}
+.block_assortment {
+    width: 560px;
+    height: fit-content;
+    margin: 40px 20px 0px 0px;
+    padding: 5px;
+    background: #d6d6d6;
+    box-shadow: 1px 1px 20px 0px black;
+}
+.data-time_block {
+    display: flex;
+    justify-content: space-around;
+}
+.date_text {
+    color: black;
+    text-align: center;
+}
+.margin_content {
+    margin: 10px 0px 0px 20px;
+    align-items: center;
+}
+.time_birhday {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 35px;
+}
+.time_btn {
+    display: block;
+    width: 100%;
+    height: 40px;
+    left: 0;
+    top: 0;
+    outline: 0;
+    border: 0;
+    background-color: $bgColor;
+    border-radius: 20px;
+    span {
+        color: #fff;
+        text-align: center;
+        align-items: center;
+    }
+}
+.time_input {
+    line-height: 30px;
+    border: 2px solid $bgColor;
+    background-color: #fff;
+    max-width: 60%;
+    text-align: center;
+    border-radius: 20px;
+    font-weight: 800;
+}
+
+.count_people {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 200px;
+    height: 60px;
+    color: $bgColor;
+    margin-left: 30%;
+    input {
+        display: none;
+    }
+}
+.info_people_order {
+    display: flex;
+    justify-content: space-evenly;
+}
+.name_and_phone {
+    display: flex;
+    flex-direction: column;
+}
+.input_phone_name {
+    color: black;
+    width: 240px;
+    height: 30px;
+    border-radius: 20px;
+    outline: none;
+    padding: 15px;
+    &:focus {
+        border: 1px solid white;
+    }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    //  display: none;
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.btn_next,
+.btn_add {
+    background-color: #0f0e15;
+    outline: none;
+    color: white;
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    margin: 10px 10px;
+    &:hover {
+        color: #a20e15;
+    }
+}
+
+.order_final {
+    display: flex;
+    flex-direction: column;
+}
+
+.orderBirthday {
+    display: flex;
+    flex-direction: column;
+    background: #d6d6d6;
+    box-shadow: 1px 1px 20px 0px black;
+    padding: 10px 10px;
+    width: 350px;
+    height: 500px;
+    margin-top: 40px;
+    overflow-y: scroll;
+    h1 {
+        text-align: center;
+    }
+    &_last {
+        display: flex;
+        justify-content: space-around;
+        width: 98%;
+        padding: 10px;
+        height: 50px;
+        margin: 10px 0px;
+        background: white;
+        border-radius: 20px;
+        align-items: center;
+    }
+    .order_menu {
+        display: flex;
+
+        margin-left: 0px;
+        input {
+            display: none;
+        }
+    }
+}
+.modal_time {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    padding: 0 0 15px 30px;
+    .li {
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+}
+.time_btn-modal {
+    min-width: 120px;
+    line-height: 40px;
+    min-height: 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #a4a4a4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 10px 10px;
+    .input_time {
+        visibility: hidden;
+        width: 0px;
+        font-weight: bold;
+    }
+}
+.total_card {
+    width: 90%;
+    height: 26%;
+    background-color: lightblue;
+    margin-left: 15px;
+    text-align: center;
+    padding: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.mat-input-element {
+    display: none;
+}
+.total_card_price {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px auto;
+}
+.data-time_block {
+    input:first {
+        width: 0px;
+    }
+}
+.counter_order_final {
+    margin-left: 30px;
+}
+
+.info_birthday-one {
+    margin-left: 20px;
+}
+.margin {
+    margin: 15px 0px;
+}

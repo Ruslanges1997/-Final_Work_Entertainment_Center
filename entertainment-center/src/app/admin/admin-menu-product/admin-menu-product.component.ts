@@ -16,8 +16,6 @@ import { OrderPipe } from 'ngx-order-pipe';
   styleUrls: ['./admin-menu-product.component.scss']
 })
 
-
-
 export class AdminMenuProductComponent implements OnInit {
   uploadProgress: Observable<number>;
   productID = 1;
@@ -41,6 +39,8 @@ export class AdminMenuProductComponent implements OnInit {
     ignoreBackdropClick: true
   };
 
+  searchName: string;
+
   constructor(
     public prodService: MenuProductService,
     private catService: MenuCategoryService,
@@ -49,9 +49,7 @@ export class AdminMenuProductComponent implements OnInit {
     private orderPipe: OrderPipe,
   ) {
     this.adminProductsSorted = orderPipe.transform(this.adminProducts, 'name');
-
   }
-
 
   order: string = 'name';
   reverse: boolean = false;
@@ -92,12 +90,8 @@ export class AdminMenuProductComponent implements OnInit {
     )
   }
 
-  setOrder(): void {
-  }
-
   setCategory(): void {
     this.productCategory = this.categoriesArr.filter(cat => cat.nameEN === this.categoryName)[0];
-
   }
 
   addProductModal(template: TemplateRef<any>): void {
@@ -106,19 +100,44 @@ export class AdminMenuProductComponent implements OnInit {
   }
 
   addProduct(): void {
-    const newProd = new Product(this.productID,
+    const newProd = new Product(
+      this.productID,
       this.productCategory,
       this.productNameEN,
       this.productNameUA,
       this.productDescription,
       this.productWeight,
       this.productPrice,
-      this.productImage);
-    delete newProd.id;
-    this.prodService.postFireCloudProduct({ ...newProd })
-      .then(messege => console.log(messege))
-      .catch(err => console.log(err))
+      this.productImage,
+    );
+    if (!this.editStatus) {
+      delete newProd.id;
+      this.prodService.postFireCloudProduct({ ...newProd })
+        .then(messege => console.log(messege))
+        .catch(err => console.log(err))
+    }
+    else {
+      this.prodService.updateFireCloudProduct({ ...newProd })
+        .then(message => console.log(message))
+        .catch(err => console.log(err));
+      this.editStatus = false;
+    }
+    this.closeModal();
+  }
 
+  editProduct(template: TemplateRef<any>, prod: IProduct): void {
+    this.modalRef = this.modalService.show(template, this.modalRefconfig);
+    this.productID = prod.id;
+    this.productCategory = this.categoriesArr.filter(categ => categ.nameEN === prod.category.nameEN)[0];
+    this.categoryName = this.productCategory.nameEN;
+    this.productNameEN = prod.nameEN;
+    this.productNameUA = prod.nameUA;
+    this.productDescription = prod.description;
+    this.productWeight = prod.weight;
+    this.productPrice = prod.priceMenu;
+    this.productImage = prod.image;
+    this.imageStatus = true;
+    this.editStatus = true;
   }
 
   uploadFile(event): void {
@@ -135,25 +154,45 @@ export class AdminMenuProductComponent implements OnInit {
         console.log(image.metadata.name)
       })
     })
-
   }
 
   closeModal(): void {
     this.modalRef.hide();
+    this.resertFormGame();
   }
 
-  editProduct(): void {
-
+  private resertFormGame(): void {
+    this.productCategory = this.categoriesArr[0];
+    this.productNameEN = "";
+    this.productNameUA = "";
+    this.productDescription = "";
+    this.productWeight = "";
+    this.productPrice = null;
+    this.imageStatus = false;
+    this.editStatus = false;
   }
-  deleteProduct(): void {
 
+  deleteProduct(product: IProduct): void {
+    if (confirm('Are you sure')) {
+      this.afStorage.storage.refFromURL(this.productImage).delete();
+      this.prodService.deleteFireCloudProduct(product.id.toString())
+        .then(message => console.log(message))
+        .catch(err => console.log(err));
+    }
   }
 
+  declineImage(): void {
+    this.modalRef.hide();
+  }
 
+  deleteImage(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template, { class: 'modal-md' });
+  }
 
-
-
-
-
+  confirmImage(): void {
+    this.afStorage.storage.refFromURL(this.productImage).delete();
+    // this.imageStatus = false;
+    this.closeModal();
+  }
 
 }

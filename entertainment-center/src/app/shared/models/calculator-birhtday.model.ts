@@ -11,8 +11,13 @@ export class Calculator implements ICalculator {
         public countPeoples: number,
         // public calculatorArray: any,
         // public count?: number,
+        public namePeople: string,
+        public phone: number,
+        public priceGame?: number,
+        public priceMenu?: number,
+        public allPrice?: number,
         public productOrder?: Array<IProduct>,
         public entertainmentOrder?: Array<IEntertainment>,
-
+        public packageName?: string,
     ) { }
 }

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -27,7 +26,8 @@ import { GamesComponent } from './pages/games/games.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { OurTeamComponent } from './pages/our-team/our-team.component';
 import { CalculatorBirhdayComponent } from './pages/calculator-birhday/calculator-birhday.component'
-
+import { CalculatorStandartComponent } from './pages/calculator-standart/calculator-standart.component';
+import { CalculatorPremiumComponent } from './pages/calculator-premium/calculator-premium.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -58,6 +58,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
+import { SearchPipe } from './shared/pipes/search.pipe';
+import { SearchWorkerPipe } from './shared/pipes/search-worker.pipe';
+import { SearchNameGamePipe } from './shared/pipes/search-name-game.pipe';
+
+
 
 @NgModule({
   declarations: [
@@ -80,9 +85,14 @@ import { MatTabsModule } from '@angular/material/tabs';
     AdminOurTeamComponent,
     AdminGalleryComponent,
     CalculatorBirhdayComponent,
+    CalculatorStandartComponent,
     CounterComponent,
     LoginComponent,
     ProfileComponent,
+    CalculatorPremiumComponent,
+    SearchPipe,
+    SearchWorkerPipe,
+    SearchNameGamePipe,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +100,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     FormsModule,
     HttpClientModule,
     OrderModule,
+
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -111,7 +122,6 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatIconModule,
     MatInputModule,
     MatTabsModule,
-
   ],
 
   providers: [],

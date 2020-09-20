@@ -2,10 +2,10 @@
 @import "../../../stylings/mixin";
 .home_section-info {
     background-image: url(../../../assets/images/home/fon_home1.jpg);
-    height: 85vh;
+    height: 90vh;
     @include positionSectionHome(cover, fixed, no-repeat);
     // @include flexbox(column, nowrap, center, center);
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .home_info {
@@ -52,7 +52,7 @@
 
 .home_section-gallery {
     background: url(../../../assets/images/home/fon_galary.jpg);
-    height: 85vh;
+    height: 90vh;
 
     @include positionSectionHome(cover, fixed, no-repeat);
     .home_slider {
@@ -69,13 +69,13 @@
 }
 
 .home_section-map {
-    height: 70vh;
+    height: 75vh;
     position: relative;
 }
 
 .map {
     width: 100%;
-    height: 70vh;
+    height: 75vh;
 }
 
 // .fa-circle::before {

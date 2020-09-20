@@ -2,24 +2,28 @@
 @import "../../../stylings/mixin";
 
 .calculator_section {
-    // background: url(../../../assets/images/home/djedai1.jpg);
-    background: #f7f7f7;
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background: #e7e7e7;
+    // background-repeat: no-repeat;
+    // background-size: cover;
     min-height: 85vh;
     width: 100%;
-    margin-top: 150px;
-    // font-family: "Volkon-Bold";
+    margin-top: 100px;
     font-size: 15px;
-    font-weight: bold;
+    background: rgb(250 250 250 / 57%);
+    font-weight: 600;
+}
+
+.margin {
+    margin: 15px 0px;
+}
+
+.time_form {
+    margin-top: 30px;
 }
 
 .calculator_block {
-    margin-top: 20px;
     padding: 10px;
-    min-height: 500px;
     width: 100%;
-    // background: lightblue;
     display: flex;
     margin: 5% 0px;
 }
@@ -28,9 +32,13 @@
     width: 560px;
     height: fit-content;
     margin: 0px 20px 0px 0px;
-    background: lightblue;
     padding: 5px;
+    box-shadow: 20px 20px 15px rgba(39, 49, 67, 0.12);
+    border: 1px solid #eeeff0;
+    background: white;
+    // box-shadow: 1px 1px 20px 0px black;
 }
+
 .time_birhday {
     width: 300px;
     display: flex;
@@ -51,7 +59,6 @@
     border-radius: 20px;
     span {
         color: #fff;
-        // font-size: 15px;
         text-align: center;
         align-items: center;
     }
@@ -71,7 +78,6 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-
     padding: 0 0 15px 30px;
     .li {
         margin-right: 20px;
@@ -84,17 +90,11 @@
     line-height: 40px;
     min-height: 40px;
     text-align: center;
-    // font-size: 14px;
     background: #fff;
     border: 1px solid #a4a4a4;
     box-sizing: border-box;
     border-radius: 10px;
     margin: 10px 10px;
-    .input_time {
-        visibility: hidden;
-        width: 0px;
-        font-weight: bold;
-    }
 }
 .margin_content {
     margin: 10px 0px 0px 20px;
@@ -108,6 +108,7 @@
     width: 200px;
     height: 60px;
     color: $bgColor;
+    margin-left: 30%;
     input {
         display: none;
     }
@@ -118,7 +119,6 @@
     flex-direction: row;
     justify-content: space-around;
     color: $bgColor;
-    // font-size: 20px;
     button {
         background: $bgColor;
         width: 100px;
@@ -157,48 +157,63 @@
 .orderBirthday {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    background: lightblue;
-    padding: 10px 10px ;
+    background: white;
+    box-shadow: 20px 20px 15px rgba(39, 49, 67, 0.12);
+    padding: 10px 10px;
     width: 350px;
-    height: 100%;
-
+    height: 500px;
+    overflow-y: scroll;
     h1 {
         text-align: center;
     }
     &_last {
         display: flex;
         justify-content: space-around;
-        width: 95%;
+        width: 98%;
         padding: 10px;
         height: 50px;
         margin: 10px 0px;
-        background: #f7f7f7;
+        background: white;
         border-radius: 20px;
         align-items: center;
     }
-    .order_menu{
+    .order_menu {
         display: flex;
+        margin-left: 0px;
+        input {
+            display: none;
+        }
     }
 }
 
+.counter_order_final {
+    margin-left: 30px;
+}
+
 .birthday_menu {
-    width: 95%;
+    width: 99%;
     height: 100px;
     background-color: white;
     border-radius: 20px;
     overflow: hidden;
+    margin-left: 3px;
 }
 .count_menu-prod {
+    background: rgb(234 235 236 / 36%);
     img {
         width: 100px;
         height: 100px;
-        border-radius: 20px;
-        margin-top: -5px;
+        // border-radius: 20px;
+        // margin-top: -5px;
     }
     margin-left: -10px;
 }
-
+.delateProduct {
+    cursor: pointer;
+    &:hover {
+        color: red;
+    }
+}
 .add-Product_Btn {
     color: white;
     background: #0f0e15;
@@ -219,6 +234,101 @@
     border-radius: 20px;
     width: 100px;
     height: 40px;
-    margin: 10px 10px ;
+    margin: 10px 10px;
+    &:hover {
+        color: #a20e15;
+    }
+}
+.btn_next {
+    float: right;
+}
+.none {
+    display: none;
+}
+.block {
+    display: block;
+}
+.title_order {
+    text-align: center;
+}
+.order_final {
+    display: flex;
+    flex-direction: column;
+}
 
+.active_link_menu {
+    button {
+        background: #cfa671;
+        color: #fff;
+    }
+}
+
+.order_progress_bar {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px auto;
+}
+
+.active {
+    color: #a20e15;
+}
+
+.date_text {
+    color: black;
+    text-align: center;
+}
+
+.info_people_order {
+    display: flex;
+    justify-content: space-evenly;
+}
+.name_and_phone {
+    display: flex;
+    flex-direction: column;
+}
+.label_order {
+    margin-bottom: 5px;
+    text-align: center;
+}
+.input_phone_name {
+    color: black;
+    width: 240px;
+    height: 30px;
+    border-radius: 20px;
+    outline: none;
+    padding: 15px;
+    &:focus {
+        border: 3px solid lightblue;
+    }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.btn_menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total_card {
+    width: 90%;
+    height: 26%;
+    background-color: lightblue;
+    margin-left: 15px;
+    text-align: center;
+    padding: 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.total_card_price {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px auto;
+}
+
+.boundary_line {
+    border: 1px solid rgb(15 14 21 / 54%);
+    width: 90%;
+    margin: 0px auto;
 }

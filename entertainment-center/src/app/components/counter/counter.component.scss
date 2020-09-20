@@ -1,13 +1,14 @@
 @import "../../../stylings/variables";
 .count_number {
-    width: 25px;
+    width: 0px;
     background: inherit;
-    margin: 5px 5px;
+    // margin: 5px 5px;
     text-align: center;
     color: red;
     outline: none;
     border: none;
-    font-size: 20px;
+    // font-size: 20px;
+    visibility: hidden;
     -webkit-appearance: none;
 }
 
@@ -16,6 +17,7 @@
     color: white;
     background: $bgColor;
     outline: none;
+  
 }
 
 input::-webkit-outer-spin-button,

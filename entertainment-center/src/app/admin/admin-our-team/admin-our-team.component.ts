@@ -23,7 +23,7 @@ export class AdminOurTeamComponent implements OnInit {
   ourTeamAdmin: Array<OurTeam> = [];
   ourTeamAdminSorter: Array<OurTeam> = [];
   uploadProgress: Observable<number>;
-
+  searchName:string;
   modalRef: BsModalRef;
   modalRefconfig = {
     backdrop: true,

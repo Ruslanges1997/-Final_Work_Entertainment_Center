@@ -1,69 +1,19 @@
-<p>admin-entertainment works!</p>
 
-<!-- <button type="button" [disabled]="discountForm.invalid" class="btn btn-dark mt-3" (click)="addDiscount()"
-[textContent]="!editStatus ? 'Add' : 'Update'"></button> -->
-
-<!-- <button type="button" class="" (click)="addEntertainment()" [textContent]=" 'Add' "></button> -->
-
-<ng-template #addGameModals>
-    <div class="modal-header">
-        <h4 class="modal-title pull-left">Entertainment model</h4>
-        <button type="button" class="close pull-right" (click)="closeModal()" aria-label="Close">
-
-            <span aria-hidden="true">&times;</span>
-        </button>
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <div>
+            <h5>Entertaiment</h5>
+        </div>
+        <div>
+            <button type="button" class="btn  btn-dark" (click)="openGameModals(addGameModals) ">Add Game</button>
+        </div>
     </div>
-    <div class="modal-body">
-        <form #entertainmentForm="ngForm">
-            <div class="form-group">
-                <label for="eNameGame">Name game: </label>
-                <input [(ngModel)]="eNameGame" name="eNameGame" type="text" class="form-control" id="eNameGame"
-                    required>
-            </div>
 
-            <div class="form-group">
-                <label for="eDescriptionGame"> Description Game: </label>
-                <textarea [(ngModel)]="eDescriptionGame" name="eDescriptionGame" class="form-control"
-                    style="height: 200px;" id="eDescriptionGame" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="eTimeGame"> Time Game: </label>
-                <input [(ngModel)]="eTimeGame" name="eTimeGame" type="text" class="form-control" id="eTimeGame"
-                    required>
-            </div>
-
-            <div class="form-group">
-                <label for="ePriceGame"> Price Game: </label>
-                <input [(ngModel)]="ePriceGame" name="ePriceGame" type="number" class="form-control" id="ePriceGame"
-                    required>
-            </div>
-
-
-            <div class="custom-file" *ngIf="!imageStatus">
-                <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="eImageGame" required>
-                <label class="custom-file-label" for="eImageGame">Choose file...</label>
-            </div>
-
-            <div class="progress mb-3 mt-3" *ngIf="!imageStatus">
-                <div [style.width]="(uploadProgress | async) + '%'" class="progress-bar progress-bar-striped bg-dark"
-                    role="progressbar" aria-valuemin="0" aria-valuemax="100" required>
-                </div>
-            </div>
-
-            <div class="productImage mb-3 mt-3" *ngIf="imageStatus">
-                <img [src]="eImageGame" class="entertainmentImage" alt="">
-            </div>
-
-            <button type="button" [disabled]="entertainmentForm.invalid" class="btn btn-dark mt-3"
-                (click)="addOrUpdateEntertainment()" [textContent]="!editStatus ? 'Add' : 'Update'">
-            </button>
-
-        </form>
-
+    <div class="form-group ">
+        <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control searchName"
+            placeholder="Filter category name game">
     </div>
-</ng-template>
-<button type="button" class="btn  btn-dark" (click)="openGameModals(addGameModals) ">Add Category</button>
-<div class="">
+
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
@@ -94,14 +44,14 @@
                     Price Game<span [hidden]="reverse">▼</span>
                     <span [hidden]="!reverse">▲</span>
                 </th>
-
                 <th>Edite</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <!-- :'case-insensitive' -->
-            <tr *ngFor="let game of adminEntertainment | orderBy: order:reverse; let i=index">
+            <tr
+                *ngFor="let game of adminEntertainment | searchNameGame:searchName | orderBy: order:reverse; let i=index">
                 <td>{{ game.id}}</td>
                 <td><img [src]="game.imageGame" alt="" class="image_tabel"></td>
                 <td>{{ game.nameGame }}</td>
@@ -118,3 +68,51 @@
             </tr>
     </table>
 </div>
+
+<ng-template #addGameModals>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Entertainment model</h4>
+        <button type="button" class="close pull-right" (click)="closeModal()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #entertainmentForm="ngForm">
+            <div class="form-group">
+                <label for="eNameGame" class="form-group ">Name game: </label>
+                <input [(ngModel)]="eNameGame" name="eNameGame" type="text" class="form-control" id="eNameGame"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="eDescriptionGame" class="form-group "> Description Game: </label>
+                <textarea [(ngModel)]="eDescriptionGame" name="eDescriptionGame" class="form-control"
+                    style="height: 200px;" id="eDescriptionGame" required></textarea>
+            </div>
+            <div class="form-group" class="form-group ">
+                <label for="eTimeGame" class="form-group "> Time Game: </label>
+                <input [(ngModel)]="eTimeGame" name="eTimeGame" type="text" class="form-control" id="eTimeGame"
+                    required>
+            </div>
+            <div class="form-group" class="form-group ">
+                <label for="ePriceGame" class="form-group "> Price Game: </label>
+                <input [(ngModel)]="ePriceGame" name="ePriceGame" type="number" class="form-control" id="ePriceGame"
+                    required>
+            </div>
+            <div class="custom-file" *ngIf="!imageStatus">
+                <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="eImageGame" required>
+                <label class="custom-file-label" for="eImageGame">Choose file...</label>
+            </div>
+            <div class="progress mb-3 mt-3" *ngIf="!imageStatus">
+                <div [style.width]="(uploadProgress | async) + '%'" class="progress-bar progress-bar-striped bg-dark"
+                    role="progressbar" aria-valuemin="0" aria-valuemax="100" required>
+                </div>
+            </div>
+            <div class="productImage mb-3 mt-3" *ngIf="imageStatus">
+                <img [src]="eImageGame" class="entertainmentImage" alt="">
+            </div>
+            <button type="button" [disabled]="entertainmentForm.invalid" class="btn btn-dark mt-3"
+                (click)="addOrUpdateEntertainment()" [textContent]="!editStatus ? 'Add' : 'Update'">
+            </button>
+        </form>
+    </div>
+</ng-template>

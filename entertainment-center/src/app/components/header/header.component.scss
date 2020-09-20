@@ -6,14 +6,13 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    height: 150px;
+    height: 100px;
     width: 100%;
-
     // background: rgb(44, 23, 23);
     // overflow: hidden;
     z-index: 10;
-    background: url(../../../assets/images/home/header_bg.jpg) 100% 67% no-repeat;
-        // background: #0f0e15;
+    // background: url(../../../assets/images/home/header_bg.jpg) 100% 67% no-repeat;
+    background: currentColor;
     background-size: cover;
     .menu_burger-btn {
         display: none;

@@ -1,12 +1,3 @@
-<!-- <p>admin-entertainment works!</p> -->
-
-<!-- <button type="button" [disabled]="discountForm.invalid" class="btn btn-dark mt-3" (click)="addDiscount()"
-[textContent]="!editStatus ? 'Add' : 'Update'"></button> -->
-
-<!-- <button type="button" class="" (click)="addEntertainment()" [textContent]=" 'Add' "></button> -->
-
-
-<!-- <button type="button" class="btn  btn-dark" (click)="openTeamModal(ourTeamModal) ">Add worker</button> -->
 <div class="card">
     <div class="card-header d-flex justify-content-between ">
         <div>
@@ -16,13 +7,9 @@
             <button type="button" class="btn  btn-dark" (click)="openTeamModal(ourTeamModal) ">Add worker</button>
         </div>
     </div>
-
-
-    <!-- <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control" placeholder="filter Name En "> -->
-    <input type="search" name="searchName" class="searchName" placeholder="filter profesion ">
-
-
-
+    <input type="search" [(ngModel)]="searchName" name="searchName" id="searchName" class="form-control searchName"
+        placeholder="filter profession">
+    <!-- <input type="search" name="searchName" class="searchName" placeholder="filter profesion "> -->
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
@@ -50,7 +37,7 @@
         </thead>
         <tbody>
             <!-- :'case-insensitive' -->
-            <tr *ngFor="let worker of ourTeamAdmin | orderBy: order:reverse; let i=index">
+            <tr *ngFor="let worker of ourTeamAdmin | searchWorker:searchName  | orderBy: order:reverse; let i=index">
                 <td>{{ worker.id}}</td>
                 <td>{{ worker.nameWorker }}</td>
                 <td>{{ worker.professionWorker }}</td>
@@ -66,7 +53,6 @@
                 </td>
             </tr>
     </table>
-
 </div>
 
 <ng-template #ourTeamModal>

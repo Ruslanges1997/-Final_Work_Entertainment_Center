@@ -8,9 +8,9 @@ describe('AdminCategoryMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminCategoryMenuComponent ]
+      declarations: [AdminCategoryMenuComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

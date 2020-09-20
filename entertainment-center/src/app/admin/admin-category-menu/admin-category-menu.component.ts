@@ -31,7 +31,7 @@ export class AdminCategoryMenuComponent implements OnInit {
     backdrop: true,
     ignoreBackdropClick: true
   };
-  
+  searchName:string;
   order: string = 'name';
   reverse: boolean = false;
   setOrder(value: string) {

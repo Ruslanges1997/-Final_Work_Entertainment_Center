@@ -22,8 +22,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-
-
   loginName: string;
   loginUrl: string;
   mobileHhead: boolean;

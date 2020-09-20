@@ -8,9 +8,14 @@ export interface ICalculator {
     time: string;
     date: string;
     countPeoples: number;
+    namePeople: string;
+    phone: number;
+    priceGame?: number;
+    priceMenu?: number;
+    allPrice?: number;
     // calculatorArray: any;
     // count?: number;
     productOrder?: Array<IProduct>;
     entertainmentOrder?: Array<IEntertainment>;
-
+    packageName?: string;
 }

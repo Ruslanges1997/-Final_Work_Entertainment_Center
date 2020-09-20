@@ -9,20 +9,14 @@
         </div>
     </div>
 
-    <div class="form-group searchName">
-        <!-- <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control"
-            placeholder="filter category Name EN"> -->
+    <div class="form-group ">
+        <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control searchName"
+            placeholder="filter category Name EN">
     </div>
 
     <table class="table table-hover  table-bordered">
-
         <thead>
             <tr>
-                <!-- <th>ID</th> -->
-                <!-- <th>nameEN</th> -->
-                <!-- <th>nameUA</th> -->
-                <!-- <th>Edite</th> -->
-                <!-- <th>Delete</th> -->
                 <th [class.active]="order === 'id'" (click)="setOrder('id')">
                     ID
                     <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
@@ -41,7 +35,8 @@
 
         <tbody>
             <!-- :'case-insensitive' -->
-            <tr *ngFor="let category of menuCategoryAdminArr| orderBy: order:reverse; let i=index">
+            <tr
+                *ngFor="let category of menuCategoryAdminArr | search:searchName | orderBy: order:reverse; let i=index">
                 <td>{{category.id}}</td>
                 <td>{{category.nameEN}}</td>
                 <td>{{category.nameUA}}</td>

@@ -2,7 +2,7 @@ import { IMenuCategory } from './meny-category.interface';
 
 
 export interface IProduct {
-    id: number ;
+    id: number;
     category: IMenuCategory;
     nameEN: string;
     nameUA: string;
@@ -11,5 +11,6 @@ export interface IProduct {
     priceMenu: number;
     image: string;
     countMenu: number;
-    totalPrice?: any;
+    count: any;
+      // totalPrice?: any;
 }

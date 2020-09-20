@@ -30,5 +30,5 @@ export class EntertainmentService {
     return this.fireCloud.collection('entertainment').doc(game.id.toString()).update(game);
   }
 
-  
+
 }

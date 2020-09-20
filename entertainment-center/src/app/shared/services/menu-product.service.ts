@@ -19,5 +19,12 @@ export class MenuProductService {
   postFireCloudProduct(mProduct: IProduct): Promise<DocumentReference> {
     return this.fireCloud.collection('menu-product').add(mProduct)
   }
+  
+  updateFireCloudProduct(mProduct: IProduct): Promise<void> {
+    return this.fireCloud.collection('menu-product').doc(mProduct.id.toString()).update(mProduct);
+  }
 
+  deleteFireCloudProduct(id: string): Promise<void> {
+    return this.fireCloud.collection('menu-product').doc(id).delete();
+  }
 }

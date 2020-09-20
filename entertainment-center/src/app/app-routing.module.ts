@@ -17,6 +17,8 @@ import { AdminMenuProductComponent } from './admin/admin-menu-product/admin-menu
 import { AdminOurTeamComponent } from './admin/admin-our-team/admin-our-team.component';
 import { AdminGalleryComponent } from './admin/admin-gallery/admin-gallery.component';
 import { CalculatorBirhdayComponent } from './pages/calculator-birhday/calculator-birhday.component'
+import { CalculatorStandartComponent } from './pages/calculator-standart/calculator-standart.component';
+import { CalculatorPremiumComponent } from './pages/calculator-premium/calculator-premium.component';
 // import { MenuComponentDetail } from './pages/menu-details/menu-details.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -30,10 +32,14 @@ const routes: Routes = [
   { path: 'order-birthday', component: OrderBirthdayComponent },
   { path: 'calculator-birthday', component: CalculatorBirhdayComponent },
   { path: 'calculator-birthday/:category', component: CalculatorBirhdayComponent },
+  { path: 'calculator-standart', component: CalculatorStandartComponent },
+  { path: 'calculator-premium', component: CalculatorPremiumComponent },
+
+
+  // { path: 'calculator-standart/:category', component: CalculatorStandartComponent },
   // { path: 'menu', component: MenuComponent },
   // { path: 'menu/:id', component: MenuComponent },
   { path: 'menu/:category', component: MenuComponent },
-
   { path: 'our-team', component: OurTeamComponent },
   { path: 'admin-login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },

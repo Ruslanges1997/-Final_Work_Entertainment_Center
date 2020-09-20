@@ -10,15 +10,15 @@
         </div>
     </div>
 
-    <div class="form-group" class="searchName">
-        <!-- <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control" placeholder="filter Name En "> -->
+    <div class="form-group" >
+        <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control searchName"
+            placeholder="filter Name En ">
     </div>
 
     <table class="table table-hover  table-bordered">
         <thead>
             <tr>
                 <!-- [class.active]="order === 'id'"  (click)="setOrder('id')"-->
-
                 <th [class.active]="order === 'id'" (click)="setOrders('id')">
                     ID <span [hidden]="reverse">▼</span>
                     <span [hidden]="!reverse">▲</span>
@@ -58,8 +58,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- :'case-insensitive' -->
-            <tr *ngFor="let product of adminProducts | orderBy: order:reverse ; let i=index">
+            <tr *ngFor="let product of adminProducts | search:searchName | orderBy: order:reverse ; let i=index">
                 <td>{{ product.id }}</td>
                 <td>{{ product.category.nameUA }}</td>
                 <td>{{ product.nameEN }}</td>
@@ -71,17 +70,15 @@
                     <img [src]="product.image" style="width: 100px; height: 100px;" alt="">
                 </td>
                 <td>
-                    <!-- (click)="editProduct(ProductModals, product)" -->
-                    <input type="button" value="edit" class="btn btn-warning">
+                    <input type="button" value="Edit" (click)="editProduct(ProductModals, product)"
+                        class="btn btn-warning">
                 </td>
                 <td>
-                    <!-- (click)="deleteProduct(product)"  -->
-                    <input type="button" value="delete" class="btn btn-danger">
+                    <input type="button" value="Delete" (click)="deleteProduct(product)" class="btn btn-danger">
                 </td>
             </tr>
         </tbody>
     </table>
-
 </div>
 <ng-template #ProductModals>
     <div class="modal-header">
@@ -138,9 +135,9 @@
                     role="progressbar" aria-valuemin="0" aria-valuemax="100" required></div>
             </div>
             <div class=" mb-3 mt-3" *ngIf="imageStatus">
-                <img [src]="productImage"  style="width:465px;"  alt="">
+                <img [src]="productImage" style="width: 260px; height: 160px;" alt="">
                 <!-- (click)="deleteImage(deleteImageConfirm)" -->
-                <span>
+                <span (click)="deleteImage(deleteImageConfirm)">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -152,20 +149,16 @@
             </div>
             <!-- [disabled]="disabledBtn"  -->
             <button type="button" class="btn btn-dark mt-3" [disabled]="productForm.invalid" (click)="addProduct()"
-                [textContent]="!editStatus ? 'Add' : 'Update'"></button>
+                [textContent]="!editStatus ? 'Add' : 'Update'">
+            </button>
         </form>
     </div>
 </ng-template>
 
-
-
-
-
-<!--   
-  <ng-template #deleteImageConfirm>
+<ng-template #deleteImageConfirm>
     <div class="modal-body text-center">
-      <p>Do you want to confirm?</p>
-      <button type="button" class="btn btn-default" (click)="confirmImage()">Yes</button>
-      <button type="button" class="btn btn-primary" (click)="declineImage()">No</button>
+        <p>Do you want to confirm?</p>
+        <button type="button" class="btn btn-default" (click)="confirmImage()">Yes</button>
+        <button type="button" class="btn btn-primary" (click)="declineImage()">No</button>
     </div>
-  </ng-template> -->
+</ng-template>

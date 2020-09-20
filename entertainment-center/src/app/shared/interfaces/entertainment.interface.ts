@@ -7,5 +7,5 @@ export interface IEntertainment {
     timeGame: string;
     priceGame: number;
     count: number;
-    totalPriceGame?:number;
+    // totalPriceGame?:number;
 }
