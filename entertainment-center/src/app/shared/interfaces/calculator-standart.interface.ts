@@ -10,7 +10,9 @@ export interface ICalculatorStandart {
     countPeoples: number;
     namePeople: string,
     phone: number;
-    priceStandart?: number;
+    allPrice?: number;
     entertainmentOrder?: Array<IEntertainment>;
     packageName?: string ;
+    statusOrder: string;
+    email?:any;
 }

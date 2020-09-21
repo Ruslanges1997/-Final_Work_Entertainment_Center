@@ -10,8 +10,8 @@
                         <li [ngClass]="{'active': menuActive === true || gameAcive === true}">Меню</li>
                         <li [ngClass]="{'active': gameAcive === true}">Розваги</li>
                     </ul>
-                    <!-- #timeDateForm="ngForm"  -->
-                    <form *ngIf="!switch ">
+                    <!--  -->
+                    <form *ngIf="!switch " #timeDateForm="ngForm">
                         <div *ngIf="!switchTwo">
                             <!-- <h1 class="title_order">Час і Дата</h1> -->
                             <div class="data-time_block ">
@@ -73,8 +73,8 @@
                                         [(ngModel)]="phoneNumber" placeholder="Введіть номер" required>
                                 </div>
                             </div>
-                            <button (click)="next() " class="btn_next">Меню</button>
-                            <!-- [disabled]="timeDateForm.invalid" -->
+                            <button (click)="next()" [disabled]="timeDateForm.invalid" class="btn_next">Меню</button>
+                            <!--  -->
                         </div>
                     </form>
 
@@ -139,7 +139,6 @@
                     </form>
 
                     <div *ngIf="switchTwo">
-                        <!-- <h1 class="title_order">Розваги</h1> -->
                         <div *ngFor="let games of entertainmentArr" class="birthday_menu  margin_content ">
                             <ul class="count_menu-prod ">
                                 <li>
@@ -244,7 +243,7 @@
                         </div>
                         <div class="total_card_price">
                             <h4>Ціна за ігри</h4>
-                            <p>{{totalPriceEntertainment * counterPeople}} грн</p>
+                            <p>{{PriceEntertainment * counterPeople}} грн</p>
                         </div>
                         <div class="total_card_price">
                             <h4> Загальна cума </h4>

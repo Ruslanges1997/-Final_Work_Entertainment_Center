@@ -23,7 +23,7 @@ export class CounterComponent implements OnInit {
       this.product.count++;
     }
     else {
-      if (this.product.count > 0) {
+      if (this.product.count > 1) {
         this.product.count--;
       }
     }

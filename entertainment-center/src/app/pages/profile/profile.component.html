@@ -1,18 +1,25 @@
 <section class="profile_section">
-
-    <div class="container ">
-        <div class="">
-            <div>
-                <h3>Hello {{ firstName |titlecase}} {{ lastName |titlecase}}</h3>
+    <div class="containerE ">
+        <div class="rowE">
+            <div class="block_profile">
+                <div>
+                    <h3>Hello {{ firstName |titlecase}} {{ lastName |titlecase}}</h3>
+                </div>
+                <div>
+                    <h3>Email: {{ userEmail }}</h3>
+                </div>
+                <!-- <div *ngFor="let item of orderProfileAray ; let i =index"> -->
+                <!-- </div> -->
+                <div>
+                    Дата святкування <p>{{date| slice:0:15}}</p>
+                    <h4>Ваше свято починається {{time}}</h4>
+                    <p>ви обрали {{packageName}}</p>
+                    <p>кількість гостей {{countPeoples}}</p>
+                    <p>ціна за паккет{{allPrice}} грн</p>
+                    <p>Стус вашого замовлення {{statusOrder}}</p>
+                </div>
+                <button type="button" class="btn_primary" (click)="signOut()">Sign Out</button>
             </div>
-
-            <div>
-                <h3>Email: {{ userEmail }}</h3>
-            </div>
-
-
-            <button type="button" class="btn_primary" (click)="signOut()">Sign Out</button>
         </div>
-
     </div>
 </section>

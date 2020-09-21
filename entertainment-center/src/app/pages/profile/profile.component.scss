@@ -1,14 +1,19 @@
 .profile_section {
     // background-color: #9E91F2;
-    background-image: url(../../../assets/images/fon_register.jpg);
+    // background-image: url(../../../assets/images/fon_register.jpg);
+    background: #000;
     width: 100%;
-    min-height: 85vh;
+    min-height: 84vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-transform: uppercase;
     padding-right: 10px;
     color: #ffffff;
+}
+
+.block_profile{
+    margin-top: 150px;
 }
 
 .btn_primary {

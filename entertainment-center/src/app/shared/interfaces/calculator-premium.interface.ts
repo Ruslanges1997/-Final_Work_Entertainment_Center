@@ -8,9 +8,11 @@ export interface ICalculatorPremium {
     countPeoples: number;
     namePeople: string,
     phone: number;
-    pricePremium: number;
+    allPrice: number;
     entertainmentOrder?: Array<IEntertainment>;
     prodPizza?: Array<IProduct>;
     prodJuice?: Array<IProduct>;
     packageName?: string;
+    counterJuice?: number;
+    statusOrder: string;
 }

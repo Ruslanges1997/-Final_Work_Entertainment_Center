@@ -139,6 +139,8 @@ export class CalculatorBirhdayComponent implements OnInit {
     this.modalRef.hide();
   }
 
+
+
   disBtnCounPeople: boolean = false;
   countPeople(status: boolean): void {
     if (status && this.counterPeople <= 13) {
@@ -163,23 +165,31 @@ export class CalculatorBirhdayComponent implements OnInit {
     this.totalAll();
   }
 
-  totalPriceEntertainment = 0;
+  PriceEntertainment = 0;
   private getTotalEntertainment(): void {
     const localProdGame = JSON.parse(localStorage.getItem('myEntertainment'))
-    this.totalPriceEntertainment = localProdGame.reduce((total, game) => total + (game.priceGame * game.count), 0);
+    this.PriceEntertainment = localProdGame.reduce((total, game) => total + (game.priceGame * game.count), 0);
     this.totalAll();
+  }
+
+  priceGamesTotal = 0;
+  private getTotalpriceGams(): void {
+    // const localProdGame = JSON.parse(localStorage.getItem('myEntertainment'))
+    this.priceGamesTotal = this.PriceEntertainment * this.counterPeople;
+    // console.log(this.priceGamesTotal);
+    // this.totalAll();
   }
 
   totalAllPrice = 0;
   private totalAll(): void {
-    this.totalAllPrice = this.totalPriceProd + (this.totalPriceEntertainment * this.counterPeople)
+    this.totalAllPrice = this.totalPriceProd + (this.PriceEntertainment * this.counterPeople)
   }
 
   private getBasketProduct(): void {
     if (localStorage.getItem('myOrder')) {
       this.productOrders = JSON.parse(localStorage.getItem('myOrder'));
       this.getTotalProduct();
-      console.log(this.productOrders)
+      // console.log(this.productOrders)
       // this.updateBasket();
     }
   }
@@ -188,7 +198,7 @@ export class CalculatorBirhdayComponent implements OnInit {
     if (localStorage.getItem('myEntertainment')) {
       this.entertainmentOrders = JSON.parse(localStorage.getItem('myEntertainment'));
       this.getTotalEntertainment();
-      console.log(this.entertainmentOrders);
+      // console.log(this.entertainmentOrders);
       // this.updateBasket();
     }
   }
@@ -284,9 +294,12 @@ export class CalculatorBirhdayComponent implements OnInit {
   private disabledAddBtnFire(): void {
     // console.log(this.totalPriceEntertainment, "game") //повертає нуль потрібно доробити
     // console.log(this.totalPriceProd, "menu")
-    if (this.totalPriceEntertainment == 0 || this.totalPriceProd == 0) {
+    // console.log(this.PriceEntertainment);
+    // console.log(this.totalPriceProd);
+    this.getTotalpriceGams();
+    if (this.totalPriceProd <= 1000 || this.priceGamesTotal <= 1000) {
       this.disAddBirFireBtn = true;
-    } else if (this.totalPriceEntertainment !== 0 || this.totalPriceProd !== 0) {
+    } else if (this.PriceEntertainment > 1000 || this.totalPriceProd > 1000) {
       this.disAddBirFireBtn = false;
     }
   }
@@ -296,19 +309,20 @@ export class CalculatorBirhdayComponent implements OnInit {
     const order = new Calculator(
       this.orderIDB,
       this.timeB,
-      this.dateB,
+      this.dateB.toString(),
       this.counterPeopleB,
       this.namePeopleOrder,
       this.phoneNumber,
-      this.totalPriceEntertainment,
+      this.priceGamesTotal,
       this.totalPriceProd,
       this.totalAllPrice,
       this.productOrders,
       this.entertainmentOrders,
       this.packageName,
     );
+    localStorage.setItem('myProfile', JSON.stringify(order));
     delete order.id;
-    console.log(order)
+    // console.log(order)
     this.calculatorService.postFireCloudOrder({ ...order })
       .then(() => this.resetOrder())
       .catch(err => console.log(err));
@@ -322,7 +336,7 @@ export class CalculatorBirhdayComponent implements OnInit {
     this.productOrders = [];
     this.entertainmentOrders = [];
     this.totalPriceProd = 0;
-    this.totalPriceEntertainment = 0;
+    this.PriceEntertainment = 0;
     this.disBtnCounPeople = false;
     this.totalAllPrice = 0;
     this.counterPeople = 2;

@@ -53,7 +53,6 @@ export class AuthService {
         };
         this.afFirestore.collection('users').add(user)
           .then(() => {
-            // alert('Good register');
           })
           .catch(err => console.log(err));
       })

@@ -29,6 +29,4 @@ export class EntertainmentService {
   updateFireCloudEntertainment(game: IEntertainment): Promise<void> {
     return this.fireCloud.collection('entertainment').doc(game.id.toString()).update(game);
   }
-
-
 }

@@ -11,7 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminEntertainmentComponent } from './admin/admin-entertainment/admin-entertainment.component';
 import { AdminBirthdayComponent } from './admin/admin-birthday/admin-birthday.component';
-import { BirthdayCategoryComponent } from './admin/birthday-category/birthday-category.component';
 import { AdminCategoryMenuComponent } from './admin/admin-category-menu/admin-category-menu.component';
 import { AdminMenuProductComponent } from './admin/admin-menu-product/admin-menu-product.component';
 import { AdminOurTeamComponent } from './admin/admin-our-team/admin-our-team.component';
@@ -78,7 +77,7 @@ import { SearchNameGamePipe } from './shared/pipes/search-name-game.pipe';
     AdminComponent,
     AdminEntertainmentComponent,
     AdminBirthdayComponent,
-    BirthdayCategoryComponent,
+
     AdminCategoryMenuComponent,
     AdminMenuProductComponent,
     GamesDetailsComponent,

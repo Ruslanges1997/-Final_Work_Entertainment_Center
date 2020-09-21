@@ -57,6 +57,7 @@ export class CalculatorService {
   postFireCloudOrder(order: ICalculator): Promise<DocumentReference> {
     return this.fireCloud.collection('orders').add(order);
   }
+  
   postFireCloudOrderPremium(order: ICalculatorPremium): Promise<DocumentReference> {
     return this.fireCloud.collection('orders').add(order);
   }

@@ -52,11 +52,23 @@ export class CalculatorStandartComponent implements OnInit {
         return { id, ...data }
       })
     })
+    this.getEmeilUser();
+  }
+
+  emailtOrders: any;
+  userEmail: any;
+  private getEmeilUser() {
+    if (localStorage.getItem('user')) {
+      this.emailtOrders = JSON.parse(localStorage.getItem('user'));
+      this.userEmail = this.emailtOrders.userEmail
+      // console.log(this.userEmail)
+    } else {
+    }
   }
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.dateBirhdayArr.splice(0, 1, `${type}: ${event.value}`);
-    console.log(this.dateBirhdayArr)
+    // console.log(this.dateBirhdayArr)
   }
   openModalTime(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
@@ -103,21 +115,25 @@ export class CalculatorStandartComponent implements OnInit {
     this.totalStandatr = this.totalPriceEntertainment * this.counterPeople
   }
   packageName = "Пакет Стандарт"
-
+  email
+  statusOrder
   addBirthdayFire(): void {
     const order = new CalculatorStandart(
       this.orderIDB,
       this.timeB,
-      this.dateB,
+      this.dateB.toString(),
       this.counterPeopleB,
       this.namePeopleOrder,
       this.phoneNumber,
       this.totalStandatr,
       this.entertainmentAray,
       this.packageName,
+      this.statusOrder,
+      this.email = this.userEmail
     );
+    localStorage.setItem('myProfile', JSON.stringify(order));
     delete order.id;
-    console.log(order)
+    // console.log(order)
     this.calculatorService.postFireCloudOrder({ ...order })
       .then(() => this.resetOrder())
       .catch(err => console.log(err));

@@ -13,9 +13,8 @@ export interface ICalculator {
     priceGame?: number;
     priceMenu?: number;
     allPrice?: number;
-    // calculatorArray: any;
-    // count?: number;
     productOrder?: Array<IProduct>;
     entertainmentOrder?: Array<IEntertainment>;
     packageName?: string;
+    statusOrder: string;
 }

@@ -12,5 +12,4 @@ export interface IProduct {
     image: string;
     countMenu: number;
     count: any;
-      // totalPrice?: any;
 }

@@ -124,7 +124,7 @@ export class CalculatorPremiumComponent implements OnInit {
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.dateBirhdayArr.splice(0, 1, `${type}: ${event.value}`);
-    console.log(this.dateBirhdayArr)
+    // console.log(this.dateBirhdayArr)
   }
   openModalTime(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
@@ -164,7 +164,7 @@ export class CalculatorPremiumComponent implements OnInit {
     const order = new CalculatorPremium(
       this.orderIDB,
       this.timeB,
-      this.dateB,
+      this.dateB.toString(),
       this.counterPeopleB,
       this.namePeopleOrder,
       this.phoneNumber,
@@ -173,9 +173,11 @@ export class CalculatorPremiumComponent implements OnInit {
       this.prodPizzaArr,
       this.prodJuiceArr,
       this.packageName,
+      this.counterJuiceFinal
     );
+    localStorage.setItem('myProfile', JSON.stringify(order));
     delete order.id;
-    console.log(order)
+    // console.log(order)
     this.calculatorService.postFireCloudOrderPremium({ ...order })
       .then(() => this.resetOrder())
       .catch(err => console.log(err));

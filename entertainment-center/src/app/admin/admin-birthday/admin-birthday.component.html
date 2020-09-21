@@ -1,1 +1,133 @@
-<p>admin-birthday works!</p>
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <div>
+            <h5>Order birthday</h5>
+        </div>
+        <div>
+            <!-- <button type="button" class="btn   btn-dark" (click)="openModalAdd(addCategoryModals)">Add
+                Category menu</button> -->
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <!-- <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control searchName"
+            placeholder="filter category Name EN"> -->
+    </div>
+
+    <table class="table table-hover  table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <!-- <th>Name people</th>
+                <th>Phone</th>
+                <th>Time</th>
+                <th>Date</th> -->
+                <th>Count people</th>
+                <th>Name packge</th>
+                <td>AllPrice</td>
+                <th>Status</th>
+                <td>Ігри</td>
+                <td>Меню</td>
+                <td>Edite</td>
+                <td>Delete</td>
+                <!-- <th [class.active]="order === 'id'" (click)="setOrder('id')">
+                    ID
+                    <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'nameEN'" (click)="setOrder('nameEN')">
+                    Name EN
+                    <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                </th>
+                <th [class.active]="order === 'nameUA'" (click)="setOrder('nameUA')">
+                    Name UA
+                    <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+                </th>
+                <th>Delete</th> -->
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- :'case-insensitive' -->
+            <!-- <tr *ngFor="let category of menuCategoryAdminArr | search:searchName | orderBy: order:reverse; let i=index"> -->
+            <tr *ngFor="let order of orderAdminArr ">
+                <td>{{order?.id}}</td>
+                <!-- <td>{{order?.namePeople}}</td>
+                <td>{{order?.phone}}</td>
+                <td>{{order?.time}}</td>
+                <td>{{order?.date| slice:0:15}}</td> -->
+                <td>{{order?.countPeoples}}</td>
+                <td>{{order?.packageName}}</td>
+                <td>{{order?.allPrice}}</td>
+                <td>{{ order.statusOrder }}</td>
+                <td>
+                    <ul *ngFor="let  game of order.entertainmentOrder "
+                        style="display: flex; justify-content: space-between;">
+                        <li>{{ game?.nameGame }}</li> <span>{{ game?.count}} шт</span>
+                    </ul>
+                </td>
+                <td>
+                    <ul *ngFor="let  menu of order.productOrder "
+                        style="display: flex; justify-content: space-between;">
+                        <li>{{ menu?.nameUA}}</li><span>{{menu?.count}} шт</span>
+                    </ul>
+                    <ul *ngFor="let  menuJuice of order.prodJuice "
+                        style="display: flex; justify-content: space-between;">
+                        <li>{{ menuJuice?.nameUA}}</li> <span>{{order.counterJuice}} шт</span>
+                    </ul>
+                    <ul *ngFor="let  menuPizza of order.prodPizza"
+                        style="display: flex; justify-content: space-between;">
+                        <li>{{ menuPizza?.nameUA}}</li> <span> {{order?.countPeoples}} шт</span>
+                    </ul>
+                </td>
+                <td>
+                    <input type="button" (click)="editeOrder(EditeGameModals, order)" class="btn btn-warning "
+                        value="Edite">
+                </td>
+                <td>
+                    <input type="button" class="btn btn-danger" value="Delete" (click)="deleteOrder(order)">
+                </td>
+             
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<ng-template #EditeGameModals>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Order model</h4>
+        <button type="button" class="close pull-right" (click)="closeModal()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <div style="display: flex; flex-direction: column; justify-content: space-around;">
+            <div style="display: flex;justify-content: space-around;">
+                <h3>Name</h3>
+                <span>{{currAdmOrder?.namePeople}}</span>
+            </div>
+            <div style="display: flex;justify-content: space-around;">
+                <h3>Time</h3>
+                <span>{{currAdmOrder?.time}}</span>
+            </div>
+            <div style="display: flex;justify-content: space-around;">
+                <h3>Date</h3>
+
+                <span>{{currAdmOrder?.date| slice:0:15}}</span>
+            </div>
+            <div style="display: flex;justify-content: space-around;">
+                <h3>Phone</h3>
+                <span>{{currAdmOrder?.phone}}</span>
+            </div>
+        </div>
+        <select id="inputGroupSelect01" class="custom-select" [(ngModel)]="statusOption" name="statusOption"
+            (change)="changeStatus()">
+            <option value="В обробці" selected></option>
+            <option value="В обробці">В обробці</option>
+            <option value="Підтвержено">Підтвержено</option>
+            <option value="Виконано">Виконано</option>
+            <option value="Скасовано">Скасовано</option>
+        </select>
+    </div>
+</ng-template>

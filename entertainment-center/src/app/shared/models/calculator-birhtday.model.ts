@@ -19,5 +19,6 @@ export class Calculator implements ICalculator {
         public productOrder?: Array<IProduct>,
         public entertainmentOrder?: Array<IEntertainment>,
         public packageName?: string,
+        public statusOrder: string = 'в обробці',
     ) { }
 }

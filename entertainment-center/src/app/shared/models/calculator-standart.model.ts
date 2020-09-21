@@ -11,8 +11,10 @@ export class CalculatorStandart implements ICalculatorStandart {
         public countPeoples: number,
         public namePeople: string,
         public phone: number,
-        public priceStandart?: number,
+        public allPrice?: number,
         public entertainmentOrder?: Array<IEntertainment>,
-        public packageName?: string ,
+        public packageName?: string,
+        public statusOrder: string = 'в обробці',
+        public email?:any,
     ) { }
 }

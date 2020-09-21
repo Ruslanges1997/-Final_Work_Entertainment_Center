@@ -2,10 +2,7 @@
 @import "../../../stylings/mixin";
 
 .calculator_section {
-    // background: #e7e7e7;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    min-height: 85vh;
+    min-height: 90vh;
     width: 100%;
     margin-top: 100px;
     font-size: 15px;
@@ -36,7 +33,7 @@
     box-shadow: 20px 20px 15px rgba(39, 49, 67, 0.12);
     border: 1px solid #eeeff0;
     background: white;
-    // box-shadow: 1px 1px 20px 0px black;
+    border-radius: 20px;
 }
 
 .time_birhday {
@@ -90,12 +87,13 @@
     line-height: 40px;
     min-height: 40px;
     text-align: center;
-    background: #fff;
+     background: white;
     border: 1px solid #a4a4a4;
     box-sizing: border-box;
     border-radius: 10px;
     margin: 10px 10px;
 }
+
 .margin_content {
     margin: 10px 0px 0px 20px;
     align-items: center;
@@ -158,7 +156,7 @@
     display: flex;
     flex-direction: column;
     background: white;
-    box-shadow: 20px 20px 15px rgba(39, 49, 67, 0.12);
+    box-shadow: 9px 1px 20px 20px rgba(39, 49, 67, 0.12);
     padding: 10px 10px;
     width: 350px;
     height: 500px;
@@ -203,8 +201,6 @@
     img {
         width: 100px;
         height: 100px;
-        // border-radius: 20px;
-        // margin-top: -5px;
     }
     margin-left: -10px;
 }
@@ -270,7 +266,8 @@
 }
 
 .active {
-    color: #a20e15;
+    color: #d20a0a;
+    font-size: 20px;
 }
 
 .date_text {
@@ -298,7 +295,7 @@
     outline: none;
     padding: 15px;
     &:focus {
-        border: 3px solid lightblue;
+        border: 3px solid #feda4a;
     }
 }
 input::-webkit-outer-spin-button,
@@ -331,4 +328,28 @@ input::-webkit-inner-spin-button {
     border: 1px solid rgb(15 14 21 / 54%);
     width: 90%;
     margin: 0px auto;
+}
+::-webkit-scrollbar-button {
+    width: 6px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #32312e;
+    box-shadow: 0px 0px 3px #000 inset;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #feda4a;
+    height: 30px;
+    box-shadow: 0px 1px 1px #fff inset;
+    background-image: url("https://yraaa.ru/_pu/24/59610063.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar {
+    width: 11px;
 }

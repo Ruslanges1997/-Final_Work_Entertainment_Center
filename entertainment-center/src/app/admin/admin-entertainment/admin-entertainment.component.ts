@@ -97,7 +97,6 @@ export class AdminEntertainmentComponent implements OnInit {
 
   }
 
-
   uploadFile(event): void {
     const file = event.target.files[0]
     const type = file.type.slice(file.type.indexOf('/') + 1)
@@ -113,13 +112,11 @@ export class AdminEntertainmentComponent implements OnInit {
     });
   }
 
-
   deleteEntertainment(game: IEntertainment): void {
     this.entertainmentService.deleteFireCloudEntertainment(game.id.toString())
       .then(message => console.log(message))
       .catch(err => console.log(err));
   }
-
 
   editeEntertaiment(template: TemplateRef<any>, game: IEntertainment): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
@@ -146,6 +143,4 @@ export class AdminEntertainmentComponent implements OnInit {
     this.editStatus = false;
     this.modalRef.hide();
   }
-
-
 }

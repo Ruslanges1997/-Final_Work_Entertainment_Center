@@ -79,8 +79,6 @@ export class AdminCategoryMenuComponent implements OnInit {
       .catch(err => console.log(err));
   }
 
-
-
   closeModal(): void {
     this.resetForm();
   }

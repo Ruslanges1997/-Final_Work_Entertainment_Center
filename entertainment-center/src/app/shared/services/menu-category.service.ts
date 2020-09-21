@@ -14,7 +14,6 @@ export class MenuCategoryService {
     private fireCloud: AngularFirestore,
   ) { }
 
-
   getFireCloudMenuCategory(): Observable<DocumentChangeAction<unknown>[]> {
     return this.fireCloud.collection('menu-category').snapshotChanges();
   }
@@ -26,5 +25,6 @@ export class MenuCategoryService {
   deleteFireCloudMenuCategory(id: string): Promise<void> {
     return this.fireCloud.collection('menu-category').doc(id).delete();
   }
+  
 }
 

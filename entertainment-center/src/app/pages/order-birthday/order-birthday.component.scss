@@ -2,8 +2,8 @@
 @import "../../../stylings/mixin";
 
 .birthday_section {
-    // background: url(../../../assets/images/home/djedai1.jpg);
-    background: black;
+    background: url(../../../assets/images/home/fon_home.jpg);
+
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 84vh;
@@ -37,16 +37,16 @@
     border-radius: 10px;
     height: 400px;
     width: 300px;
-    background: #0f0e15;
+    background: black;
     display: flex;
     overflow: hidden;
-    font-family: "Volkon-Bold";
     flex-direction: column;
-
     color: #feda4a;
     text-align: center;
     animation: opasity 1s linear;
     margin: 150px auto;
+    font-family: "roboto-italik";
+    font-size: 15px;
     &:hover {
         cursor: pointer;
     }
@@ -54,12 +54,16 @@
 
 .img_card {
     width: 100%;
-    height: 200px;
+    height: 150px;
 }
 
 .birthday_info {
     padding: 2px 16px;
-    color: #feda4a;
-    text-align: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    span {
+        color: red;
+    }
 }
