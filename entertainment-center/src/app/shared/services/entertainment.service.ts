@@ -17,6 +17,9 @@ export class EntertainmentService {
   getFireCloudEntertainment(): Observable<DocumentChangeAction<unknown>[]> {
     return this.fireCloud.collection('entertainment').snapshotChanges();
   }
+  getFireCloudUser(): Observable<DocumentChangeAction<unknown>[]> {
+    return this.fireCloud.collection('users').snapshotChanges();
+  }
 
   postFireCloudEntertainment(entertainment: IEntertainment): Promise<DocumentReference> {
     return this.fireCloud.collection('entertainment').add(entertainment);

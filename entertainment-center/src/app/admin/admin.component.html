@@ -1,3 +1,37 @@
+<div class="container-fluid mt-2">
+    <div class="row " style="min-height: 85vh;">
+        <div class="col-2 link_block">
+            <div class="nav flex-column nav-pills">
+                <a class="nav-link" [routerLink]="[ 'admin-entertainment' ]"
+                    routerLinkActive="bg-dark text-light">Admin-entertainment
+                </a>
+                <a class="nav-link" [routerLink]="[ 'admin-birthday' ]"
+                    routerLinkActive="bg-dark text-light">Admin-birthday
+                </a>
+                <a class="nav-link" [routerLink]="[ 'admin-category-menu' ]"
+                    routerLinkActive="bg-dark text-light">Admin-category-menu
+                </a>
+                <a class="nav-link" [routerLink]="[ 'admin-menu-product' ]"
+                    routerLinkActive="bg-dark text-light">Admin-menu-product
+                </a>
+                <a class="nav-link" [routerLink]="[ 'admin-our-team' ]"
+                    routerLinkActive="bg-dark text-light">Admin-our-team
+                </a>
+                <a class="nav-link" [routerLink]="[ 'admin-gallery' ]"
+                    routerLinkActive="bg-dark text-light">Admin-gallery
+                </a>
+                <!-- <button class="btn btn-warning" (click)="logout()">Log Out</button> -->
+                <button type="button" class="btn_primary" (click)="signOut()">Sign Out</button>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="tab-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- <section class="section_admin" class="container-fluid mt-2">
 
     <div id="menu">
@@ -48,36 +82,3 @@
 
 </section> -->
 
-<div class="container-fluid mt-2">
-    <div class="row " style="min-height: 85vh;">
-        <div class="col-2 link_block">
-            <div class="nav flex-column nav-pills">
-                <a class="nav-link" [routerLink]="[ 'admin-entertainment' ]"
-                    routerLinkActive="bg-dark text-light">Admin-entertainment
-                </a>
-                <a class="nav-link" [routerLink]="[ 'admin-birthday' ]"
-                    routerLinkActive="bg-dark text-light">Admin-birthday
-                </a>
-                <a class="nav-link" [routerLink]="[ 'admin-category-menu' ]"
-                    routerLinkActive="bg-dark text-light">Admin-category-menu
-                </a>
-                <a class="nav-link" [routerLink]="[ 'admin-menu-product' ]"
-                    routerLinkActive="bg-dark text-light">Admin-menu-product
-                </a>
-                <a class="nav-link" [routerLink]="[ 'admin-our-team' ]"
-                    routerLinkActive="bg-dark text-light">Admin-our-team
-                </a>
-                <a class="nav-link" [routerLink]="[ 'admin-gallery' ]"
-                    routerLinkActive="bg-dark text-light">Admin-gallery
-                </a>
-                <!-- <button class="btn btn-warning" (click)="logout()">Log Out</button> -->
-                <button type="button" class="btn_primary" (click)="signOut()">Sign Out</button>
-            </div>
-        </div>
-        <div class="col-10">
-            <div class="tab-content">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-    </div>
-</div>

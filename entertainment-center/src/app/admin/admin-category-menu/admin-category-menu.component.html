@@ -35,8 +35,7 @@
 
         <tbody>
             <!-- :'case-insensitive' -->
-            <tr
-                *ngFor="let category of menuCategoryAdminArr | search:searchName | orderBy: order:reverse; let i=index">
+            <tr *ngFor="let category of menuCategoryAdminArr | search:searchName | orderBy: order:reverse; let i=index">
                 <td>{{category.id}}</td>
                 <td>{{category.nameEN}}</td>
                 <td>{{category.nameUA}}</td>

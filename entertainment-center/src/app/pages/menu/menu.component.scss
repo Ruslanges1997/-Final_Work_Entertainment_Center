@@ -59,7 +59,7 @@
     margin-bottom: 10px;
     display: flex;
     overflow: hidden;
-    font-family: "Volkon-Bold";
+    font-family: "Roboto-Regular";
     flex-direction: column;
     color: $text_color;
     text-align: center;
@@ -71,9 +71,8 @@
             h2 {
                 opacity: 1;
                 animation: opasity 0.5s linear;
-
                 color: black;
-                font-size: 20px;
+                font-size: 15px;
                 font-weight: 900;
             }
         }

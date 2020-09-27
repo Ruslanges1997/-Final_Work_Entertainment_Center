@@ -26,6 +26,7 @@
     "firebase": "^7.19.0",
     "ngx-bootstrap": "^5.6.1",
     "ngx-google-map": "^1.0.0",
+    "ngx-mask": "^10.0.1",
     "ngx-order-pipe": "^2.1.0",
     "ngx-slider": "0.0.5",
     "ngx-ui-loader": "^9.1.1",

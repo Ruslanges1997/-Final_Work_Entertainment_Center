@@ -1,5 +1,6 @@
 .registrer_section {
-    background-image: url(../../assets/images/fon_register.jpg);
+    // background-image: url(../../assets/images/fon_register.jpg);
+    background-image: url(../../assets/images/home/fon_home.jpg);
     width: 100%;
     min-height: 84vh;
     background-repeat: no-repeat;
@@ -13,25 +14,31 @@
 .links_sign {
     display: flex;
 }
-
+.form_login {
+    margin-top: 40px;
+}
 .login_card {
-    min-height: 400px;
     width: 430px;
     background: linear-gradient(rgba(35, 43, 85, 0.75), rgba(35, 43, 85, 0.95));
     padding: 30px;
-    margin-top: 120px;
+    margin-top: 180px;
     font-family: "Roboto", sans-serif;
     border-radius: 5px;
 }
 
 .form_group {
-    margin: 50px 10px;
+    margin: 15px 10px;
 }
-
+.label_check {
+    margin-top: 5px;
+}
 .label {
     margin-bottom: 10px;
+    cursor: pointer;
 }
-
+input {
+    cursor: pointer;
+}
 .btn_primary {
     background-color: #242c53;
     border-color: #242c53;
@@ -45,11 +52,6 @@
         color: white;
     }
 }
-.active_link {
-    span {
-        color: red;
-    }
-}
 
 .signin_active,
 .signup_active {
@@ -61,7 +63,12 @@
         }
     }
 }
-
+// input.ng-invalid {
+//     border: 2px solid red;
+// }
+// input.ng-valid {
+//     border: 2px solid green;
+// }
 @media screen and (max-width: 600px) {
     .login_card {
         width: 90%;

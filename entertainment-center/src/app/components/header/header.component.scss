@@ -8,11 +8,10 @@ header {
     right: 0;
     height: 100px;
     width: 100%;
-    // background: rgb(44, 23, 23);
     // overflow: hidden;
     z-index: 10;
     // background: url(../../../assets/images/home/header_bg.jpg) 100% 67% no-repeat;
-    background: currentColor;
+    background: #0f0e15;
     background-size: cover;
     .menu_burger-btn {
         display: none;
@@ -24,9 +23,9 @@ header {
     }
     span {
         color: $text_color;
-        // &:hover {
-        //     color: lightblue;
-        // }
+        &:hover {
+            color: red;
+        }
     }
     h3 {
         font-family: "Nosifer";
@@ -70,6 +69,13 @@ a:link {
         color: red;
     }
 }
+
+
+    .headerScrol {
+        height: 85px;
+        opacity: 0.8;
+    }
+
 
 @media screen and (max-width: 1000px) {
     header {
@@ -116,7 +122,7 @@ a:link {
     .center_navbar {
         margin: 0px auto;
     }
-  
+
     .mobileHead {
         height: 350px;
         transition: 1s;

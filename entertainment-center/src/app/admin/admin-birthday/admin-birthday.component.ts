@@ -8,7 +8,6 @@ import { AdminBirthdayService } from '../../shared/services/admin-birthday.servi
   styleUrls: ['./admin-birthday.component.scss']
 })
 export class AdminBirthdayComponent implements OnInit {
-
   constructor(
     private adminService: AdminBirthdayService,
     private modalService: BsModalService,
@@ -34,11 +33,10 @@ export class AdminBirthdayComponent implements OnInit {
           const data = document.payload.doc.data() as any;
           return { id, ...data };
         })
-
       }
     )
   }
-
+  currAdmOrder: any
   changeStatus(): void {
     this.currAdmOrder.statusOrder = this.statusOption;
     this.adminService.updateFireCloudOrder(this.currAdmOrder)
@@ -55,7 +53,6 @@ export class AdminBirthdayComponent implements OnInit {
       .catch(error => console.log(error))
   }
 
-  currAdmOrder: any
   editeOrder(template: TemplateRef<any>, order: any): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
     this.currAdmOrder = order;
@@ -63,7 +60,7 @@ export class AdminBirthdayComponent implements OnInit {
 
   deleteOrder(order: any): void {
     if (order.statusOrder == 'Виконано' || order.statusOrder == 'Скасовано') {
-      console.log(order.statusOrder)
+      // console.log(order.statusOrder)
       this.adminService.deleteFireCloudOrder(order.id.toString())
         .then(() => {
           localStorage.removeItem('myProfile');

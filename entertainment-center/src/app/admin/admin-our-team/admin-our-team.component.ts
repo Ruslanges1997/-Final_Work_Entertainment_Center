@@ -76,7 +76,7 @@ export class AdminOurTeamComponent implements OnInit {
       this.ourTeamService.postFireCloudOurTeam({ ...newWorker })
         .then(messege => console.log(messege))
         .catch(err => console.log(err))
-      console.log(newWorker)
+      // console.log(newWorker)
     } else {
       this.ourTeamService.updateFireCloudTeam({ ...newWorker })
         .then(messege => console.log(messege))
@@ -104,7 +104,7 @@ export class AdminOurTeamComponent implements OnInit {
 
   uploadFile(event): void {
     const file = event.target.files[0]
-    console.log(file)
+    // console.log(file)
     const type = file.type.slice(file.type.indexOf('/') + 1)
     const name = file.name.slice(0, file.name.lastIndexOf('.')).toLowerCase();
     const filePath = `images/our-team/${name}.${type}`;

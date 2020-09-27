@@ -9,7 +9,8 @@ import { Calculator } from 'src/app/shared/models/calculator-birhtday.model';
 import { ICalculator } from '../../shared/interfaces/calculator-birthday.interface';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { CalculatorService } from '../../shared/services/calculator.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, } from '@angular/forms';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-calculator-birhday',
@@ -38,7 +39,7 @@ export class CalculatorBirhdayComponent implements OnInit {
   modalRef: BsModalRef;
   productOrders: Array<IProduct>;
   entertainmentOrders: Array<IEntertainment>;
-  disAddBirFireBtn: boolean;
+  disAddBirFireBtn: boolean = true;
 
   modalRefconfig = {
     backdrop: true,
@@ -53,13 +54,14 @@ export class CalculatorBirhdayComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private router: Router,
     private entertainmentService: EntertainmentService,
+
   ) {
-    this.router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationEnd) {
-        const categoryName = this.actRoute.snapshot.paramMap.get('category');
-        this.getFireCloudProducts(categoryName);
-      }
-    });
+    // this.router.events.subscribe((event: Event) => {
+    //   if (event instanceof NavigationEnd) {
+    //     const categoryName = this.actRoute.snapshot.paramMap.get('category');
+    //     // this.getFireCloudProducts(categoryName);
+    //   }
+    // });
   }
 
   ngOnInit(): void {
@@ -69,16 +71,70 @@ export class CalculatorBirhdayComponent implements OnInit {
     this.getBasketEntertainment();
     // this.activateBtn();
     // this.getTotal();
-    this.getFireCloudProducts();
+    this.getFireCloudProducts('pizza');
+    this.getFireCloudProducts('burger');
+    this.getFireCloudProducts('drinks');
+    this.getFireCloudProducts('salad');
     this.disabledAddBtnFire();
+    this.getEmeilUser();
   }
+  emailtOrders: any;
+  userEmail = "admin";
+  private getEmeilUser() {
+    if (localStorage.getItem('user')) {
+      this.emailtOrders = JSON.parse(localStorage.getItem('user'));
+      this.userEmail = this.emailtOrders.userEmail
+      console.log(this.userEmail)
+    } else {
+    }
+  }
+
+
   next(): void {
     this.switch = !this.switch;
     this.menuActive = !this.menuActive;
+    this.getFireCloudProducts('pizza');
     // this.getFireCloudProducts();
-    this.getFireCloudProducts();
   }
   switchTwo: boolean;
+  // getFireCloudProducts(categoryName: string = 'pizza'): void {
+  //   this.productsArr = [];
+  //   this.fireCloud.collection('menu-product').ref.where('category.nameEN', '==', categoryName).onSnapshot(
+  //     collection => {
+  //       collection.forEach(document => {
+  //         const data = document.data();
+  //         const id = document.id;
+  //         this.productsArr.push({ id, ...data });
+  //       });
+  //       // this.category = this.productsArr[0].category.nameUA;
+  //     }
+  //   );
+  // }
+
+  // getFireCloudProductsBurger(categoryName: string = 'burger'): void {
+  //   this.productsArr = [];
+  //   this.fireCloud.collection('menu-product').ref.where('category.nameEN', '==', categoryName).onSnapshot(
+  //     collection => {
+  //       collection.forEach(document => {
+  //         const data = document.data();
+  //         const id = document.id;
+  //         this.productsArr.push({ id, ...data });
+  //       });
+  //       // this.category = this.productsArr[0].category.nameUA;
+  //     }
+  //   );
+  // }
+  getFireCloudProducts(categ: string): void {
+    this.productsArr = [];
+    this.fireCloud.collection('menu-product').ref.where('category.nameEN', '==', categ).onSnapshot(
+      collection => {
+        collection.forEach(document => {
+          const data = document.data();
+          const id = document.id;
+          this.productsArr.push({ id, ...data });
+        });
+      })
+  }
 
   nextTwo(): void {
     this.switchTwo = !this.switchTwo;
@@ -100,20 +156,6 @@ export class CalculatorBirhdayComponent implements OnInit {
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.dateBirhdayArr.splice(0, 1, `${type}: ${event.value}`);
-  }
-
-  private getFireCloudProducts(categoryName: string = 'pizza'): void {
-    this.productsArr = [];
-    this.fireCloud.collection('menu-product').ref.where('category.nameEN', '==', categoryName).onSnapshot(
-      collection => {
-        collection.forEach(document => {
-          const data = document.data();
-          const id = document.id;
-          this.productsArr.push({ id, ...data });
-        });
-        // this.category = this.productsArr[0].category.nameUA;
-      }
-    );
   }
 
   private getEntertainment(): void {
@@ -139,8 +181,6 @@ export class CalculatorBirhdayComponent implements OnInit {
     this.modalRef.hide();
   }
 
-
-
   disBtnCounPeople: boolean = false;
   countPeople(status: boolean): void {
     if (status && this.counterPeople <= 13) {
@@ -148,11 +188,17 @@ export class CalculatorBirhdayComponent implements OnInit {
         this.disBtnCounPeople = true;
       }
       this.counterPeople++;
+      this.getTotalpriceGames();
+      this.totalAll();
+      this.disabledAddBtnFire();
     }
     else {
       if (this.counterPeople > 2) {
         this.counterPeople--;
         this.disBtnCounPeople = false;
+        this.getTotalpriceGames();
+        this.totalAll();
+        this.disabledAddBtnFire();
       }
     }
     this.counterPeopleB = this.counterPeople;
@@ -173,7 +219,7 @@ export class CalculatorBirhdayComponent implements OnInit {
   }
 
   priceGamesTotal = 0;
-  private getTotalpriceGams(): void {
+  private getTotalpriceGames(): void {
     // const localProdGame = JSON.parse(localStorage.getItem('myEntertainment'))
     this.priceGamesTotal = this.PriceEntertainment * this.counterPeople;
     // console.log(this.priceGamesTotal);
@@ -198,6 +244,7 @@ export class CalculatorBirhdayComponent implements OnInit {
     if (localStorage.getItem('myEntertainment')) {
       this.entertainmentOrders = JSON.parse(localStorage.getItem('myEntertainment'));
       this.getTotalEntertainment();
+      this.getTotalpriceGames();
       // console.log(this.entertainmentOrders);
       // this.updateBasket();
     }
@@ -210,7 +257,6 @@ export class CalculatorBirhdayComponent implements OnInit {
       this.getBasketProduct();
       product.count = 1;
       this.disabledAddBtnFire();
-
     }
   }
 
@@ -233,6 +279,7 @@ export class CalculatorBirhdayComponent implements OnInit {
   private updateBasketGame(): void {
     localStorage.setItem('myEntertainment', JSON.stringify(this.entertainmentOrders));
     this.getTotalEntertainment();
+    this.getTotalpriceGames();
     this.calculatorService.basket.next('update');
     this.disabledAddBtnFire();
   }
@@ -291,19 +338,49 @@ export class CalculatorBirhdayComponent implements OnInit {
     }
   }
 
+  checkName(): void {
+    this.disabledAddBtnFire();
+  }
+
+  checkPhone(): void {
+    // console.log(this.phoneNumber);
+    this.disabledAddBtnFire();
+  }
+
   private disabledAddBtnFire(): void {
-    // console.log(this.totalPriceEntertainment, "game") //повертає нуль потрібно доробити
-    // console.log(this.totalPriceProd, "menu")
-    // console.log(this.PriceEntertainment);
+    // console.log(this.priceGamesTotal);
     // console.log(this.totalPriceProd);
-    this.getTotalpriceGams();
-    if (this.totalPriceProd <= 1000 || this.priceGamesTotal <= 1000) {
+    this.getTotalpriceGames();
+    if (this.totalPriceProd <= 1000 ||
+      this.priceGamesTotal <= 1000 ||
+      this.namePeopleOrder == undefined ||
+      this.phoneNumber == undefined ||
+      this.phoneNumber == null ||
+      this.namePeopleOrder == "") {
       this.disAddBirFireBtn = true;
-    } else if (this.PriceEntertainment > 1000 || this.totalPriceProd > 1000) {
+    } else if (this.priceGamesTotal > 1000 ||
+      this.totalPriceProd > 1000 ||
+      this.namePeopleOrder !== undefined ||
+      this.phoneNumber !== undefined ||
+      this.phoneNumber !== null ||
+
+      this.namePeopleOrder !== "") {
       this.disAddBirFireBtn = false;
     }
   }
-
+  // private portfolio(): void {
+  //   var user = firebase.auth().currentUser;
+  //   var email, uid;
+  //   if (user != null) {
+  //     // name = user.displayName;
+  //     email = user.email;
+  //     uid = user.uid;
+  //     uid = this.orderIDB
+  //   }
+  //   console.log(email, uid)
+  //   console.log(this.orderIDB)
+  // }
+  statusOrder: string;
   packageName = "Пакет Склади сам"
   addBirthdayFire(): void {
     const order = new Calculator(
@@ -319,12 +396,15 @@ export class CalculatorBirhdayComponent implements OnInit {
       this.productOrders,
       this.entertainmentOrders,
       this.packageName,
+      this.statusOrder,
+      this.userEmail
     );
-    localStorage.setItem('myProfile', JSON.stringify(order));
+    // localStorage.setItem('myProfile', JSON.stringify(order));
     delete order.id;
     // console.log(order)
     this.calculatorService.postFireCloudOrder({ ...order })
       .then(() => this.resetOrder())
+      // this.resetOrder()
       .catch(err => console.log(err));
   }
 

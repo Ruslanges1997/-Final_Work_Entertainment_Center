@@ -6,6 +6,9 @@ import { EntertainmentService } from '../../shared/services/entertainment.servic
 import { CalculatorService } from '../../shared/services/calculator.service';
 
 import { CalculatorStandart } from '../../shared/models/calculator-standart.model';
+import * as firebase from 'firebase';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { ICalculatorStandart } from 'src/app/shared/interfaces/calculator-standart.interface';
 @Component({
   selector: 'app-calculator-standart',
   templateUrl: './calculator-standart.component.html',
@@ -17,11 +20,14 @@ export class CalculatorStandartComponent implements OnInit {
     private modalService: BsModalService,
     private entertainmentService: EntertainmentService,
     private calculatorService: CalculatorService,
+    private fireCloud: AngularFirestore,
   ) { }
 
   ngOnInit(): void {
     this.getEntertainment();
     this.totalStand();
+    // this.getOrders();
+
   }
   dateBirhdayArr: string[] = [];
 
@@ -55,16 +61,7 @@ export class CalculatorStandartComponent implements OnInit {
     this.getEmeilUser();
   }
 
-  emailtOrders: any;
-  userEmail: any;
-  private getEmeilUser() {
-    if (localStorage.getItem('user')) {
-      this.emailtOrders = JSON.parse(localStorage.getItem('user'));
-      this.userEmail = this.emailtOrders.userEmail
-      // console.log(this.userEmail)
-    } else {
-    }
-  }
+
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.dateBirhdayArr.splice(0, 1, `${type}: ${event.value}`);
@@ -115,8 +112,68 @@ export class CalculatorStandartComponent implements OnInit {
     this.totalStandatr = this.totalPriceEntertainment * this.counterPeople
   }
   packageName = "Пакет Стандарт"
-  email
-  statusOrder
+  email: any;
+  statusOrder: string;
+  orderEmail: any;
+  // private getOrders(): void {
+  //   // this.calculatorService.getFireCloudOrder().subscribe(data => {
+  //   //   this.orderEmail = data.map(document => {
+  //   //     const data = document.payload.doc.data() as any;
+  //   //     const id = document.payload.doc.id;
+  //   //     return { id, ...data }
+  //   //   })
+
+  //   // })
+
+  // }
+  emailtOrders: any;
+  userEmail = "admin";
+  private getEmeilUser() {
+    if (localStorage.getItem('user')) {
+      this.emailtOrders = JSON.parse(localStorage.getItem('user'));
+      this.userEmail = this.emailtOrders.userEmail
+      console.log(this.userEmail)
+    } else {
+    }
+  }
+  userOrders: Array<ICalculatorStandart> = []
+  previousOrder: ICalculatorStandart;
+  // private getOrders(): void {
+  //   if (this.userEmail != '') {
+  //     this.fireCloud.collection('orders').ref.where('email', '==', this.userEmail)
+  //       .onSnapshot(
+  //         collection => {
+  //           collection.forEach(document => {
+  //             const data = document.data() as ICalculatorStandart;
+  //             const id = document.id;
+  //             console.log(data);
+  //             console.log(id);
+  //             this.userOrders.push({ id, ...data });
+  //             console.log(this.userOrders);
+  //             this.previousOrder = this.userOrders.slice(-1)[0];
+  //             console.log(this.previousOrder);
+  //             this.orderIDB = this.previousOrder.id;
+  //             this.dateB = this.previousOrder.date;
+  //             this.namePeopleOrder = this.previousOrder.namePeople;
+  //             this.counterPeopleB = this.previousOrder.countPeoples;
+  //             this.packageName = this.previousOrder.packageName;
+  //             this.statusOrder = this.previousOrder.statusOrder;
+  //             this.phoneNumber = this.previousOrder.phone;
+  //             this.entertainmentAray = this.previousOrder.entertainmentOrder;
+  //             // this.userPhone = this.previousOrder.userPhone;
+  //           });
+  //           console.log(this.orderIDB);
+  //           console.log(this.dateB);
+  //           console.log(this.namePeopleOrder);
+  //           console.log(this.packageName);
+  //           console.log(this.statusOrder);
+  //           console.log(this.entertainmentAray);
+  //           console.log(this.entertainmentAray[0].nameGame);
+  //           console.log(this.counterPeopleB);
+  //         }
+  //       )
+  //   }
+  // }
   addBirthdayFire(): void {
     const order = new CalculatorStandart(
       this.orderIDB,
@@ -129,11 +186,12 @@ export class CalculatorStandartComponent implements OnInit {
       this.entertainmentAray,
       this.packageName,
       this.statusOrder,
-      this.email = this.userEmail
+      // this.email = this.userEmail
+      this.userEmail
     );
-    localStorage.setItem('myProfile', JSON.stringify(order));
+    // localStorage.setItem('myProfile', JSON.stringify(order));
     delete order.id;
-    // console.log(order)
+    console.log(order)
     this.calculatorService.postFireCloudOrder({ ...order })
       .then(() => this.resetOrder())
       .catch(err => console.log(err));

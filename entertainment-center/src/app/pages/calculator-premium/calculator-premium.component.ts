@@ -103,7 +103,7 @@ export class CalculatorPremiumComponent implements OnInit {
   private countJuice(): void {
     // this.counterJuice = this.counterPeople
     this.counterJuiceFinal = Math.floor(this.counterPeople / this.counterJuice + 0.5)
-    console.log(this.counterJuiceFinal)
+    // console.log(this.counterJuiceFinal)
   }
 
 

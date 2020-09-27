@@ -13,9 +13,7 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth,
     private afFirestore: AngularFirestore,
     private router: Router) {
-
   }
-
 
   login(email: string, password: string): void {
     this.afAuth.signInWithEmailAndPassword(email, password)
@@ -39,6 +37,7 @@ export class AuthService {
         );
       })
       .catch(err => console.log(err));
+    // .catch(() => alert("wrong email or password"));
   }
 
   signUp(email: string, password: string, firstName: string, lastName: string): any {
@@ -58,7 +57,8 @@ export class AuthService {
       })
       .catch(err => console.log(err));
   }
-  SignOut(): void{
+
+  SignOut(): void {
     this.afAuth.signOut().then(() => {
       localStorage.removeItem('admin');
       localStorage.removeItem('user');

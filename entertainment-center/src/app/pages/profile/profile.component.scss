@@ -1,27 +1,49 @@
 .profile_section {
-    // background-color: #9E91F2;
     // background-image: url(../../../assets/images/fon_register.jpg);
-    background: #000;
+    background: rgba(250, 250, 250, 0.57);
     width: 100%;
     min-height: 84vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    text-transform: uppercase;
-    padding-right: 10px;
-    color: #ffffff;
+    color: black;
 }
-
-.block_profile{
+.title_profile {
+    text-align: center;
+    margin-top: 20px;
+}
+.block_profile {
     margin-top: 150px;
+    margin-bottom: 20px;
+    min-height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 1px 20px 20px 20px #212529;
+    font-family: "roboto-italik";
+    font-size: 15px;
+    font-weight: bold;
+}
+.info_profile {
+    .detail {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
-.btn_primary {
+.btn_primaryP {
+    color: black;
     background-color: #242c53;
     border-color: #242c53;
     width: 200px;
     border-radius: 10px;
+    margin-left: 27%;
     height: 40px;
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* left: 40%; */
+    /* margin-bottom: 10px; */
     cursor: pointer;
     &:hover {
         background-color: #4a4a68;

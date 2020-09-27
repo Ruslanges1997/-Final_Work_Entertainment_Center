@@ -1,13 +1,15 @@
 @import "../../../stylings/variables";
 @import "../../../stylings/mixin";
-
+// @import "../../../stylings/font";
+// @import "../../../stylings/font";
 .birthday_section {
     background: url(../../../assets/images/home/fon_home.jpg);
-
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 84vh;
     width: 100%;
+    margin-top: 100px;
+    overflow: hidden;
 }
 
 .birthday_title {
@@ -65,5 +67,35 @@
     justify-content: space-around;
     span {
         color: red;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .birthday_section {
+        margin-top: 70px;
+    }
+    .birthday_block {
+        width: 240px;
+        height: 450px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .birthday_section {
+        margin-top: 0px;
+    }
+    .birthday_block {
+        width: 90%;
+        height: 460px;
+        margin: 20px auto;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .birthday_title {
+        width: 90%;
+    }
+    .big_blok_birthday {
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-evenly;
     }
 }

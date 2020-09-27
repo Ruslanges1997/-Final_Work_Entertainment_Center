@@ -11,16 +11,11 @@ import { IGallery } from 'src/app/shared/interfaces/gallary.interface';
 
 export class HomeComponent implements OnInit {
   imageArr: any;
-  // newFoto: any = { src: 'https://placeimg.com/600/600/people' }
-  // slideItems = [];
-  showDots = false;
+
+  showDots: boolean;
+  showTitle: boolean;
   slideItems = [
-    // { src: 'https://placeimg.com/600/600/sepia' },
-    // { src: 'https://firebasestorage.googleapis.com/v0/b/entertainment-center-2fa4c.appspot.com/o/images%2Fgallery%2Fskywalker_burger.jpeg?alt=media&token=76429964-c21b-4e9e-82ba-e8f61f8fe404' },
-    // { src: 'https://firebasestorage.googleapis.com/v0/b/entertainment-center-2fa4c.appspot.com/o/images%2Fgallery%2Fskywalker_burger.jpeg?alt=media&token=76429964-c21b-4e9e-82ba-e8f61f8fe404' },
-    // { src: '../../../assets/images/home/fon_home.jpg' },
-    { src: '../../../assets/images/home/fon_home1.jpg' },
-    { src: 'https://placeimg.com/600/600/people' },
+ 
   ];
 
   public slider = new Slider();
@@ -29,43 +24,31 @@ export class HomeComponent implements OnInit {
     private galleryService: GalleryService,
   ) {
     this.slider.config.showDots = false;
+    this.slider.config.showTitle = false;
     this.slider.config.loop = true;
     this.slider.config.showPreview = false;
-    
   }
-  // visibility: boolean = true;
   ngOnInit(): void {
-    // this.slideItems = [
-    //   // { src: 'https://placeimg.com/600/600/sepia', },
-    //   { src: 'https://placeimg.com/600/600/sepia', },
-    //   { src: '../../../assets/images/home/fon_home.jpg', },
-    //   // { src: '../../../assets/images/home/fon_home1.jpg', },
-    //   // { src: 'https://placeimg.com/600/600/people', },
-    //   // { src: 'https://placeimg.com/600/600/tech', }
-    // ];
-    // this.slider.items = this. imageArr;
     this.slider.items = this.slideItems;
-    this.slider.config.transitionDuration = 1.5;
+    this.slider.config.transitionDuration = 1;
     this.getGalleryFireCloud();
   }
 
   private getGalleryFireCloud(): void {
     this.galleryService.getFireCloudImage().subscribe(
       colection => {
-        this.imageArr = colection.map(document => {
+        this.slideItems = colection.map(document => {
           const id = document.payload.doc.id;
           const data = document.payload.doc.data() as IGallery;
+          // console.log(data);
+          this.slideItems.push(data)
           return { id, ...data }
         })
+        // console.log(this.slideItems)
       }
     )
   }
-
-  // addFoto(): void {
-  //   this.slideItems.push(this.newFoto)
-  //   console.log(this.newFoto)
-  //   console.log(this.slideItems)
-  // }
+}
 
   // @HostListener('window:scroll')
   // checkScroll() {
@@ -83,5 +66,3 @@ export class HomeComponent implements OnInit {
   //     behavior: 'smooth'
   //   });
   // }
-
-}

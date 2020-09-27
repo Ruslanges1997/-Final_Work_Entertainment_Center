@@ -1,15 +1,23 @@
 @import "../../../stylings/variables";
 .count_number {
-    width: 0px;
-    background: inherit;
-    // margin: 5px 5px;
+    // width: 0px;
+    // background: inherit;
+    // // margin: 5px 5px;
+    // text-align: center;
+    // color: red;
+    // outline: none;
+    // border: none;
+    // // font-size: 20px;
+    // visibility: hidden;
+    // -webkit-appearance: none;
+    width: 30px;
+    /* background: inherit; */
     text-align: center;
-    color: red;
+    /* color: red; */
+    font-weight: 900;
     outline: none;
+    color: #212529;
     border: none;
-    // font-size: 20px;
-    visibility: hidden;
-    -webkit-appearance: none;
 }
 
 .count_btn {

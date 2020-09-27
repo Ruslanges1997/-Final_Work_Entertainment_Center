@@ -31,11 +31,9 @@ const routes: Routes = [
   { path: 'games/:id', component: GamesDetailsComponent },
   { path: 'order-birthday', component: OrderBirthdayComponent },
   { path: 'calculator-birthday', component: CalculatorBirhdayComponent },
-  { path: 'calculator-birthday/:category', component: CalculatorBirhdayComponent },
+  // { path: 'calculator-birthday/:category', component: CalculatorBirhdayComponent },
   { path: 'calculator-standart', component: CalculatorStandartComponent },
   { path: 'calculator-premium', component: CalculatorPremiumComponent },
-
-
   // { path: 'calculator-standart/:category', component: CalculatorStandartComponent },
   // { path: 'menu', component: MenuComponent },
   // { path: 'menu/:id', component: MenuComponent },
@@ -48,7 +46,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'admin-entertainment', pathMatch: 'full' },
       { path: 'admin-entertainment', component: AdminEntertainmentComponent },
       { path: 'admin-birthday', component: AdminBirthdayComponent },
-     
+
       { path: 'admin-category-menu', component: AdminCategoryMenuComponent },
       { path: 'admin-menu-product', component: AdminMenuProductComponent },
       { path: 'admin-our-team', component: AdminOurTeamComponent },

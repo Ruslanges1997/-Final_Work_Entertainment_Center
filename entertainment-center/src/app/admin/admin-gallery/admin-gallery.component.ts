@@ -17,7 +17,7 @@ export class AdminGalleryComponent implements OnInit {
   imageStatus: boolean;
   galleryID = 1;
   galleryImage: string;
-  searchName:string;
+  searchName: string;
   imageArr: Array<IGallery> = [];
   imageArrSorted: Array<IGallery> = [];
   uploadProgress: Observable<number>;
@@ -76,8 +76,8 @@ export class AdminGalleryComponent implements OnInit {
 
   addImage(): void {
     const newImage = new Gallery(this.galleryID,
-      this.imageName,
       this.galleryImage,
+      this.imageName,
     );
     delete newImage.id;
     this.galleryService.postFireImage({ ...newImage })
@@ -98,9 +98,20 @@ export class AdminGalleryComponent implements OnInit {
       this.afStorage.ref(`images/gallery/${image.metadata.name}`).getDownloadURL().subscribe(url => {
         this.galleryImage = url;
         this.imageStatus = true;
-        console.log(image.metadata.name)
+        // console.log(image.metadata.name)
       })
     })
   }
+  private deletImageStorefe(): void {
+    this.afStorage.storage.refFromURL(this.galleryImage).delete();
+  }
+  deleteImage(image: IGallery): void {
+    this.deletImageStorefe();
+    this.galleryService.deleteFireCloudImage(image.id.toString())
+      .then(message => console.log(message))
+    
+      .catch(err => console.log(err));
+  }
+
 
 }

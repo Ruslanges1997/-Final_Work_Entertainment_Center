@@ -1,24 +1,63 @@
 <section class="profile_section">
     <div class="containerE ">
         <div class="rowE">
-            <div class="block_profile">
-                <div>
-                    <h3>Hello {{ firstName |titlecase}} {{ lastName |titlecase}}</h3>
+
+            <!-- <div *ngFor="let menu of userOrders">
+                    <h1>{{menu.allPrice}}</h1>
+                </div> -->
+            <div class="block_profile" *ngFor="let order of userOrders">
+                <div class="title_profile">
+                    <h3>{{ order?.namePeople |titlecase}} </h3>
                 </div>
-                <div>
-                    <h3>Email: {{ userEmail }}</h3>
+                <div class="title_profile">
+                    <h2>Ваше замовлення</h2>
                 </div>
-                <!-- <div *ngFor="let item of orderProfileAray ; let i =index"> -->
-                <!-- </div> -->
-                <div>
-                    Дата святкування <p>{{date| slice:0:15}}</p>
-                    <h4>Ваше свято починається {{time}}</h4>
-                    <p>ви обрали {{packageName}}</p>
-                    <p>кількість гостей {{countPeoples}}</p>
-                    <p>ціна за паккет{{allPrice}} грн</p>
-                    <p>Стус вашого замовлення {{statusOrder}}</p>
+                <div class="info_profile">
+                    <div class="detail" *ngFor="let gameOrder of order.entertainmentOrder" style="display: flex;">
+                        <span>
+                            <p>{{gameOrder?.nameGame}}</p>
+                        </span> <span>
+                            <p>{{gameOrder?.count}}</p>
+                        </span>
+                    </div>
+                    <div class="detail" *ngFor="let menuOrder of order.productOrder" style="display: flex;">
+                        <span>
+                            <p>{{menuOrder?.nameUA}}</p>
+                        </span> <span>
+                            <p>{{menuOrder?.count}}</p>
+                        </span>
+                    </div>
+
+                    <div class="detail">
+                        <h4> Дата святкування </h4>
+                        <p>{{ order?.date| slice:0:15}}</p>
+
+                    </div>
+                    <div class="detail">
+                        <h4>Ваше свято починається </h4>
+                        <p>{{order?.time}}</p>
+                    </div>
+
+                    <div class="detail">
+                        <h4>Ви обрали</h4>
+                        <p>{{order?.packageName}}</p>
+                    </div>
+                    <div class="detail">
+                        <h4>Кількість гостей </h4>
+                        <p>{{ order?.countPeoples}}</p>
+                    </div>
+                    <div class="detail">
+                        <h4>Ціна за паккет </h4>
+                        <p>{{order?.allPrice}} грн</p>
+                    </div>
+                    <div class="detail">
+                        <h4>Статус вашого замовлення </h4>
+                        <p>{{order?.statusOrder}}</p>
+                    </div>
+                    <div class="detail">
+                        <button type="button" class="btn_primaryP " (click)="signOut()">Sign Out</button>
+                    </div>
                 </div>
-                <button type="button" class="btn_primary" (click)="signOut()">Sign Out</button>
             </div>
         </div>
     </div>

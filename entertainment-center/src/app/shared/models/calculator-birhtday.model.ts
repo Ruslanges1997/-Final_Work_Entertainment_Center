@@ -20,5 +20,19 @@ export class Calculator implements ICalculator {
         public entertainmentOrder?: Array<IEntertainment>,
         public packageName?: string,
         public statusOrder: string = 'в обробці',
+        public email?: any,
     ) { }
 }
+// this.orderIDB,
+// this.timeB,
+// this.dateB.toString(),
+// this.counterPeopleB,
+// this.namePeopleOrder,
+// this.phoneNumber,
+// this.priceGamesTotal,
+// this.totalPriceProd,
+// this.totalAllPrice,
+// this.productOrders,
+// this.entertainmentOrders,
+// this.packageName,
+// this.userEmail

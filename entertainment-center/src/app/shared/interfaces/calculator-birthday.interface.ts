@@ -17,4 +17,5 @@ export interface ICalculator {
     entertainmentOrder?: Array<IEntertainment>;
     packageName?: string;
     statusOrder: string;
+    email?:any;
 }

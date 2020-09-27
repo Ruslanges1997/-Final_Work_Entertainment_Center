@@ -60,10 +60,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { SearchPipe } from './shared/pipes/search.pipe';
 import { SearchWorkerPipe } from './shared/pipes/search-worker.pipe';
 import { SearchNameGamePipe } from './shared/pipes/search-name-game.pipe';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+// import { PhoneMaskDirective } from './phone-mask.directive';
 
 
 
 @NgModule({
+
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -77,7 +80,6 @@ import { SearchNameGamePipe } from './shared/pipes/search-name-game.pipe';
     AdminComponent,
     AdminEntertainmentComponent,
     AdminBirthdayComponent,
-
     AdminCategoryMenuComponent,
     AdminMenuProductComponent,
     GamesDetailsComponent,
@@ -99,7 +101,6 @@ import { SearchNameGamePipe } from './shared/pipes/search-name-game.pipe';
     FormsModule,
     HttpClientModule,
     OrderModule,
-
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -121,9 +122,14 @@ import { SearchNameGamePipe } from './shared/pipes/search-name-game.pipe';
     MatIconModule,
     MatInputModule,
     MatTabsModule,
+    NgxMaskModule.forRoot(),
   ],
 
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
+

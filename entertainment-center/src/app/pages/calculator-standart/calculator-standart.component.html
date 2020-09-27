@@ -1,81 +1,36 @@
 <section class="calculator_standart_section">
     <div class="containerE">
         <div class="rowE">
-
-            <div class="block_assortment">
-                <form #packageStandartForm="ngForm">
-                    <!-- <h1 class="title_order">Час і Дата</h1> -->
-                    <div class="data-time_block ">
-                        <mat-form-field appearance="fill" class="kalentdar">
-                            <mat-label class="date_text">Виберіть дату святкування</mat-label>
-                            <input matInput [matDatepicker]="picker" [(ngModel)]="dateB"
-                                (dateChange)="addEvent('change', $event)" id="dateB" name="dateB" required>
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <div *ngFor="let date of dateBirhdayArr" class="date_text">
-                                {{date| date: 'dd/MM/yyyy'}}
+            <div class="calculator_block">
+                <div class="block_assortment">
+                    <form #packageStandartForm="ngForm">
+                        <div class="data-time_block ">
+                            <mat-form-field appearance="fill" class="kalentdar">
+                                <mat-label class="date_text">Виберіть дату святкування</mat-label>
+                                <input matInput [matDatepicker]="picker" [(ngModel)]="dateB"
+                                    (dateChange)="addEvent('change', $event)" id="dateB" name="dateB" required>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <div *ngFor="let date of dateBirhdayArr" class="date_text">
+                                    {{date| date: 'dd/MM/yyyy'}}
+                                </div>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <div class=" margin_content time_birhday">
+                                <button class="time_btn" (click)="openModalTime(timeBirthday)">
+                                    <span> Початок свята </span>
+                                    <input type="text" [(ngModel)]="timeB" id="timeB" name="timeB"
+                                        placeholder="{{ timeB }}" class="time_input" required>
+                                </button>
                             </div>
-                            <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
-                        <div class=" margin_content time_birhday">
-                            <button class="time_btn" (click)="openModalTime(timeBirthday)">
-                                <span> Початок свята </span>
-                                <input type="text" [(ngModel)]="timeB" id="timeB" name="timeB" placeholder="{{ timeB }}"
-                                    class="time_input" required>
-                            </button>
                         </div>
-                    </div>
 
-                    <div class="count_people  margin_content ">
-                        <div>
-                            <span>
-                                <h2>Кількість гостей</h2>
-                            </span>
-                        </div>
-                        <div>
-                            <span>
-                                <button type="button" class="count_btn-people" (click)="countPeople (false)">-</button>
-                            </span>
-                            <span>
-                                {{counterPeople}}
-                            </span>
-                            <input type="number" [(ngModel)]="counterPeople " id="counterPeople" name="counterPeople">
-                            <span>
-                                <button type="button" class="count_btn-people" (click)="countPeople(true)"
-                                    [disabled]="disBtnCounPeople">+</button>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="info_people_order">
-                        <div class="name_and_phone">
-                            <label class="label_order" for="namePeopleOrder">
-                                <h1>Ваше Імя</h1>
-                            </label>
-                            <input type="text" class="input_phone_name" placeholder=" Введіть імя" id="namePeopleOrder"
-                                required [(ngModel)]="namePeopleOrder" name="namePeopleOrder">
-                        </div>
-                        <div class="name_and_phone">
-                            <label class="label_order" for="phoneNumber">
-                                <h1>Ваше номер телефона</h1>
-                            </label>
-                            <input class="input_phone_name" type="tel" id="phoneNumber" name="phoneNumber"
-                                [(ngModel)]="phoneNumber" placeholder="Введіть номер" required>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-
-            <div class="order_final">
-                <div class="orderBirthday">
-                    <div class="block_order-birthday">
-                        <h1 class="margin"> Ваше замовлення</h1>
-                        <div class=" order_menu  margin_content ">
-                            <div>
+                        <div class="count_peopleS  margin_content ">
+                            <div class="textS">
                                 <span>
                                     <h2>Кількість гостей</h2>
                                 </span>
                             </div>
-                            <div class="counter_order_final">
+                            <div>
                                 <span>
                                     <button type="button" class="count_btn-people"
                                         (click)="countPeople (false)">-</button>
@@ -91,19 +46,66 @@
                                 </span>
                             </div>
                         </div>
+                        <div class="info_people_orderS">
+                            <div class="name_and_phone">
+                                <label class="label_orderS" for="namePeopleOrder">
+                                    <h1>Ваше Імя</h1>
+                                </label>
+                                <input type="text" class="input_phone_nameS" placeholder=" Введіть імя"
+                                    id="namePeopleOrder" required [(ngModel)]="namePeopleOrder" name="namePeopleOrder">
+                            </div>
+                            <div class="name_and_phone">
+                                <label class="label_orderS" for="phoneNumber">
+                                    <h1>Ваше номер телефона</h1>
+                                </label>
+                                <input class="input_phone_nameS" type="tel" id="phoneNumber" name="phoneNumber"
+                                    [(ngModel)]="phoneNumber" placeholder="Введіть номер" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-                        <div class="order_menu margin">
-                            <h3>Дата святкування </h3>
-                            <span class="info_birthday-one"
-                                *ngFor="let date of dateBirhdayArr">{{date| date: 'dd/MM/yyyy'}}
-                            </span>
-                        </div>
-                        <div class="order_menu margin">
-                            <h3>Година святкування </h3>
-                            <span class="info_birthday-one"> {{ timeB }}</span>
-                        </div>
-                        <!-- <h1 class="margin">Ресторан</h1> -->
-                        <!-- <div *ngFor="let menu of productOrders " class="orderBirthday_last margin">
+                <div class="order_finalS">
+                    <div class="orderBirthdayS">
+                        <div class="block_order-birthday">
+                            <h1 class="margin"> Ваше замовлення</h1>
+                            <div class="block_order_endS">
+                                <div class=" order_menuS  margin_content ">
+                                    <div>
+                                        <span>
+                                            <h2>Кількість гостей</h2>
+                                        </span>
+                                    </div>
+                                    <div class="counter_order_final">
+                                        <span>
+                                            <button type="button" class="count_btn-people"
+                                                (click)="countPeople (false)">-</button>
+                                        </span>
+                                        <span>
+                                            {{counterPeople}}
+                                        </span>
+                                        <input type="number" [(ngModel)]="counterPeople " id="counterPeople"
+                                            name="counterPeople">
+                                        <span>
+                                            <button type="button" class="count_btn-people" (click)="countPeople(true)"
+                                                [disabled]="disBtnCounPeople">+</button>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="order_menuS margin">
+                                    <h3>Дата святкування </h3>
+                                    <span class="info_birthday-one"
+                                        *ngFor="let date of dateBirhdayArr">{{date| date: 'dd/MM/yyyy'}}
+                                    </span>
+                                </div>
+                                <div class="order_menuS margin">
+                                    <h3>Година святкування </h3>
+                                    <span class="info_birthday-one"> {{ timeB }}</span>
+                                </div>
+                            </div>
+                            <!-- <h1 class="margin">Ресторан</h1> -->
+                            <!-- <div *ngFor="let menu of productOrders " class="orderBirthday_last margin">
                             <span> {{ menu?.nameUA | titlecase }} </span>
                             <span> {{ menu?.count }} шт </span>
                             <app-counter [product]="menu" (changeCount)="detectChangeProd($event)"></app-counter>
@@ -113,28 +115,47 @@
                             </div>
                         </div> -->
 
-                        <!-- <span>Загальна ціна за Ресторан{{ totalPriceProd  }} </span> -->
+                            <!-- <span>Загальна ціна за Ресторан{{ totalPriceProd  }} </span> -->
+                            <div class=" boundary_lineS"></div>
+                            <h1>Розваги</h1>
+                            <!-- <div *ngFor="let game of entertainmentAray" class="orderBirthday_last margin">
+                                <span> {{ game?.nameGame| titlecase }}</span>
+                                <span> дві гри</span> -->
+                            <table class="table  table_menu_game" style="text-align: center ; align-items: center;">
+                                <thead>
+                                    <tr>
+                                        <th>Назва</th>
+                                        <th>Кількість</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbody_order">
+                                    <tr *ngFor="let game of entertainmentAray">
+                                        <td>
+                                            {{ game?.nameGame | titlecase }}
+                                        </td>
+                                        <td>
+                                            2 гри
+                                        </td>
+                                    </tr>
 
-                        <h1>Розваги</h1>
-                        <div *ngFor="let game of entertainmentAray" class="orderBirthday_last margin">
-                            <span> {{ game?.nameGame| titlecase }}</span>
-                            <span> дві гри</span>
+                                </tbody>
+                            </table>
                             <!-- <span> {{ game?.count }} шт </span> -->
                             <!-- <app-counter [product]="game" (changeCount)="detectChangeGame($event)"></app-counter> -->
                             <!-- <span> {{ (game?.priceGame *  game?.count)  * counterPeople  }} грн </span> -->
                             <!-- <div class="delateProduct " (click)="deleteProductGame(game)">
                                 X
                             </div> -->
+                            <!-- </div> -->
                         </div>
                     </div>
-                </div>
 
-                <div class="total_card">
-                    <div class="total_card_price">
-                        <h4>Ціна за Пакет стандарт</h4>
-                        <p>{{totalStandatr}} грн</p>
-                    </div>
-                    <!--  <div class="total_card_price">
+                    <div class="total_cardS">
+                        <div class="total_card_price">
+                            <h4>Сума до оплати</h4>
+                            <p>{{totalStandatr}} грн</p>
+                        </div>
+                        <!--  <div class="total_card_price">
                         <h4>Ціна за ігри</h4>
                         <p>{{totalPriceEntertainment * counterPeople}} грн</p>
                     </div>
@@ -142,21 +163,19 @@
                         <h4> Загальна cума </h4>
                         <p> {{totalAllPrice}} грн</p>
                     </div> -->
-                    <div>
-                        <button type="button" class="btn_add" (click)="addBirthdayFire()" [disabled]="packageStandartForm.invalid">
-                            Замовити
-                        </button>
-                        <!-- [disabled]='disAddBirFireBtn'  -->
+                        <div>
+                            <button type="button" class="btn_add" (click)="addBirthdayFire()"
+                                [disabled]="packageStandartForm.invalid">
+                                Замовити
+                            </button>
+                            <!-- [disabled]='disAddBirFireBtn'  -->
+                        </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </section>
-
-
 
 <ng-template #timeBirthday>
     <div class="modal-header">

@@ -1,45 +1,32 @@
-<!-- <p>menu works!</p> -->
 <section class="section_menu">
     <div class="containerE">
         <div class="rowE">
             <div class="box_name-assortment">
                 <div class="pizza">
-                    <!-- <h3>pizza</h3> -->
-                    <!-- <button type="button" class="btn_name-assortment " >PIZZA</button> -->
                     <a class="nav_link" routerLinkActive="active_link-menu " [routerLink]="[ '/menu/pizza']">
                         <button type="button" class="btn_name-assortment ">PIZZA</button>
                     </a>
-
-
                 </div>
                 <div class="burger">
-                    <!-- <h3>burger</h3> -->
                     <a class="nav_link" routerLinkActive="active_link-menu " [routerLink]="[ '/menu/burger']">
                         <button type="button" class="btn_name-assortment ">BURGER</button>
                     </a>
-                    <!-- <button type="button" class="btn_name-assortment">BURGER</button> -->
                 </div>
                 <div class="drinks">
-                    <!-- <h3>drinks</h3> -->
-                    <!-- <button type="button" class="btn_name-assortment">DRINKS</button> -->
                     <a class="nav_link" routerLinkActive="active_link-menu " [routerLink]="[ '/menu/drinks']">
                         <button type="button" class="btn_name-assortment ">DRINKS</button>
                     </a>
                 </div>
                 <div class="salad">
-                    <!-- <h3>salad</h3> -->
-                    <!-- <button type="button" class="btn_name-assortment">SALAD</button> -->
                     <a class="nav_link" routerLinkActive="active_link-menu " [routerLink]="[ '/menu/salad']">
                         <button type="button" class="btn_name-assortment ">SALAD</button>
                     </a>
                 </div>
             </div>
         </div>
-
         <div class="box_assortment-menu">
             <div class="menu_card" *ngFor="let product of productsArr">
                 <div class="image">
-                    <!-- <img class="img_menu" src="../../../assets/images/burger.jpg" alt=""> -->
                     <img class="img_menu" [src]="product?.image">
                     <div class="menu_text">
                         <h2><span> Ціна {{product?.priceMenu}} грн</span></h2>
@@ -47,13 +34,12 @@
                     </div>
 
                 </div>
-
                 <div class="element_menu title">
-                    <h3>{{product?.nameUA}}</h3>
+                    <h3>{{product?.nameUA| titlecase}}</h3>
                 </div>
 
                 <div class="element_menu title">
-                    <h4>Склад</h4>
+                    <h4>Опис</h4>
 
                 </div>
                 <div class="element_menu ">
@@ -62,34 +48,6 @@
                     </p>
                 </div>
             </div>
-            <!-- <div class="menu_card">
-                <div class="image">
-                    <img class="img_menu" src="../../../assets/images/burger.jpg" alt="">
-                    <div class="menu_text">
-                        <h2><span>Ціна 145 грн </span></h2>
-                        <h2><span>Вага 450 гр</span></h2>
-                    </div>
-
-                </div>
-
-                <div class="element_menu title">
-                    <h3>Дарт бургер</h3>
-                </div>
-
-                <div class="element_menu title">
-                    <h4>Склад</h4>
-
-                </div>
-                <div class="element_menu ">
-                    <p>
-                        булка чорна, 2 котлети з мармурової яловичини,бекон, чедер, ементаль, соус сирний, кетчуп,
-                        корнішони, золотиста цибуля.
-                    </p>
-                </div>
-            </div> -->
-
-
-
         </div>
     </div>
 </section>

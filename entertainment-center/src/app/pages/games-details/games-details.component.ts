@@ -25,9 +25,9 @@ export class GamesDetailsComponent implements OnInit {
     this.fireCloud.collection('entertainment').doc(id).get().subscribe(
       document => {
         const data = document.data();
-        console.log(data)
+        // console.log(data)
         const dataID = document.id;
-        console.log(dataID)
+        // console.log(dataID)
         this.game = { dataID, ...data };
       }
     );

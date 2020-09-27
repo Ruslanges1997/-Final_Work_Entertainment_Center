@@ -22,13 +22,14 @@
                 <th>Phone</th>
                 <th>Time</th>
                 <th>Date</th> -->
-                <th>Count people</th>
+                <!-- <th>Count people</th> -->
+                <th>Name </th>
                 <th>Name packge</th>
                 <td>AllPrice</td>
                 <th>Status</th>
                 <td>Ігри</td>
                 <td>Меню</td>
-                <td>Edite</td>
+                <td>Indo detail</td>
                 <td>Delete</td>
                 <!-- <th [class.active]="order === 'id'" (click)="setOrder('id')">
                     ID
@@ -55,7 +56,8 @@
                 <td>{{order?.phone}}</td>
                 <td>{{order?.time}}</td>
                 <td>{{order?.date| slice:0:15}}</td> -->
-                <td>{{order?.countPeoples}}</td>
+                <!-- <td>{{order?.countPeoples}}</td> -->
+                <td>{{order?.namePeople}}</td>
                 <td>{{order?.packageName}}</td>
                 <td>{{order?.allPrice}}</td>
                 <td>{{ order.statusOrder }}</td>
@@ -80,20 +82,18 @@
                     </ul>
                 </td>
                 <td>
-                    <input type="button" (click)="editeOrder(EditeGameModals, order)" class="btn btn-warning "
-                        value="Edite">
+                    <input type="button" (click)="editeOrder(InfoModals, order)" class="btn btn-warning " value="Info">
                 </td>
                 <td>
                     <input type="button" class="btn btn-danger" value="Delete" (click)="deleteOrder(order)">
                 </td>
-             
             </tr>
         </tbody>
     </table>
 </div>
 
 
-<ng-template #EditeGameModals>
+<ng-template #InfoModals>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Order model</h4>
         <button type="button" class="close pull-right" (click)="closeModal()" aria-label="Close">
@@ -101,11 +101,10 @@
         </button>
     </div>
     <div class="modal-body">
-
-        <div style="display: flex; flex-direction: column; justify-content: space-around;">
+        <div style="display: flex; flex-direction: column; justify-content: space-around; height: 110px;">
             <div style="display: flex;justify-content: space-around;">
-                <h3>Name</h3>
-                <span>{{currAdmOrder?.namePeople}}</span>
+                <h3>Count</h3>
+                <span>{{currAdmOrder?.countPeoples}}</span>
             </div>
             <div style="display: flex;justify-content: space-around;">
                 <h3>Time</h3>

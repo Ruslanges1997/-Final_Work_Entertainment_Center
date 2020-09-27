@@ -5,51 +5,39 @@
     min-height: 90vh;
     width: 100%;
     margin-top: 100px;
-    font-size: 15px;
     background: rgb(250 250 250 / 57%);
-    font-weight: 600;
+    font-family: "roboto-italik";
+    font-weight: 900;
+    font-size: 15px;
+    color: black;
 }
 
 .margin {
-    margin: 15px 0px;
+    margin: 15px auto;
 }
-
-.time_form {
-    margin-top: 30px;
-}
-
 .calculator_block {
     padding: 10px;
     width: 100%;
     display: flex;
     margin: 5% 0px;
+    flex-direction: column;
 }
 
 .block_assortment {
-    width: 560px;
-    height: fit-content;
-    margin: 0px 20px 0px 0px;
+    width: 90%;
+    min-height: 200px;
+    margin: 0px auto;
     padding: 5px;
-    box-shadow: 20px 20px 15px rgba(39, 49, 67, 0.12);
+    box-shadow: 20px 20px 15px rgb(33 37 41);
     border: 1px solid #eeeff0;
     background: white;
     border-radius: 20px;
 }
 
-.time_birhday {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 35px;
-}
-
 .time_btn {
     display: block;
-    width: 100%;
+    width: 300px;
     height: 40px;
-    left: 0;
-    top: 0;
     outline: 0;
     border: 0;
     background-color: $bgColor;
@@ -87,36 +75,31 @@
     line-height: 40px;
     min-height: 40px;
     text-align: center;
-     background: white;
+    background: white;
     border: 1px solid #a4a4a4;
     box-sizing: border-box;
     border-radius: 10px;
     margin: 10px 10px;
 }
 
-.margin_content {
-    margin: 10px 0px 0px 20px;
-    align-items: center;
-}
-
 .count_people {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 200px;
+    justify-content: center;
     height: 60px;
-    color: $bgColor;
-    margin-left: 30%;
+    align-items: center;
     input {
         display: none;
+    }
+    .text {
+        margin: 0px 40px;
+        font-size: 20px;
+        font-weight: 900;
     }
 }
 
 .count_menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    color: $bgColor;
+    margin-top: 30px;
+    text-align: center;
     button {
         background: $bgColor;
         width: 100px;
@@ -124,17 +107,6 @@
         border-radius: 10px;
         outline: none;
         color: white;
-    }
-}
-
-.count_menu-prod,
-.count_game {
-    align-items: center;
-    text-align: center;
-    display: flex;
-    span {
-        margin: 5px 10px;
-        align-items: center;
     }
 }
 
@@ -147,63 +119,22 @@
 .mat-input-element {
     display: none;
 }
-.data-time_block {
+.data-time_block,
+.info_people_order {
     display: flex;
     justify-content: space-around;
-}
-
-.orderBirthday {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    box-shadow: 9px 1px 20px 20px rgba(39, 49, 67, 0.12);
-    padding: 10px 10px;
-    width: 350px;
-    height: 500px;
-    overflow-y: scroll;
-    h1 {
-        text-align: center;
-    }
-    &_last {
-        display: flex;
-        justify-content: space-around;
-        width: 98%;
-        padding: 10px;
-        height: 50px;
-        margin: 10px 0px;
-        background: white;
-        border-radius: 20px;
-        align-items: center;
-    }
-    .order_menu {
-        display: flex;
-        margin-left: 0px;
-        input {
-            display: none;
-        }
-    }
+    margin: 30px auto;
 }
 
 .counter_order_final {
     margin-left: 30px;
 }
 
-.birthday_menu {
-    width: 99%;
+.img_order_card {
+    width: 100px;
     height: 100px;
-    background-color: white;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-left: 3px;
 }
-.count_menu-prod {
-    background: rgb(234 235 236 / 36%);
-    img {
-        width: 100px;
-        height: 100px;
-    }
-    margin-left: -10px;
-}
+
 .delateProduct {
     cursor: pointer;
     &:hover {
@@ -215,7 +146,11 @@
     background: #0f0e15;
     border-radius: 20px;
     outline: none;
-    margin-left: 20%;
+    height: 30px;
+    width: 100px;
+    &:hover {
+        color: #a20e15;
+    }
 }
 .info_birthday-one {
     margin-left: 20px;
@@ -229,8 +164,8 @@
     color: white;
     border-radius: 20px;
     width: 100px;
-    height: 40px;
-    margin: 10px 10px;
+    height: 35px;
+    margin: 10px 50px;
     &:hover {
         color: #a20e15;
     }
@@ -246,10 +181,6 @@
 }
 .title_order {
     text-align: center;
-}
-.order_final {
-    display: flex;
-    flex-direction: column;
 }
 
 .active_link_menu {
@@ -275,10 +206,6 @@
     text-align: center;
 }
 
-.info_people_order {
-    display: flex;
-    justify-content: space-evenly;
-}
 .name_and_phone {
     display: flex;
     flex-direction: column;
@@ -288,14 +215,12 @@
     text-align: center;
 }
 .input_phone_name {
-    color: black;
-    width: 240px;
-    height: 30px;
+    width: 300px;
+    height: 45px;
     border-radius: 20px;
-    outline: none;
     padding: 15px;
     &:focus {
-        border: 3px solid #feda4a;
+        border: 2px solid #feda4a;
     }
 }
 input::-webkit-outer-spin-button,
@@ -308,16 +233,67 @@ input::-webkit-inner-spin-button {
     justify-content: space-between;
 }
 
-.total_card {
+.order_final {
+    display: flex;
     width: 90%;
-    height: 26%;
-    background-color: lightblue;
+    margin: 2px 0px 0px 60px;
+}
+.orderBirthday {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    box-shadow: 20px 20px 15px rgb(33 37 41);
+    padding: 10px 10px;
+    width: 65%;
+    height: 500px;
+    overflow-y: scroll;
+    border: 1px solid #eeeff0;
+    border-radius: 20px;
+    h1 {
+        text-align: center;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 900;
+    }
+    &_last {
+        display: flex;
+        justify-content: space-around;
+        width: 98%;
+        padding: 10px;
+        height: 50px;
+        margin: 10px 0px;
+        background: white;
+        border-radius: 20px;
+        align-items: center;
+    }
+    .order_menu {
+        display: flex;
+        margin: 10px auto;
+        align-items: center;
+        input {
+            display: none;
+        }
+    }
+}
+.block_order_end {
+    display: flex;
+    flex-direction: column;
+}
+
+.orderBirthday_tr {
+    height: 40px;
+}
+.total_card {
+    height: 36%;
+    background: white;
+    box-shadow: 20px 20px 15px rgb(33 37 41);
     margin-left: 15px;
     text-align: center;
     padding: 20px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 }
+
 .total_card_price {
     display: flex;
     justify-content: space-between;
@@ -352,4 +328,25 @@ input::-webkit-inner-spin-button {
 
 ::-webkit-scrollbar {
     width: 11px;
+}
+.table_menu_game {
+    margin: 30px auto;
+    color: black;
+    margin-bottom: 0px;
+}
+.tbody_order {
+    margin: 10px auto;
+    td {
+        vertical-align: text-top;
+    }
+}
+
+.animation {
+    animation: opasity 0.8s linear;
+}
+input.ng-invalid {
+    border: 2px solid red;
+}
+input.ng-valid {
+    border: 2px solid green;
 }
