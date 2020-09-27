@@ -70,12 +70,10 @@ a:link {
     }
 }
 
-
-    .headerScrol {
-        height: 85px;
-        opacity: 0.8;
-    }
-
+.headerScrol {
+    height: 85px;
+    opacity: 0.8;
+}
 
 @media screen and (max-width: 1000px) {
     header {
@@ -98,8 +96,57 @@ a:link {
         width: 140px;
     }
 }
+@media screen and (max-width: 780px) {
+    header {
+        height: 100px;
+        position: relative;
+        background: $bgColor;
+        transition: 1s;
+        font-size: 30px;
+        font-family: "Volkon-Bold";
+        .menu_burger-btn {
+            width: 150px;
+            height: 50px;
+            border-radius: 50px;
+            background: border-box;
+            outline: none;
+            display: block;
+        }
+    }
+    .navbar_nav {
+        display: none;
+    }
+    .center_navbar {
+        margin: 0px auto;
+    }
 
-@media screen and (max-width: 600px) {
+    .mobileHead {
+        height: 350px;
+        transition: 1s;
+        background: $bgColor;
+        z-index: 11;
+        h3 {
+            font-size: 20px;
+            margin: 10px 0px;
+        }
+        .center_navbar {
+            margin: 0px auto;
+        }
+        .navbar_nav {
+            animation: opasity 0.5s linear;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .menu_burger-btn {
+            margin: 20px auto 10px auto;
+        }
+        .logo_imgs {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 650px) {
     header {
         height: 70px;
         position: relative;

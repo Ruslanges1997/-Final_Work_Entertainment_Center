@@ -212,6 +212,7 @@ input::-webkit-inner-spin-button {
     padding: 20px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    margin-top: 2px;
 }
 .mat-input-element {
     display: none;
@@ -249,4 +250,143 @@ input::-webkit-inner-spin-button {
 .table_menu_game {
     color: black;
     margin-bottom: 0px;
+}
+input.ng-invalid {
+    border: 2px solid red;
+}
+input.ng-valid {
+    border: 2px solid green;
+}
+.link_backS {
+    outline: none;
+    text-decoration: none;
+    color: black;
+    h1 {
+        margin: 10px 10px 25px 20px;
+    }
+    span {
+        color: red;
+    }
+    &:hover {
+        color: red;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .calculator_standart_section {
+        margin-top: 0px;
+    }
+    .time_btn {
+        width: 100%;
+    }
+    .input_phone_nameS {
+        width: 300px;
+        height: 45px;
+        border-radius: 20px;
+        padding: 15px;
+    }
+    .total_cardS {
+        margin-left: 10px;
+        padding: 10px;
+    }
+    .orderBirthdayS {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 780px) {
+    .calculator_standart_section {
+        font-size: 17px;
+    }
+    .order_finalS {
+        flex-direction: column;
+        margin: 2px auto;
+    }
+    .orderBirthdayS {
+        width: 100%;
+        font-size: 25px;
+    }
+    .time_birhday {
+        width: 100%;
+    }
+    .time_btn,
+    .mat-form-field,
+    .input_phone_nameS {
+        width: 60%;
+        height: 50px;
+        margin: 20px auto;
+    }
+    .label_orderS {
+        font-size: 30px;
+    }
+    .total_cardS {
+        width: 70%;
+        margin-left: 15%;
+        font-size: 25px;
+        height: 30%;
+    }
+    .data-time_block,
+    .info_people_orderS {
+        display: flex;
+        flex-direction: column;
+    }
+    .count_btn-people {
+        width: 70px;
+        height: 40px;
+    }
+    .count_peopleS {
+        font-size: 30px;
+        .text {
+            font-size: 30px;
+        }
+    }
+    .btn_add {
+        width: 150px;
+        height: 55px;
+    }
+
+    .time_input {
+        height: 100%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .link_back {
+        h1 {
+            margin: 20px 0px 30px 0px;
+        }
+    }
+    .orderBirthdayS {
+        font-size: 15px;
+    }
+    .mobile_none {
+        display: none;
+    }
+    .time_birhday {
+        width: 100%;
+    }
+    .time_btn,
+    .mat-form-field,
+    .input_phone_nameS {
+        width: 95%;
+        height: 50px;
+        margin: 20px auto;
+    }
+    .label_orderS {
+        font-size: 25px;
+    }
+    .total_cardS {
+        font-size: 20px;
+        width: 90%;
+        margin-left: 5%;
+    }
+    .btn_add {
+        margin-top: 20px;
+    }
+    .time_btn {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .block_assortment {
+        overflow: scroll;
+    }
 }

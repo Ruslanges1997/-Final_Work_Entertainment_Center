@@ -61,8 +61,6 @@ export class CalculatorStandartComponent implements OnInit {
     this.getEmeilUser();
   }
 
-
-
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.dateBirhdayArr.splice(0, 1, `${type}: ${event.value}`);
     // console.log(this.dateBirhdayArr)

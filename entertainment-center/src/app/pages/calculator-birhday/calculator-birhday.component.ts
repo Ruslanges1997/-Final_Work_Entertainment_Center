@@ -417,6 +417,7 @@ export class CalculatorBirhdayComponent implements OnInit {
     this.entertainmentOrders = [];
     this.totalPriceProd = 0;
     this.PriceEntertainment = 0;
+    this.priceGamesTotal = 0;
     this.disBtnCounPeople = false;
     this.totalAllPrice = 0;
     this.counterPeople = 2;

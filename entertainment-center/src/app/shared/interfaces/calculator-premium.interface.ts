@@ -15,4 +15,18 @@ export interface ICalculatorPremium {
     packageName?: string;
     counterJuice?: number;
     statusOrder: string;
+    email?: any;
 }
+// this.orderIDB,
+// this.timeB,
+// this.dateB.toString(),
+// this.counterPeopleB,
+// this.namePeopleOrder,
+// this.phoneNumber,
+// this.totalPricePremium,
+// this.entertainmentAray,
+// this.prodPizzaArr,
+// this.prodJuiceArr,
+// this.packageName,
+// this.counterJuiceFinal,
+// this.userEmail

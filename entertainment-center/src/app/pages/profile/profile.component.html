@@ -1,6 +1,10 @@
 <section class="profile_section">
     <div class="containerE ">
         <div class="rowE">
+            <div style="margin-top: 150px;">
+                <h1>{{firstName}}</h1>
+                <h1>Вас поки що немає замовлень</h1>
+            </div>
 
             <!-- <div *ngFor="let menu of userOrders">
                     <h1>{{menu.allPrice}}</h1>
@@ -27,7 +31,20 @@
                             <p>{{menuOrder?.count}}</p>
                         </span>
                     </div>
-
+                    <div class="detail" *ngFor="let menuOrder of order.prodPizza" style="display: flex;">
+                        <span>
+                            <p>{{menuOrder?.nameUA}}</p>
+                        </span> <span>
+                            <p>{{menuOrder?.count}}</p>
+                        </span>
+                    </div>
+                    <div class="detail" *ngFor="let menuOrder of order.prodJuice" style="display: flex;">
+                        <span>
+                            <p>{{menuOrder?.nameUA}}</p>
+                        </span> <span>
+                            <p>{{menuOrder?.count}}</p>
+                        </span>
+                    </div>
                     <div class="detail">
                         <h4> Дата святкування </h4>
                         <p>{{ order?.date| slice:0:15}}</p>

@@ -1,7 +1,7 @@
 @import "../../../stylings/variables";
 @import "../../../stylings/mixin";
 
-.calculator_standart_section {
+.calculator_premium_section {
     min-height: 90vh;
     width: 100%;
     margin-top: 100px;
@@ -104,7 +104,7 @@
 .info_people_order {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 30px;
+    margin: 30px auto 20px auto;
 }
 .name_and_phone {
     display: flex;
@@ -248,7 +248,151 @@ input::-webkit-inner-spin-button {
 .margin {
     margin: 15px 0px;
 }
-.table_game{
+.table_game {
     color: black;
     margin-bottom: 0px;
+}
+input.ng-invalid {
+    border: 2px solid red;
+}
+input.ng-valid {
+    border: 2px solid green;
+}
+.link_backP {
+    outline: none;
+    text-decoration: none;
+    color: black;
+    h1 {
+        margin: 10px 10px;
+    }
+    span {
+        color: red;
+    }
+    &:hover {
+        color: red;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .calculator_premium_section {
+        margin-top: 0px;
+    }
+    .time_btn {
+        width: 100%;
+    }
+    .input_phone_nameP {
+        width: 300px;
+        height: 45px;
+        border-radius: 20px;
+        padding: 15px;
+    }
+    .total_cardP {
+        margin-left: 10px;
+        padding: 10px;
+    }
+    .orderBirthdayP {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 780px) {
+    .calculator_premium_section {
+        font-size: 17px;
+    }
+    .order_finalP {
+        flex-direction: column;
+        margin: 2px auto;
+    }
+    .orderBirthdayP {
+        width: 100%;
+        font-size: 20px;
+    }
+    .time_birhday {
+        width: 100%;
+    }
+    .time_btn,
+    .mat-form-field,
+    .input_phone_nameS {
+        width: 60%;
+        height: 50px;
+        margin: 20px auto;
+    }
+    .label_orderS {
+        font-size: 30px;
+    }
+    .total_cardP {
+        width: 70%;
+        margin-left: 15%;
+        font-size: 20px;
+        height: 30%;
+        margin-top: 2px;
+    }
+    .input_phone_nameP{
+        margin: 30px auto;
+    }
+    
+    .data-time_blockP,
+    .info_people_order {
+        display: flex;
+        flex-direction: column;
+        margin: 30px auto;
+    }
+    .count_btn-people {
+        width: 70px;
+        height: 40px;
+    }
+    .count_peopleP {
+        font-size: 30px;
+        .text {
+            font-size: 30px;
+        }
+    }
+    .btn_add {
+        width: 150px;
+        height: 55px;
+    }
+
+    .time_input {
+        height: 100%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .link_back {
+        h1 {
+            margin: 20px 0px 30px 0px;
+        }
+    }
+    .orderBirthdayP {
+        font-size: 15px;
+    }
+    .mobile_none {
+        display: none;
+    }
+    .time_birhday {
+        width: 100%;
+    }
+    .time_btn,
+    .mat-form-field,
+    .input_phone_nameP {
+        width: 95%;
+        height: 50px;
+        margin: 20px auto;
+    }
+    .label_orderP {
+        font-size: 20px;
+    }
+    .total_cardP {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .btn_add {
+        margin-top: 20px;
+    }
+    .time_btn {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 400px) {
+    .block_assortment {
+        overflow: scroll;
+    }
 }

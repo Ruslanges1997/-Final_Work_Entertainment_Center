@@ -3,6 +3,11 @@
         <div class="rowE">
             <div class="calculator_block">
                 <div class="block_assortment">
+                    <a [routerLink]="[ '../order-birthday']" class="link_back">
+                        <h1>
+                            <span>
+                                <<< </span> Birthday </h1>
+                    </a>
                     <ul class="order_progress_bar">
                         <li class="active">Час і Дата</li>
                         <li [ngClass]="{'active': menuActive === true || gameAcive === true}">Меню</li>
@@ -103,16 +108,16 @@
                             style="text-align: center ; align-items: center;">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th class="mobile_none"></th>
                                     <th>Назва</th>
                                     <th>Кількість</th>
-                                    <th>Ціна</th>
+                                    <th class="mobile_none">Ціна</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody class="tbody_order">
                                 <tr *ngFor="let product of productsArr" class="animation">
-                                    <td>
+                                    <td class="mobile_none">
                                         <img class="img_order_card " [src]="product.image" alt="">
                                     </td>
                                     <td>
@@ -121,7 +126,7 @@
                                     <td>
                                         <app-counter [product]="product"> </app-counter>
                                     </td>
-                                    <td>{{product?.priceMenu * product?.count}} грн</td>
+                                    <td class="mobile_none">{{product?.priceMenu * product?.count}} грн</td>
                                     <td>
                                         <button type="button" [disabled]="disBtnAdd " class="add-Product_Btn btn_order"
                                             (click)="addToBasketProduct(product)">Добавити
@@ -141,16 +146,16 @@
                             style="text-align: center ; align-items: center;">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th class="mobile_none"></th>
                                     <th>Назва</th>
                                     <th>Кількість</th>
-                                    <th>Ціна</th>
+                                    <th class="mobile_none">Ціна</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody class="tbody_order">
                                 <tr *ngFor="let games of entertainmentArr">
-                                    <td>
+                                    <td class="mobile_none">
                                         <img class="img_order_card" [src]="games.imageGame" alt="">
                                     </td>
                                     <td>
@@ -159,7 +164,7 @@
                                     <td>
                                         <app-counter [product]="games"></app-counter>
                                     </td>
-                                    <td>
+                                    <td class="mobile_none">
                                         {{games?.priceGame * games?.count}} грн
                                     </td>
                                     <td> <button type="button" [disabled]="disBtnAdd " class="add-Product_Btn btn_order"
@@ -244,7 +249,7 @@
                             </table>
                             <div class="boundary_line"></div>
                             <h1 class="margin">Розваги</h1>
-                            <table class="table" style="text-align: center ; align-items: center; width: 100%;">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th>Назва</th>
@@ -265,7 +270,10 @@
                                         <td>
                                             {{ (game?.priceGame *  game?.count)  * counterPeople  }} грн
                                         </td>
-                                        <div class="delateProduct " (click)="deleteProductGame(game)">X</div>
+                                        <td>
+                                            <div class="delateProduct " (click)="deleteProductGame(game)">X</div>
+                                        </td>
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -288,7 +296,8 @@
                         </div>
                         <div>
                             <button type="button" class="btn_add" [disabled]='disAddBirFireBtn'
-                                (click)="addBirthdayFire()"> Замовити</button>
+                                (click)="addBirthdayFire()" [routerLink]="[ '../order-birthday']"> Замовити
+                            </button>
                         </div>
                     </div>
                 </div>

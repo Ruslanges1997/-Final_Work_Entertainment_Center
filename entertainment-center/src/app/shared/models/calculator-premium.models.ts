@@ -17,5 +17,6 @@ export class CalculatorPremium implements ICalculatorPremium {
         public packageName?: string,
         public counterJuice?:number,
         public statusOrder: string = 'в обробці',
+        public email?: any,
     ) { }
 }

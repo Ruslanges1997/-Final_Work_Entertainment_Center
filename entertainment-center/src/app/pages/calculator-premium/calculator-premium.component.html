@@ -1,8 +1,13 @@
-<section class="calculator_standart_section">
+<section class="calculator_premium_section">
     <div class="containerE">
         <div class="rowE">
             <div class="calculator_blockP">
                 <div class="block_assortmentP">
+                    <a [routerLink]="[ '../order-birthday']" class="link_backP">
+                        <h1>
+                            <span>
+                                <<<< </span> Birthday </h1>
+                    </a>
                     <form #packagePremiumtForm="ngForm">
                         <div class="data-time_blockP">
                             <mat-form-field appearance="fill" class="kalentdar">
@@ -56,10 +61,10 @@
                             </div>
                             <div class="name_and_phone">
                                 <label class="label_orderP" for="phoneNumber">
-                                    <h1>Ваше номер телефона</h1>
+                                    <h1>Ваш номер телефона</h1>
                                 </label>
-                                <input class="input_phone_nameP" type="tel" id="phoneNumber" name="phoneNumber"
-                                    [(ngModel)]="phoneNumber" placeholder="Введіть номер" required>
+                                <input class="input_phone_nameP" id="phoneNumber" name="phoneNumber"
+                                    [(ngModel)]="phoneNumber" required type="text" prefix="+7" mask="(000) 000 00 00" />
                             </div>
                         </div>
                     </form>

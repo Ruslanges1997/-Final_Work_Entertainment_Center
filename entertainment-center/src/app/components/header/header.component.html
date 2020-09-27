@@ -1,4 +1,4 @@
-<header [class.mobileHead]="!menuBurgerNav" >
+<header [class.mobileHead]="!menuBurgerNav">
     <div class="containerE">
         <div class="center_navbar ">
             <nav>
@@ -30,6 +30,9 @@
                                 <h3>Birthday</h3>
                             </span>
                         </a>
+                        <a class="link " [routerLink]="[ 'calculator-birthday']"> </a>
+                        <a class="link " [routerLink]="[ 'calculator-standart']"> </a>
+                        <a class="link " [routerLink]="[ 'calculator-premium']"> </a>
                     </li>
                     <li class=" li_header" routerLinkActive="active_link">
                         <a class="link " [routerLink]="[ '/menu/pizza']">

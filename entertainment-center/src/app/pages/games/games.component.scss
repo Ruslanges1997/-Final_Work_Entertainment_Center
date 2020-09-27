@@ -51,15 +51,14 @@
 @media screen and (max-width: 1000px) {
     .games_section {
         min-height: 92vh;
-        margin-top: 70px;
+        margin-top: 0px;
     }
     .element_card {
         margin: 10px auto;
     }
     .card_game {
-        width: 300px;
+        width: 48%;
         margin: 20px auto;
-
         animation: opasity 0.5s linear;
         h3,
         p {
@@ -70,9 +69,6 @@
 }
 
 @media screen and (max-width: 500px) {
-    .games_section{
-        margin-top: 0px;
-    }
     .card_game {
         width: 100%;
         margin: 20px 20px;

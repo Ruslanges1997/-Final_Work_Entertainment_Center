@@ -1,5 +1,4 @@
 .registrer_section {
-    // background-image: url(../../assets/images/fon_register.jpg);
     background-image: url(../../assets/images/home/fon_home.jpg);
     width: 100%;
     min-height: 84vh;
@@ -63,14 +62,10 @@ input {
         }
     }
 }
-// input.ng-invalid {
-//     border: 2px solid red;
-// }
-// input.ng-valid {
-//     border: 2px solid green;
-// }
+
 @media screen and (max-width: 600px) {
     .login_card {
         width: 90%;
+        margin-top: 70px;
     }
 }

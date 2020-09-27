@@ -38,6 +38,7 @@ export class CalculatorPremiumComponent implements OnInit {
     this.getEntertainment();
     this.getFireCloudProducts();
     this.totalPremium();
+    this.getEmeilUser();
   }
 
   dateBirhdayArr: string[] = [];
@@ -158,8 +159,18 @@ export class CalculatorPremiumComponent implements OnInit {
     this.modalRef.hide();
   }
   packageName = "Преміум"
+  emailtOrders: any;
+  userEmail = "admin";
+  private getEmeilUser() {
+    if (localStorage.getItem('user')) {
+      this.emailtOrders = JSON.parse(localStorage.getItem('user'));
+      this.userEmail = this.emailtOrders.userEmail
+      console.log(this.userEmail)
+    } else {
+    }
+  }
 
-
+  statusOrder = 'в обробці'
   addBirthdayPremiumFire(): void {
     const order = new CalculatorPremium(
       this.orderIDB,
@@ -173,7 +184,9 @@ export class CalculatorPremiumComponent implements OnInit {
       this.prodPizzaArr,
       this.prodJuiceArr,
       this.packageName,
-      this.counterJuiceFinal
+      this.counterJuiceFinal,
+      this.statusOrder,
+      this.userEmail
     );
     localStorage.setItem('myProfile', JSON.stringify(order));
     delete order.id;
