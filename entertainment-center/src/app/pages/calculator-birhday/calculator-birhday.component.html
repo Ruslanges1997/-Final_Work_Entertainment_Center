@@ -13,7 +13,6 @@
                         <li [ngClass]="{'active': menuActive === true || gameAcive === true}">Меню</li>
                         <li [ngClass]="{'active': gameAcive === true}">Розваги</li>
                     </ul>
-                    <!--   -->
                     <form *ngIf="!switch " #timeDateForm="ngForm">
                         <div *ngIf="!switchTwo">
                             <div class="data-time_block ">
@@ -68,24 +67,18 @@
                                     <label class="label_order" for="phoneNumber">
                                         <h1>Ваш номер телефона</h1>
                                     </label>
-                                    <!-- <input type="text" prefix="+7" mask="(000) 000 00 00" /> -->
                                     <input class="input_phone_name" id="phoneNumber" name="phoneNumber"
                                         [(ngModel)]="phoneNumber" (ngModelChange)="checkPhone()" required type="text"
-                                        prefix="+7" mask="(000) 000 00 00" />
+                                        prefix="+380" mask="(00) 000 00 00" />
                                 </div>
                             </div>
                             <button (click)="next()" [disabled]="timeDateForm.invalid" class="btn_next">Меню</button>
-                            <!--  -->
                         </div>
                     </form>
 
                     <form *ngIf="switch">
                         <div class="count_menu ">
                             <span>
-                                <!-- <a class="nav_link" routerLinkActive="active_link_menu"
-                                    [routerLink]="[ '/calculator-birthday/pizza']">
-                                    <button type="button" class="btn_name-assortment ">Піца</button>
-                                </a> -->
                                 <button type="button" class="btn_name-assortment"  
                                     (click)="getFireCloudProducts('pizza')">Піца
                                 </button>
@@ -273,7 +266,6 @@
                                         <td>
                                             <div class="delateProduct " (click)="deleteProductGame(game)">X</div>
                                         </td>
-
                                     </tr>
                                 </tbody>
                             </table>
@@ -296,7 +288,7 @@
                         </div>
                         <div>
                             <button type="button" class="btn_add" [disabled]='disAddBirFireBtn'
-                                (click)="addBirthdayFire()" [routerLink]="[ '../order-birthday']"> Замовити
+                                (click)="addBirthdayFire()"> Замовити
                             </button>
                         </div>
                     </div>

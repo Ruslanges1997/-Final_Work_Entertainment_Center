@@ -93,10 +93,8 @@
                             <input type="checkbox" formControlName="acceptTerms" id="acceptTerms"
                                 class="form-check-input"
                                 [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
-                            <label  for="acceptTerms" class="form-check-label label label_check">Accept Terms &
+                            <label for="acceptTerms" class="form-check-label label label_check">Accept Terms &
                                 Conditions</label>
-                            <!-- <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is
-                                required</div> -->
                         </div>
                         <button class="btn_primary">Register</button>
                     </form>
@@ -105,55 +103,3 @@
         </div>
     </div>
 </section>
-
-
-
-
-<!-- <form (ngSubmit)="loginUser()" class="form_sign" #loginForm="ngForm">
-                    <div class="form_group">
-                        <label class="label" for=" userEmailLogin">Email address</label>
-                        <input type="email" class="form-control" #userEmailLog="ngModel"
-                         id="userEmailLogin"
-                            [(ngModel)]="userEmailLogin" placeholder="Enter  email" name="userEmailLogin" required>
-                    </div>
-                    <div class="form_group">
-                        <label class="label" for="userPasswordLogin">Password</label>
-                        <input type="password" class="form-control" #userPasswordLog="ngModel" 
-                        id="userPasswordLogin"
-                            [(ngModel)]="userPasswordLogin" placeholder="Enter password" name="userPasswordLogin"
-                            required>
-                    </div>
-                    <h1 style="color: red;"> wrong email or password</h1>
-                    <button [disabled]="userEmailLog.invalid || userPasswordLog.invalid" type="submit"
-                        class="btn_primary ">Login In</button>
-                </form> -->
-
-
-
-<!-- <form (ngSubmit)="registerUser()" #registerUserForm="ngForm">
-    <div class="form_group">
-        <label class="label" for="firstName">First Name</label>
-        <input type="text" class="form-control" placeholder="Enter first name" id="firstName"
-            [(ngModel)]="firstName" name="firstName" required>
-        <span ng-show=""></span>
-    </div>
-    <div class="form_group">
-        <label class="label" for="lastName">Last Name</label>
-        <input type="text" class="form-control" placeholder="Enter last name"
-         id="lastName"
-            [(ngModel)]="lastName" name="lastName" required>
-    </div>
-    <div class="form_group">
-        <label class="label" for="userEmail">Email address</label>
-        <input type="email" class="form-control" placeholder="Enter email"
-         id="userEmail"
-            [(ngModel)]="userEmail" name="userEmail" required>
-    </div>
-    <div class="form_group">
-        <label class="label" for="userPassword">Password</label>
-        <input type="text" class="form-control" id="userPassword" placeholder="Enter password"
-          id="userPassword"   [(ngModel)]="userPassword" name="userPassword" required>
-    </div>
-    <button type="submit" class="btn_primary"
-        [disabled]="registerUserForm.invalid">Register</button>
-</form> -->

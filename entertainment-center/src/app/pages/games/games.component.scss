@@ -2,10 +2,7 @@
 @import "../../../stylings/mixin";
 
 .games_section {
-    // width: 100%;
     min-height: 90vh;
-    // background: linear-gradient(90deg, rgba(7, 17, 69, 1) 0%, rgba(26, 58, 80, 1) 50%, rgba(0, 0, 0, 1) 100%);
-    // display: flex;
     background-image: url(../../../assets/images/home/fon_home1.jpg);
     margin-top: 100px;
 }
@@ -17,7 +14,6 @@
     width: 400px;
     margin: 20px auto;
     text-align: center;
-    // font-family: "Volkon-Bold , 'arial', sans-serif";
     color: $text_color;
     background: $bgColor;
     border-radius: 20px;
@@ -25,6 +21,7 @@
     h3,
     p {
         font-family: "Volkon-Bold";
+        font-size: 20px;
     }
     img {
         width: 100%;
@@ -63,7 +60,6 @@
         h3,
         p {
             letter-spacing: 1px;
-            font-size: 20px;
         }
     }
 }

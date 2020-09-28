@@ -15,11 +15,17 @@ export class LoginComponent implements OnInit {
   loginStatus: boolean;
   loginUrl: string;
   loginName: string;
-
+  userEmail: string;
+  acceptTerms: any;
+  registerForm: FormGroup;
+  submitted = false;
+  loginForm: FormGroup;
+  form: FormGroup;
+  userEmailLogin: string;
+  userPasswordLogin: string;
   switch: boolean;
   constructor(private authService: AuthService,
     private formBuilder: FormBuilder) { }
-
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
@@ -36,17 +42,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
-
-  // userEmailLogin: string;
-  // userPasswordLogin: string;
-  // loginUser(): void {
-  //   console.log(this.userEmailLogin, this.userPasswordLogin);
-  //   this.authService.login(this.userEmailLogin, this.userPasswordLogin);
-  //   // this.resetForm();
-  // }
-  form: FormGroup;
-  userEmailLogin: string;
-  userPasswordLogin: string;
+ 
   get l() { return this.form.controls; }
 
   loginUser() {
@@ -61,16 +57,12 @@ export class LoginComponent implements OnInit {
   switchForm(): void {
     this.switch = !this.switch;
   }
-
-  acceptTerms: any;
-  registerForm: FormGroup;
-  submitted = false;
-  loginForm: FormGroup;
+  
 
   get f() {
     return this.registerForm.controls;
   }
-  userEmail: string;
+
   onSubmit() {
     this.submitted = true;
     if (this.registerForm.invalid) {
@@ -80,7 +72,6 @@ export class LoginComponent implements OnInit {
       this.userPassword,
       this.firstName,
       this.lastName);
-    // this.resetForm();
     this.switch = !this.switch
     this.loginUrl = 'profile';
     this.onReset();
@@ -90,10 +81,4 @@ export class LoginComponent implements OnInit {
     this.submitted = false;
     this.registerForm.reset();
   }
-  // private resetForm(): void {
-  //   this.userEmail = '';
-  //   this.userPassword = '';
-  //   this.firstName = '';
-  //   this.lastName = '';
-  // }
 }

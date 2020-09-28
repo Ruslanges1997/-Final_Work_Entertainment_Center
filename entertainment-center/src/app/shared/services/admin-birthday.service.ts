@@ -6,11 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminBirthdayService {
-
   constructor(
     private fireCloud: AngularFirestore,
   ) { }
-
 
   getFireCloudOrder(): Observable<DocumentChangeAction<unknown>[]> {
     return this.fireCloud.collection('orders').snapshotChanges();
@@ -23,5 +21,4 @@ export class AdminBirthdayService {
   deleteFireCloudOrder(id: string): Promise<any> {
     return this.fireCloud.collection('orders').doc(id).delete();
   }
-  
 }

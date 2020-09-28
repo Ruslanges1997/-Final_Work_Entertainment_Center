@@ -13,6 +13,7 @@ export class CalculatorStandart implements ICalculatorStandart {
         public phone: number,
         public allPrice?: number,
         public entertainmentOrder?: Array<IEntertainment>,
+        public countGamePackage?:number,
         public packageName?: string,
         public statusOrder: string = 'в обробці',
         public email?:any,

@@ -1,5 +1,3 @@
-<!-- <p>admin-menu-product works!</p> -->
-
 <div class="card">
     <div class="card-header d-flex justify-content-between">
         <div>
@@ -9,21 +7,17 @@
             <button type="button" class="btn  btn-dark" (click)="addProductModal(ProductModals) ">Add Product</button>
         </div>
     </div>
-
-    <div class="form-group" >
+    <div class="form-group">
         <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control searchName"
             placeholder="filter Name En ">
     </div>
-
     <table class="table table-hover  table-bordered">
         <thead>
             <tr>
-                <!-- [class.active]="order === 'id'"  (click)="setOrder('id')"-->
                 <th [class.active]="order === 'id'" (click)="setOrders('id')">
                     ID <span [hidden]="reverse">▼</span>
                     <span [hidden]="!reverse">▲</span>
                 </th>
-
                 <th [class.active]="order === 'category.nameUA '" (click)="setOrders('category.nameUA ')">
                     Category<span [hidden]="reverse">▼</span>
                     <span [hidden]="!reverse">▲</span>
@@ -52,7 +46,6 @@
                     Image <span [hidden]="reverse">▼</span>
                     <span [hidden]="!reverse">▲</span>
                 </th>
-
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -84,11 +77,9 @@
     <div class="modal-header">
         <h4 class="modal-title pull-left">Category model</h4>
         <button type="button" class="close pull-right" aria-label="Close">
-
             <span aria-hidden="true" (click)="closeModal()">&times;</span>
         </button>
     </div>
-
     <div class="modal-body">
         <form #productForm="ngForm">
             <div class="form-group">
@@ -117,7 +108,6 @@
             </div>
             <div class="form-group">
                 <label for="weight">Weight</label>
-                <!-- *ngIf="!disabledBtn" -->
                 <input [(ngModel)]="productWeight" name="productWeight" type="text" id="weight" class="form-control"
                     required>
             </div>
@@ -136,8 +126,7 @@
             </div>
             <div class=" mb-3 mt-3" *ngIf="imageStatus">
                 <img [src]="productImage" style="width: 260px; height: 160px;" alt="">
-                <!-- (click)="deleteImage(deleteImageConfirm)" -->
-                <span (click)="deleteImage(deleteImageConfirm)">
+                <!-- <span (click)="deleteImage(deleteImageConfirm)">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -145,9 +134,8 @@
                         <path fill-rule="evenodd"
                             d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                     </svg>
-                </span>
+                </span> -->
             </div>
-            <!-- [disabled]="disabledBtn"  -->
             <button type="button" class="btn btn-dark mt-3" [disabled]="productForm.invalid" (click)="addProduct()"
                 [textContent]="!editStatus ? 'Add' : 'Update'">
             </button>
@@ -155,10 +143,10 @@
     </div>
 </ng-template>
 
-<ng-template #deleteImageConfirm>
+<!-- <ng-template #deleteImageConfirm>
     <div class="modal-body text-center">
         <p>Do you want to confirm?</p>
         <button type="button" class="btn btn-default" (click)="confirmImage()">Yes</button>
         <button type="button" class="btn btn-primary" (click)="declineImage()">No</button>
     </div>
-</ng-template>
+</ng-template> -->

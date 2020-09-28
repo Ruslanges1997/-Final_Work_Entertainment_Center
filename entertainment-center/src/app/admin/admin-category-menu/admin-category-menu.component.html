@@ -34,12 +34,10 @@
         </thead>
 
         <tbody>
-            <!-- :'case-insensitive' -->
             <tr *ngFor="let category of menuCategoryAdminArr | search:searchName | orderBy: order:reverse; let i=index">
                 <td>{{category.id}}</td>
                 <td>{{category.nameEN}}</td>
                 <td>{{category.nameUA}}</td>
-                <!-- <td>Edite</td> -->
                 <td>
                     <button class="btn btn-danger" (click)="deleteCategoryMenu(category)">Delete</button>
                 </td>
@@ -67,7 +65,6 @@
                     <input [(ngModel)]="catNameUA" name="catNameUA" #nameUAn="ngModel" type="text" id="catNameUA"
                         class="form-control" placeholder="name ua here..." required>
                 </div>
-
             </div>
             <div class="float-right">
                 <button type="button" class="btn btn-dark  close_in " (click)="closeModal()"> Close</button>

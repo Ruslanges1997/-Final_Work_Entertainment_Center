@@ -37,7 +37,6 @@ export class AuthService {
         );
       })
       .catch(err => console.log(err));
-    // .catch(() => alert("wrong email or password"));
   }
 
   signUp(email: string, password: string, firstName: string, lastName: string): any {

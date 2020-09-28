@@ -21,8 +21,6 @@ export class AdminGalleryComponent implements OnInit {
   imageArr: Array<IGallery> = [];
   imageArrSorted: Array<IGallery> = [];
   uploadProgress: Observable<number>;
-
-
   modalRef: BsModalRef;
   modalRefconfig = {
     backdrop: true,
@@ -98,20 +96,19 @@ export class AdminGalleryComponent implements OnInit {
       this.afStorage.ref(`images/gallery/${image.metadata.name}`).getDownloadURL().subscribe(url => {
         this.galleryImage = url;
         this.imageStatus = true;
-        // console.log(image.metadata.name)
       })
     })
   }
+
   private deletImageStorefe(): void {
     this.afStorage.storage.refFromURL(this.galleryImage).delete();
   }
+
   deleteImage(image: IGallery): void {
     this.deletImageStorefe();
     this.galleryService.deleteFireCloudImage(image.id.toString())
       .then(message => console.log(message))
-    
+
       .catch(err => console.log(err));
   }
-
-
 }

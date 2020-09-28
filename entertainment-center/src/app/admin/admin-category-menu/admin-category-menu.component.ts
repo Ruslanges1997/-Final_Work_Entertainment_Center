@@ -31,7 +31,7 @@ export class AdminCategoryMenuComponent implements OnInit {
     backdrop: true,
     ignoreBackdropClick: true
   };
-  searchName:string;
+  searchName: string;
   order: string = 'name';
   reverse: boolean = false;
   setOrder(value: string) {
@@ -57,11 +57,8 @@ export class AdminCategoryMenuComponent implements OnInit {
     )
   }
 
-
-
   openModalAdd(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
-    // console.log(this.adminCategory)
   }
 
   addCategory(): void {
@@ -88,5 +85,4 @@ export class AdminCategoryMenuComponent implements OnInit {
     this.catNameUA = "";
     this.modalRef.hide();
   }
-
 }

@@ -1,16 +1,14 @@
 @import "../../../stylings/variables";
+@import "../../../stylings/mixin";
 
 header {
-    // position: sticky;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 100px;
     width: 100%;
-    // overflow: hidden;
     z-index: 10;
-    // background: url(../../../assets/images/home/header_bg.jpg) 100% 67% no-repeat;
     background: #0f0e15;
     background-size: cover;
     .menu_burger-btn {
@@ -61,7 +59,7 @@ a:link {
 }
 
 .li_header {
-    margin: 0px 6px;
+    margin: 0px 5px;
 }
 
 .active_link {
@@ -78,9 +76,6 @@ a:link {
 @media screen and (max-width: 1000px) {
     header {
         height: 70px;
-        // position: relative;
-        // background: url(../../../assets/images/home/header_bg.jpg) 100% 67% no-repeat;
-        // background: black;
         h3 {
             font-size: 15px;
             transform: scale(1.1);
@@ -105,8 +100,7 @@ a:link {
         font-size: 30px;
         font-family: "Volkon-Bold";
         .menu_burger-btn {
-            width: 150px;
-            height: 50px;
+            @include widthOrHeight( 150px, 50px);
             border-radius: 50px;
             background: border-box;
             outline: none;

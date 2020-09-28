@@ -19,7 +19,6 @@ import { AdminGalleryComponent } from './admin/admin-gallery/admin-gallery.compo
 import { CalculatorBirhdayComponent } from './pages/calculator-birhday/calculator-birhday.component'
 import { CalculatorStandartComponent } from './pages/calculator-standart/calculator-standart.component';
 import { CalculatorPremiumComponent } from './pages/calculator-premium/calculator-premium.component';
-// import { MenuComponentDetail } from './pages/menu-details/menu-details.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
@@ -52,7 +51,6 @@ const routes: Routes = [
 
 
 @NgModule({
-  // imports: [RouterModule.forRoot(routes)],
   imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })

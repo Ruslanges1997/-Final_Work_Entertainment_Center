@@ -1,4 +1,5 @@
 @import "../../../stylings/variables";
+@import "../../../stylings/mixin";
 
 .box_detail {
     margin: 0px auto;
@@ -8,8 +9,7 @@
 }
 
 .img_detail {
-    width: 500px;
-    height: 400px;
+    @include widthOrHeight(500px, 400px);
 }
 
 .btn_all-game {
@@ -23,16 +23,17 @@
     color: $text_color;
     font-family: "Volkon-Bold";
     margin-bottom: 10px;
+    &:hover {
+        color: red;
+    }
 }
 
 .game_info-txt {
+    line-height: 25px;
     color: $text_color;
     margin: 0px 0px 0px 20px;
     font-family: "Volkon-Bold";
     font-size: 19px;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
 }
 
 .game_section {
@@ -51,18 +52,13 @@
     .box_detail {
         animation: opasity 1s linear;
     }
-    
     .img_detail {
-        width: 300px;
-        height: 300px;
+        @include widthOrHeight(300px, 300px);
     }
-
     .game_info-txt {
         font-size: 19px;
-        line-height: 25px;
         letter-spacing: 2px;
     }
-
     .game_section {
         min-height: 83vh;
         margin-top: 0px;
@@ -77,15 +73,11 @@
 }
 
 @media screen and (max-width: 600px) {
-   
     .box_detail {
-        display: flex;
-        flex-direction: column;
+        @include displayFlex(flex, none, column);
     }
     .img_detail {
-        // width: 90%;
         height: 300px;
-        // margin: 10px 20px;
     }
     .media_phone {
         margin: 10px 20px;

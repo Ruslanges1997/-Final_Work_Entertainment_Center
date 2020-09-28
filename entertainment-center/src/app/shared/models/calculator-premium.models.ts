@@ -14,8 +14,10 @@ export class CalculatorPremium implements ICalculatorPremium {
         public entertainmentOrder?: Array<IEntertainment>,
         public prodPizza?: Array<IProduct>,
         public prodJuice?: Array<IProduct>,
+        public countGamePackage?: number,
         public packageName?: string,
-        public counterJuice?:number,
+        public countPizzaPackage?: number,
+        public counterJuice?: number,
         public statusOrder: string = 'в обробці',
         public email?: any,
     ) { }

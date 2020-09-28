@@ -1,10 +1,7 @@
-
 import { IEntertainment } from './entertainment.interface';
 
-
-
 export interface ICalculatorStandart {
-    id: number ;
+    id: number;
     time: string;
     date: string;
     countPeoples: number;
@@ -12,7 +9,8 @@ export interface ICalculatorStandart {
     phone: number;
     allPrice?: number;
     entertainmentOrder?: Array<IEntertainment>;
-    packageName?: string ;
+    countGamePackage?: number;
+    packageName?: string;
     statusOrder: string;
-    email?:any;
+    email?: any;
 }

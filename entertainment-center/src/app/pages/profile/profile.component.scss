@@ -1,24 +1,23 @@
+@import "../../../stylings/variables";
+@import "../../../stylings/mixin";
 .profile_section {
-    // background-image: url(../../../assets/images/fon_register.jpg);
     background: rgba(250, 250, 250, 0.57);
     width: 100%;
-    min-height: 84vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    min-height: 85vh;
     color: black;
+    font-size: 20px;
 }
 
 .title_profile {
     text-align: center;
     margin-top: 20px;
+    font-size: 20px;
 }
 
 .block_profile {
-    margin-top: 150px;
-    margin-bottom: 20px;
+    margin: 50px auto 20px auto;
     min-height: 500px;
-    width: 500px;
+    width: 700px;
     border: 1px solid black;
     padding: 20px;
     box-shadow: 1px 20px 20px 20px #212529;
@@ -27,26 +26,71 @@
     font-weight: bold;
 }
 
-.info_profile {
-    .detail {
-        margin-top: 40px;
-        display: flex;
-        justify-content: space-between;
+.title_profile_head {
+    text-align: center;
+    font-size: 25px;
+    line-height: 40px;
+    font-family: "Volkon-Bold";
+    h1 {
+        margin-top: 150px;
+        font-size: 32px;
+    }
+    h3 {
+        margin-top: 50px;
     }
 }
 
+.info_profile {
+    font-size: 17px;
+    .detail {
+        margin-top: 40px;
+        @include displayFlex(flex, space-between, none);
+    }
+}
 .btn_primaryP {
     color: black;
     background-color: #242c53;
     border-color: #242c53;
-    width: 200px;
     border-radius: 10px;
-    margin-left: 27%;
-    height: 40px;
+    margin-left: 33%;
+    @include widthOrHeight(200px, 40px);
     cursor: pointer;
     &:hover {
         background-color: #4a4a68;
         border-color: #4a4a68;
         color: white;
+    }
+}
+
+.detail_titel {
+    font-size: 20px;
+    margin-left: 40px;
+}
+
+@media screen and (max-width: 780px) {
+    .block_profile {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .block_profile {
+        margin-top: 50px;
+        width: 400px;
+    }
+    .title_profile_head {
+        h1 {
+            margin-top: 50px;
+        }
+    }
+    .btn_primaryP {
+        margin-left: 23%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .block_profile {
+        margin-top: 50px;
+        width: 300px;
     }
 }

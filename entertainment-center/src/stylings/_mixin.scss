@@ -4,3 +4,13 @@
     background-attachment: $f;
     background-repeat: $nr;
 }
+@mixin displayFlex($df, $jc, $nr) {
+    display: $df;
+    justify-content: $jc;
+    flex-direction: $nr;
+}
+
+@mixin widthOrHeight($w, $h) {
+    width: $w;
+    height: $h;
+}

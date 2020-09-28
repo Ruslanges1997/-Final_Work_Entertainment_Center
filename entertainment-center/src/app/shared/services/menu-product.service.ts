@@ -27,4 +27,5 @@ export class MenuProductService {
   deleteFireCloudProduct(id: string): Promise<void> {
     return this.fireCloud.collection('menu-product').doc(id).delete();
   }
+ 
 }

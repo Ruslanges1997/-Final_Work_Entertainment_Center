@@ -14,6 +14,5 @@ export class Product implements IProduct {
         public image: string,
         public countMenu: number = 1,
         public count: any = 1,
-         // public totalPrice?: any,
     ) { }
 }

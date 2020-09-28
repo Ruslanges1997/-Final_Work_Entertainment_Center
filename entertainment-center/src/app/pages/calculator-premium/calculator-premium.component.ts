@@ -26,14 +26,7 @@ export class CalculatorPremiumComponent implements OnInit {
     private menuProductService: MenuProductService,
     private calculatorService: CalculatorService,
   ) {
-    // this.router.events.subscribe((event: Event) => {
-    //   if (event instanceof NavigationEnd) {
-    //     const categoryName = this.actRoute.snapshot.paramMap.get('category');
-    //     this.getFireCloudProducts(categoryName);
-    //   }
-    // });
   }
-
   ngOnInit(): void {
     this.getEntertainment();
     this.getFireCloudProducts();
@@ -43,7 +36,6 @@ export class CalculatorPremiumComponent implements OnInit {
 
   dateBirhdayArr: string[] = [];
   phoneNumber: number;
-  timeDateFor
   namePeopleOrder: string;
   entertainmentAray: Array<IEntertainment> = []
   entertainment: string;
@@ -55,14 +47,23 @@ export class CalculatorPremiumComponent implements OnInit {
   counterPeople = 2;
   totalPricePremium: number;
   pricePremiumPackage = 600;
-
+  prodPizzaArr: Array<any> = [];
+  prodJuiceArr: Array<any> = []
+  productsArr: Array<IProduct> = [];
+  emailtOrders: any;
+  packageName = "Преміум"
+  userEmail = "admin";
+  statusOrder = 'в обробці'
+  countGamePackage = 3;
+  countPizzaPackage: number;
+  disBtnCounPeople: boolean = false;
+  counterJuice = this.counterPeople;
+  counterJuiceFinal = 1;
   modalRef: BsModalRef;
   modalRefconfig = {
     backdrop: true,
     ignoreBackdropClick: true
   };
-
-
 
   private totalPremium(): void {
     this.totalPricePremium = this.pricePremiumPackage * this.counterPeople
@@ -76,7 +77,7 @@ export class CalculatorPremiumComponent implements OnInit {
       })
     })
   }
-  productsArr: Array<IProduct> = [];
+
   private getFireCloudProducts(): void {
     this.menuProductService.getFireCloudProduct().subscribe(data => {
       this.productsArr = data.map(document => {
@@ -84,71 +85,45 @@ export class CalculatorPremiumComponent implements OnInit {
         const id = document.payload.doc.id;
         return { id, ...data }
       })
-      // console.log(this.productsArr)
-
       this.getPizaa();
-
-      // console.log(this.productsArr.filter())
     })
   }
 
-  prodPizzaArr: Array<any> = [];
-  prodJuiceArr: Array<any> = []
   private getPizaa(): void {
     this.prodPizzaArr = this.productsArr.filter(name => name.nameUA == "Лазер-піца");
     this.prodJuiceArr = this.productsArr.filter(name => name.nameUA == "Яблучний сік");
   }
 
-  counterJuice = this.counterPeople;
-  counterJuiceFinal = 1;
   private countJuice(): void {
-    // this.counterJuice = this.counterPeople
     this.counterJuiceFinal = Math.floor(this.counterPeople / this.counterJuice + 0.5)
-    // console.log(this.counterJuiceFinal)
   }
-
-
-  // private getFireCloudProducts(categoryName: string = 'pizza'): void {
-  //   // this.productsArr = [];
-  //   this.fireCloud.collection('menu-product').ref.where('category.nameEN', '==', categoryName).onSnapshot(
-  //     collection => {
-  //       collection.forEach(document => {
-  //         const data = document.data();
-  //         const id = document.id;
-  //         this.productsArr.push({ id, ...data });
-  //       });
-  //       // this.category = this.productsArr[0].category.nameUA;
-  //     }
-  //   );
-  // }
-
 
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.dateBirhdayArr.splice(0, 1, `${type}: ${event.value}`);
-    // console.log(this.dateBirhdayArr)
   }
   openModalTime(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
   }
-  disBtnCounPeople: boolean = false;
+
   countPeople(status: boolean): void {
     if (status && this.counterPeople <= 13) {
       if (this.counterPeople == 13) {
         this.disBtnCounPeople = true;
       }
       this.counterPeople++;
+      this.countPizzaPackage = this.counterPeople;
       this.countJuice();
       this.totalPremium();
     }
     else {
       if (this.counterPeople > 2) {
         this.counterPeople--;
+        this.countPizzaPackage = this.counterPeople;
         this.disBtnCounPeople = false;
         this.countJuice();
         this.totalPremium();
       }
     }
-    // this.counterJuice = this.counterPeople
     this.counterPeopleB = this.counterPeople;
   }
   setValue(value: string) {
@@ -158,9 +133,7 @@ export class CalculatorPremiumComponent implements OnInit {
   closeModal(): void {
     this.modalRef.hide();
   }
-  packageName = "Преміум"
-  emailtOrders: any;
-  userEmail = "admin";
+
   private getEmeilUser() {
     if (localStorage.getItem('user')) {
       this.emailtOrders = JSON.parse(localStorage.getItem('user'));
@@ -170,8 +143,18 @@ export class CalculatorPremiumComponent implements OnInit {
     }
   }
 
-  statusOrder = 'в обробці'
+  private getStausPriofile(): void {
+    this.getEmeilUser();
+    if (this.userEmail == 'admin') {
+      this.router.navigateByUrl('/order-birthday');
+    }
+    else if (this.userEmail !== 'admin') {
+      this.router.navigateByUrl('/profile');
+    }
+  }
+
   addBirthdayPremiumFire(): void {
+    this.getStausPriofile();
     const order = new CalculatorPremium(
       this.orderIDB,
       this.timeB,
@@ -183,14 +166,15 @@ export class CalculatorPremiumComponent implements OnInit {
       this.entertainmentAray,
       this.prodPizzaArr,
       this.prodJuiceArr,
+      this.countGamePackage,
       this.packageName,
+      this.countPizzaPackage,
       this.counterJuiceFinal,
       this.statusOrder,
       this.userEmail
     );
     localStorage.setItem('myProfile', JSON.stringify(order));
     delete order.id;
-    // console.log(order)
     this.calculatorService.postFireCloudOrderPremium({ ...order })
       .then(() => this.resetOrder())
       .catch(err => console.log(err));

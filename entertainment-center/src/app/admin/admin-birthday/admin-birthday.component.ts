@@ -1,5 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { OrderPipe } from 'ngx-order-pipe';
 import { AdminBirthdayService } from '../../shared/services/admin-birthday.service';
 
 @Component({
@@ -8,22 +9,37 @@ import { AdminBirthdayService } from '../../shared/services/admin-birthday.servi
   styleUrls: ['./admin-birthday.component.scss']
 })
 export class AdminBirthdayComponent implements OnInit {
+
   constructor(
     private adminService: AdminBirthdayService,
     private modalService: BsModalService,
-  ) { }
-
-  ngOnInit(): void {
-    this.getOrders();
+    private orderPipe: OrderPipe,
+  ) {
+    this.soretedAdminOrder = orderPipe.transform(this.orderAdminArr, 'name');
   }
+
+  soretedAdminOrder
   modalRef: BsModalRef;
   modalRefconfig = {
     backdrop: true,
     ignoreBackdropClick: true
   };
-
   orderAdminArr: any;
   statusOption: string;
+  currAdmOrder: any;
+  order: string = 'name';
+  reverse: boolean = false;
+
+  ngOnInit(): void {
+    this.getOrders();
+  }
+
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
 
   private getOrders(): void {
     this.adminService.getFireCloudOrder().subscribe(
@@ -36,19 +52,12 @@ export class AdminBirthdayComponent implements OnInit {
       }
     )
   }
-  currAdmOrder: any
+
   changeStatus(): void {
     this.currAdmOrder.statusOrder = this.statusOption;
     this.adminService.updateFireCloudOrder(this.currAdmOrder)
       .then(() => {
         this.getOrders();
-        if (localStorage.getItem('myProfile')) {
-          localStorage.setItem('myProfile', JSON.stringify(this.currAdmOrder));
-          // this.emailtOrders = JSON.parse(localStorage.getItem('myProfile'));
-          // console.log('єрезультат')
-        } else {
-          // console.log('немає результату')
-        }
       })
       .catch(error => console.log(error))
   }
@@ -60,17 +69,13 @@ export class AdminBirthdayComponent implements OnInit {
 
   deleteOrder(order: any): void {
     if (order.statusOrder == 'Виконано' || order.statusOrder == 'Скасовано') {
-      // console.log(order.statusOrder)
       this.adminService.deleteFireCloudOrder(order.id.toString())
-        .then(() => {
-          localStorage.removeItem('myProfile');
-        })
-        .catch(err => console.log(err));
+        .then(messege => console.log(messege))
+        .catch (err => console.log(err));
     }
   }
 
   closeModal(): void {
     this.modalRef.hide();
   }
-
 }

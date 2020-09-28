@@ -1,12 +1,13 @@
+
+@import "../../stylings/mixin";
 .registrer_section {
     background-image: url(../../assets/images/home/fon_home.jpg);
-    width: 100%;
-    min-height: 84vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     text-transform: uppercase;
     padding-right: 10px;
+    @include widthOrHeight(100%, 84vh);
     color: #ffffff;
 }
 
@@ -41,8 +42,7 @@ input {
 .btn_primary {
     background-color: #242c53;
     border-color: #242c53;
-    width: 100%;
-    height: 40px;
+    @include widthOrHeight(100%, 40px);
     color: black;
     cursor: pointer;
     &:hover {
@@ -62,7 +62,11 @@ input {
         }
     }
 }
-
+@media screen and (max-width: 780px) {
+    .login_card {
+        margin-top: 70px;
+    }
+}
 @media screen and (max-width: 600px) {
     .login_card {
         width: 90%;

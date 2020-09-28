@@ -1,78 +1,87 @@
 <section class="profile_section">
     <div class="containerE ">
         <div class="rowE">
-            <div style="margin-top: 150px;">
-                <h1>{{firstName}}</h1>
-                <h1>Вас поки що немає замовлень</h1>
+            <div class="title_profile_head">
+                <h1>Особистий кабінет</h1>
+                <div *ngIf="!switch">
+                    <h3>{{firstName |titlecase}}</h3>
+                    <h3> Ви ще не зробили ні одного замовлення.</h3>
+                </div>
             </div>
+         
+            <div *ngIf="switch">
+                <div class="block_profile" *ngFor="let order of userOrders">
+                    <div class="title_profile">
+                        <h3>{{ order?.namePeople |titlecase}} </h3>
+                    </div>
+                    <div class="title_profile">
+                        <h2>Ваше замовлення:</h2>
+                    </div>
+                    <div class="info_profile">
+                        <h2 class="detail detail_titel">Розваги:</h2>
+                        <div class="detail" *ngFor="let gameOrder of order.entertainmentOrder" style="display: flex;">
+                            <span>
+                                <p>{{gameOrder?.nameGame|titlecase}}</p>
+                            </span>
+                            <span>
+                                <p>{{gameOrder?.timeGame}} хв</p>
+                            </span>
+                        </div>
+                        <h2 class="detail detail_titel">Меню:</h2>
+                        <div class="detail" *ngFor="let menuOrder of order.productOrder" style="display: flex;">
+                            <span>
+                                <p>{{menuOrder?.nameUA|titlecase}}</p>
+                            </span> <span>
+                                <p>{{menuOrder?.count}} шт</p>
+                            </span>
+                        </div>
+                        <div class="detail" *ngFor="let menuOrder of order.prodPizza" style="display: flex;">
+                            <span>
+                                <p>{{menuOrder?.nameUA|titlecase}}</p>
+                            </span>
+                            <span>
+                                <p>{{order?.countPizzaPackage}} шт</p>
+                            </span>
+                        </div>
+                        <div class="detail" *ngFor="let menuOrder of order.prodJuice" style="display: flex;">
+                            <span>
+                                <p>{{menuOrder?.nameUA|titlecase}}</p>
+                            </span>
+                            <span>
+                                <p>{{order?.counterJuice}} л</p>
+                            </span>
+                        </div>
 
-            <!-- <div *ngFor="let menu of userOrders">
-                    <h1>{{menu.allPrice}}</h1>
-                </div> -->
-            <div class="block_profile" *ngFor="let order of userOrders">
-                <div class="title_profile">
-                    <h3>{{ order?.namePeople |titlecase}} </h3>
-                </div>
-                <div class="title_profile">
-                    <h2>Ваше замовлення</h2>
-                </div>
-                <div class="info_profile">
-                    <div class="detail" *ngFor="let gameOrder of order.entertainmentOrder" style="display: flex;">
-                        <span>
-                            <p>{{gameOrder?.nameGame}}</p>
-                        </span> <span>
-                            <p>{{gameOrder?.count}}</p>
-                        </span>
-                    </div>
-                    <div class="detail" *ngFor="let menuOrder of order.productOrder" style="display: flex;">
-                        <span>
-                            <p>{{menuOrder?.nameUA}}</p>
-                        </span> <span>
-                            <p>{{menuOrder?.count}}</p>
-                        </span>
-                    </div>
-                    <div class="detail" *ngFor="let menuOrder of order.prodPizza" style="display: flex;">
-                        <span>
-                            <p>{{menuOrder?.nameUA}}</p>
-                        </span> <span>
-                            <p>{{menuOrder?.count}}</p>
-                        </span>
-                    </div>
-                    <div class="detail" *ngFor="let menuOrder of order.prodJuice" style="display: flex;">
-                        <span>
-                            <p>{{menuOrder?.nameUA}}</p>
-                        </span> <span>
-                            <p>{{menuOrder?.count}}</p>
-                        </span>
-                    </div>
-                    <div class="detail">
-                        <h4> Дата святкування </h4>
-                        <p>{{ order?.date| slice:0:15}}</p>
+                        <h2 class="detail detail_titel">Інформація</h2>
+                        <div class="detail">
+                            <h4> Дата святкування </h4>
+                            <p>{{ order?.date| slice:0:15}}</p>
+                        </div>
 
-                    </div>
-                    <div class="detail">
-                        <h4>Ваше свято починається </h4>
-                        <p>{{order?.time}}</p>
-                    </div>
+                        <div class="detail">
+                            <h4>Ваше свято починається </h4>
+                            <p>{{order?.time}}</p>
+                        </div>
 
-                    <div class="detail">
-                        <h4>Ви обрали</h4>
-                        <p>{{order?.packageName}}</p>
-                    </div>
-                    <div class="detail">
-                        <h4>Кількість гостей </h4>
-                        <p>{{ order?.countPeoples}}</p>
-                    </div>
-                    <div class="detail">
-                        <h4>Ціна за паккет </h4>
-                        <p>{{order?.allPrice}} грн</p>
-                    </div>
-                    <div class="detail">
-                        <h4>Статус вашого замовлення </h4>
-                        <p>{{order?.statusOrder}}</p>
-                    </div>
-                    <div class="detail">
-                        <button type="button" class="btn_primaryP " (click)="signOut()">Sign Out</button>
+                        <div class="detail">
+                            <h4>Ви обрали</h4>
+                            <p>{{order?.packageName|titlecase}}</p>
+                        </div>
+                        <div class="detail">
+                            <h4>Кількість гостей </h4>
+                            <p>{{ order?.countPeoples}}</p>
+                        </div>
+                        <div class="detail">
+                            <h4>Ціна за паккет </h4>
+                            <p>{{order?.allPrice}} грн</p>
+                        </div>
+                        <div class="detail">
+                            <h4>Статус вашого замовлення </h4>
+                            <p>{{order?.statusOrder}}</p>
+                        </div>
+                        <div class="detail">
+                            <button type="button" class="btn_primaryP " (click)="signOut()">Sign Out</button>
+                        </div>
                     </div>
                 </div>
             </div>

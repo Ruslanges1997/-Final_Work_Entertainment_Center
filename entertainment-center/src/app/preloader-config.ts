@@ -8,5 +8,4 @@ export const loaderConfig: NgxUiLoaderConfig = {
     overlayColor: "rgba(0,0,0,0.8)",
     blur: 15,
     pbColor: '#feda4a',
-    // hasProgressBar: false,
 }

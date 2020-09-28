@@ -12,21 +12,10 @@ export interface ICalculatorPremium {
     entertainmentOrder?: Array<IEntertainment>;
     prodPizza?: Array<IProduct>;
     prodJuice?: Array<IProduct>;
+    countGamePackage?: number;
     packageName?: string;
+    countPizzaPackage?:number;
     counterJuice?: number;
     statusOrder: string;
     email?: any;
 }
-// this.orderIDB,
-// this.timeB,
-// this.dateB.toString(),
-// this.counterPeopleB,
-// this.namePeopleOrder,
-// this.phoneNumber,
-// this.totalPricePremium,
-// this.entertainmentAray,
-// this.prodPizzaArr,
-// this.prodJuiceArr,
-// this.packageName,
-// this.counterJuiceFinal,
-// this.userEmail

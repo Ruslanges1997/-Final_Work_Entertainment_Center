@@ -40,29 +40,10 @@ export class HomeComponent implements OnInit {
         this.slideItems = colection.map(document => {
           const id = document.payload.doc.id;
           const data = document.payload.doc.data() as IGallery;
-          // console.log(data);
           this.slideItems.push(data)
           return { id, ...data }
         })
-        // console.log(this.slideItems)
       }
     )
   }
 }
-
-  // @HostListener('window:scroll')
-  // checkScroll() {
-  // const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  // console.log('[scroll]', scrollPosition);
-  // if (scrollPosition >= 30) {
-  // }
-  // }
-
-  // TODO: Cross browsing
-  // gotoTop() {
-  //   window.scroll({
-  //     top: 0,
-  //     left: 0,
-  //     behavior: 'smooth'
-  //   });
-  // }

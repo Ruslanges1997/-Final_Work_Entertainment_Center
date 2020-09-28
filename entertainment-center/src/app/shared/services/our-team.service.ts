@@ -12,7 +12,6 @@ export class OurTeamService {
     private fireCloud: AngularFirestore,
   ) { }
 
-
   getFireCloudOurTeam(): Observable<DocumentChangeAction<unknown>[]> {
     return this.fireCloud.collection('our-team').snapshotChanges();
   }

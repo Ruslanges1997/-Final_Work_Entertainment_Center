@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { EntertainmentService } from '../../shared/services/entertainment.service';
 import { IEntertainment } from '../../shared/interfaces/entertainment.interface';
-// import { NavigationEnd, Router,Event, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-games',
@@ -14,7 +13,6 @@ export class GamesComponent implements OnInit {
   entertainmentArr: Array<IEntertainment> = []
   entertainment: string
   constructor(
-    // private fireCloud: AngularFirestore,
     private entertainmentService: EntertainmentService
   ) { }
 

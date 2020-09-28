@@ -19,15 +19,12 @@ export class GamesDetailsComponent implements OnInit {
     this.getViewGame();
   }
 
-
   private getViewGame(): void {
     const id = this.actRoute.snapshot.paramMap.get('id');
     this.fireCloud.collection('entertainment').doc(id).get().subscribe(
       document => {
         const data = document.data();
-        // console.log(data)
         const dataID = document.id;
-        // console.log(dataID)
         this.game = { dataID, ...data };
       }
     );

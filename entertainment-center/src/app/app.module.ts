@@ -61,12 +61,8 @@ import { SearchPipe } from './shared/pipes/search.pipe';
 import { SearchWorkerPipe } from './shared/pipes/search-worker.pipe';
 import { SearchNameGamePipe } from './shared/pipes/search-name-game.pipe';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
-// import { PhoneMaskDirective } from './phone-mask.directive';
-
-
 
 @NgModule({
-
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -105,7 +101,6 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    // AngularFireAuth,
     ModalModule.forRoot(),
     SliderModule,
     NgxGoogleMapModule,

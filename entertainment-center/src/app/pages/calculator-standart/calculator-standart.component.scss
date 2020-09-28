@@ -14,13 +14,12 @@
 .calculator_block {
     padding: 10px;
     width: 100%;
-    display: flex;
     margin: 5% 0px;
-    flex-direction: column;
+    @include displayFlex(flex, none, column);
 }
 .count_btn-people {
     border-radius: 20px;
-    color: white;
+    color: $whiteColor;
     background: $bgColor;
     outline: none;
 }
@@ -31,12 +30,11 @@
     padding: 5px;
     box-shadow: 20px 20px 15px rgb(33 37 41);
     border: 1px solid #eeeff0;
-    background: white;
+    background: $whiteColor;
     border-radius: 20px;
 }
 .data-time_block {
-    display: flex;
-    justify-content: space-around;
+    @include displayFlex(flex, space-around, none);
 }
 .date_text {
     color: black;
@@ -48,15 +46,13 @@
 }
 .time_birhday {
     width: 300px;
-    display: flex;
-    flex-direction: column;
+    @include displayFlex(flex, none, column);
     align-items: center;
     margin-bottom: 35px;
 }
 .time_btn {
     display: block;
-    width: 100%;
-    height: 40px;
+    @include widthOrHeight(100%, 40px);
     left: 0;
     top: 0;
     outline: 0;
@@ -64,7 +60,7 @@
     background-color: $bgColor;
     border-radius: 20px;
     span {
-        color: #fff;
+        color: $whiteColor;
         text-align: center;
         align-items: center;
     }
@@ -72,7 +68,7 @@
 .time_input {
     line-height: 30px;
     border: 2px solid $bgColor;
-    background-color: #fff;
+    background-color: $whiteColor;
     max-width: 60%;
     text-align: center;
     border-radius: 20px;
@@ -80,13 +76,11 @@
 }
 
 .info_people_orderS {
-    display: flex;
-    justify-content: space-evenly;
+    @include displayFlex(flex, space-evenly, none);
     margin: 30px auto 20px auto;
 }
 .name_and_phone {
-    display: flex;
-    flex-direction: column;
+    @include displayFlex(flex, none, column);
 }
 .label_orderS {
     margin-bottom: 5px;
@@ -98,8 +92,7 @@
     font-weight: 900;
 }
 .input_phone_nameS {
-    width: 300px;
-    height: 45px;
+    @include widthOrHeight(300px, 45px);
     border-radius: 20px;
     padding: 15px;
     &:focus {
@@ -112,8 +105,7 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 .count_peopleS {
-    display: flex;
-    justify-content: center;
+    @include displayFlex(flex, center, none);
     align-items: center;
     input {
         display: none;
@@ -123,10 +115,9 @@ input::-webkit-inner-spin-button {
 .btn_add {
     background-color: #0f0e15;
     outline: none;
-    color: white;
+    color: $whiteColor;
     border-radius: 20px;
-    width: 100px;
-    height: 40px;
+    @include widthOrHeight(100px, 40px);
     margin: 10px 10px;
     &:hover {
         color: #a20e15;
@@ -134,9 +125,8 @@ input::-webkit-inner-spin-button {
 }
 
 .orderBirthdayS {
-    display: flex;
-    flex-direction: column;
-    background: white;
+    @include displayFlex(flex, none, column);
+    background: $whiteColor;
     box-shadow: 20px 20px 15px rgb(33 37 41);
     padding: 10px 10px;
     width: 65%;
@@ -150,13 +140,11 @@ input::-webkit-inner-spin-button {
         margin-bottom: 10px;
     }
     &_last {
-        display: flex;
-        justify-content: space-around;
-        width: 98%;
+        @include displayFlex(flex, space-around, none);
+        @include widthOrHeight(98%, 50px);
         padding: 10px;
-        height: 50px;
         margin: 10px 0px;
-        background: white;
+        background: $whiteColor;
         border-radius: 20px;
         align-items: center;
     }
@@ -173,7 +161,6 @@ input::-webkit-inner-spin-button {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-
     padding: 0 0 15px 30px;
     .li {
         margin-right: 20px;
@@ -203,9 +190,8 @@ input::-webkit-inner-spin-button {
     }
 }
 .total_cardS {
-    height: 28%;
-    width: 30%;
-    background: white;
+    @include widthOrHeight(30%, 28%);
+    background: $whiteColor;
     box-shadow: 20px 20px 15px rgb(33 37 41);
     margin-left: 15px;
     text-align: center;
@@ -218,8 +204,7 @@ input::-webkit-inner-spin-button {
     display: none;
 }
 .total_card_price {
-    display: flex;
-    justify-content: space-between;
+    @include displayFlex(flex, space-between, none);
     margin: 15px auto;
 }
 .data-time_block {
@@ -238,13 +223,11 @@ input::-webkit-inner-spin-button {
     margin: 15px 0px;
 }
 .block_order_endS {
-    display: flex;
-    flex-direction: column;
+    @include displayFlex(flex, none,column );
 }
 .boundary_lineS {
     border: 1px solid rgb(15 14 21 / 54%);
     width: 90%;
-    margin: 0px auto;
     margin: 10px auto;
 }
 .table_menu_game {
@@ -280,8 +263,7 @@ input.ng-valid {
         width: 100%;
     }
     .input_phone_nameS {
-        width: 300px;
-        height: 45px;
+        @include widthOrHeight(300px, 45px);
         border-radius: 20px;
         padding: 15px;
     }
@@ -311,8 +293,7 @@ input.ng-valid {
     .time_btn,
     .mat-form-field,
     .input_phone_nameS {
-        width: 60%;
-        height: 50px;
+        @include widthOrHeight(60%, 50px);
         margin: 20px auto;
     }
     .label_orderS {
@@ -326,12 +307,10 @@ input.ng-valid {
     }
     .data-time_block,
     .info_people_orderS {
-        display: flex;
-        flex-direction: column;
+        @include displayFlex(flex, none,column );
     }
     .count_btn-people {
-        width: 70px;
-        height: 40px;
+        @include widthOrHeight(70px, 40px);
     }
     .count_peopleS {
         font-size: 30px;
@@ -340,10 +319,8 @@ input.ng-valid {
         }
     }
     .btn_add {
-        width: 150px;
-        height: 55px;
+        @include widthOrHeight(150px, 55px);
     }
-
     .time_input {
         height: 100%;
     }
@@ -366,8 +343,7 @@ input.ng-valid {
     .time_btn,
     .mat-form-field,
     .input_phone_nameS {
-        width: 95%;
-        height: 50px;
+        @include widthOrHeight(95%, 50px);
         margin: 20px auto;
     }
     .label_orderS {
@@ -389,4 +365,8 @@ input.ng-valid {
     .block_assortment {
         overflow: scroll;
     }
+    .time_input {
+        width: 40%;
+    }
 }
+

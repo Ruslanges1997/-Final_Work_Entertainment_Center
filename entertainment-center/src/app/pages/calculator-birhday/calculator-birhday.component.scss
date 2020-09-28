@@ -18,9 +18,8 @@
 .calculator_block {
     padding: 10px;
     width: 100%;
-    display: flex;
     margin: 5% 0px;
-    flex-direction: column;
+    @include displayFlex(flex, none, column);
 }
 
 .block_assortment {
@@ -30,7 +29,7 @@
     padding: 5px;
     box-shadow: 20px 20px 15px rgb(33 37 41);
     border: 1px solid #eeeff0;
-    background: white;
+    background: $whiteColor;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -44,7 +43,7 @@
     background-color: $bgColor;
     border-radius: 20px;
     span {
-        color: #fff;
+        color: $whiteColor;
         text-align: center;
         align-items: center;
     }
@@ -53,7 +52,7 @@
 .time_input {
     line-height: 30px;
     border: 2px solid $bgColor;
-    background-color: #fff;
+    background-color: $whiteColor;
     max-width: 60%;
     text-align: center;
     border-radius: 20px;
@@ -76,7 +75,7 @@
     line-height: 40px;
     min-height: 40px;
     text-align: center;
-    background: white;
+    background: $whiteColor;
     border: 1px solid #a4a4a4;
     box-sizing: border-box;
     border-radius: 10px;
@@ -84,8 +83,7 @@
 }
 
 .count_people {
-    display: flex;
-    justify-content: center;
+    @include displayFlex(flex, center, none);
     height: 60px;
     align-items: center;
     input {
@@ -103,17 +101,16 @@
     text-align: center;
     button {
         background: $bgColor;
-        width: 100px;
-        height: 50px;
+        @include widthOrHeight(100px, 50px);
         border-radius: 10px;
         outline: none;
-        color: white;
+        color: $whiteColor;
     }
 }
 
 .count_btn-people {
     border-radius: 20px;
-    color: white;
+    color: $whiteColor;
     background: $bgColor;
     outline: none;
 }
@@ -122,8 +119,7 @@
 }
 .data-time_block,
 .input_phone_nameP {
-    display: flex;
-    justify-content: space-around;
+    @include displayFlex(flex, space-around, none);
     margin: 30px auto;
 }
 
@@ -132,8 +128,7 @@
 }
 
 .img_order_card {
-    width: 100px;
-    height: 100px;
+    @include widthOrHeight(100px, 100px);
 }
 
 .delateProduct {
@@ -143,12 +138,11 @@
     }
 }
 .add-Product_Btn {
-    color: white;
+    color: $whiteColor;
     background: #0f0e15;
     border-radius: 20px;
     outline: none;
-    height: 30px;
-    width: 100px;
+    @include widthOrHeight(100px, 30px);
     &:hover {
         color: #a20e15;
     }
@@ -162,10 +156,9 @@
 .btn_next {
     background-color: #0f0e15;
     outline: none;
-    color: white;
+    color: $whiteColor;
     border-radius: 20px;
-    width: 100px;
-    height: 35px;
+    @include widthOrHeight(100px, 35px);
     margin: 10px 50px;
     &:hover {
         color: #a20e15;
@@ -187,13 +180,12 @@
 .active_link_menu {
     button {
         background: #cfa671;
-        color: #fff;
+        color: $whiteColor;
     }
 }
 
 .order_progress_bar {
-    display: flex;
-    justify-content: space-evenly;
+    @include displayFlex(flex, space-evenly, none);
     margin: 15px auto;
 }
 
@@ -208,16 +200,14 @@
 }
 
 .name_and_phone {
-    display: flex;
-    flex-direction: column;
+    @include displayFlex(flex, none, column);
 }
 .label_order {
     margin-bottom: 5px;
     text-align: center;
 }
 .input_phone_name {
-    width: 300px;
-    height: 45px;
+    @include widthOrHeight(300px, 45px);
     border-radius: 20px;
     padding: 15px;
     &:focus {
@@ -230,8 +220,7 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 .btn_menu {
-    display: flex;
-    justify-content: space-between;
+    @include displayFlex(flex, space-between, none);
 }
 
 .order_final {
@@ -240,13 +229,11 @@ input::-webkit-inner-spin-button {
     margin: 2px 0px 0px 60px;
 }
 .orderBirthday {
-    display: flex;
-    flex-direction: column;
-    background: white;
+    @include displayFlex(flex, none, column);
+    background: $whiteColor;
     box-shadow: 20px 20px 15px rgb(33 37 41);
     padding: 10px 10px;
-    width: 65%;
-    height: 500px;
+    @include widthOrHeight(65%, 500px);
     overflow-y: scroll;
     border: 1px solid #eeeff0;
     border-radius: 20px;
@@ -257,13 +244,11 @@ input::-webkit-inner-spin-button {
         font-weight: 900;
     }
     &_last {
-        display: flex;
-        justify-content: space-around;
-        width: 98%;
+        @include displayFlex(flex, space-around, none);
+        @include widthOrHeight(98%, 50px);
         padding: 10px;
-        height: 50px;
         margin: 10px 0px;
-        background: white;
+        background: $whiteColor;
         border-radius: 20px;
         align-items: center;
     }
@@ -277,12 +262,10 @@ input::-webkit-inner-spin-button {
     }
 }
 .block_order_end {
-    display: flex;
-    flex-direction: column;
+    @include displayFlex(flex, none, column);
 }
-.info_people_order{
-    display: flex;
-    justify-content: space-evenly;
+.info_people_order {
+    @include displayFlex(flex, space-evenly, none);
     margin: 30px auto 20px auto;
 }
 
@@ -292,7 +275,7 @@ input::-webkit-inner-spin-button {
 }
 .total_card {
     height: 36%;
-    background: white;
+    background: $whiteColor;
     box-shadow: 20px 20px 15px rgb(33 37 41);
     margin-left: 15px;
     text-align: center;
@@ -302,8 +285,7 @@ input::-webkit-inner-spin-button {
 }
 
 .total_card_price {
-    display: flex;
-    justify-content: space-between;
+    @include displayFlex(flex, space-between, none);
     margin: 15px auto;
 }
 
@@ -386,8 +368,7 @@ input.ng-valid {
         width: 100%;
     }
     .input_phone_name {
-        width: 300px;
-        height: 45px;
+        @include widthOrHeight(300px, 45px);
         border-radius: 20px;
         padding: 15px;
     }
@@ -414,28 +395,24 @@ input.ng-valid {
     .time_btn,
     .mat-form-field,
     .input_phone_name {
-        width: 60%;
-        height: 50px;
+        @include widthOrHeight(60%, 50px);
         margin: 20px auto;
     }
     .label_order {
         font-size: 30px;
     }
     .total_card {
-        width: 70%;
+        @include widthOrHeight(70%, 30%);
         margin-left: 15%;
         font-size: 25px;
-        height: 30%;
     }
 
     .data-time_block,
     .info_people_order {
-        display: flex;
-        flex-direction: column;
+        @include displayFlex(flex, none, column);
     }
     .count_btn-people {
-        width: 70px;
-        height: 40px;
+        @include widthOrHeight(70px, 40px);
     }
     .count_people {
         font-size: 30px;
@@ -446,15 +423,13 @@ input.ng-valid {
     .btn_add,
     .btn_back,
     .btn_next {
-        width: 150px;
-        height: 55px;
+        @include widthOrHeight(150px, 55px);
     }
     .add-Product_Btn {
         height: 50px;
     }
     .time_input {
         height: 100%;
-        // margin-left: 35px;
     }
     .orderBirthday_tr {
         height: 100px;
@@ -479,6 +454,9 @@ input.ng-valid {
             margin: 20px 0px 30px 0px;
         }
     }
+    .time_input {
+        width: 40%;
+    }
     .orderBirthday {
         font-size: 17px;
     }
@@ -488,8 +466,7 @@ input.ng-valid {
     .time_btn,
     .mat-form-field,
     .input_phone_name {
-        width: 95%;
-        height: 50px;
+        @include widthOrHeight(95%, 50px);
         margin: 20px auto;
     }
     .time_birhday {
@@ -509,8 +486,7 @@ input.ng-valid {
     .btn_add,
     .btn_back,
     .btn_next {
-        width: 150px;
-        height: 55px;
+        @include widthOrHeight(150px, 55px);
         margin: 0px 0px;
     }
     .add-Product_Btn {
@@ -524,5 +500,8 @@ input.ng-valid {
 @media screen and (max-width: 400px) {
     .block_assortment {
         overflow: scroll;
+    }
+    .time_input {
+        width: 40%;
     }
 }

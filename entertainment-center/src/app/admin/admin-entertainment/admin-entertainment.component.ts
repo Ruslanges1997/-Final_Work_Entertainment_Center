@@ -26,7 +26,6 @@ export class AdminEntertainmentComponent implements OnInit {
   editStatus: boolean;
   imageStatus: boolean;
   searchName:string;
-  // currEntertainment: IEntertainment;
   soretedAdminEntertainment: Array<IEntertainment> = [];
   adminEntertainment: Array<IEntertainment> = [];
   constructor(
@@ -52,9 +51,9 @@ export class AdminEntertainmentComponent implements OnInit {
     }
     this.order = value;
   }
+
   openGameModals(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
-
   }
 
   ngOnInit(): void {
@@ -85,7 +84,6 @@ export class AdminEntertainmentComponent implements OnInit {
       this.entertainmentService.postFireCloudEntertainment({ ...newEntertainment })
         .then(message => console.log(message))
         .catch(err => console.log(err));
-      // console.log(newEntertainment)
     } 
     else {
       this.entertainmentService.updateFireCloudEntertainment({ ...newEntertainment })
@@ -94,7 +92,6 @@ export class AdminEntertainmentComponent implements OnInit {
       this.editStatus = false;
     }
     this.closeModal();
-
   }
 
   uploadFile(event): void {
@@ -113,6 +110,7 @@ export class AdminEntertainmentComponent implements OnInit {
   }
 
   deleteEntertainment(game: IEntertainment): void {
+    this.afStorage.storage.refFromURL(this.eImageGame).delete();
     this.entertainmentService.deleteFireCloudEntertainment(game.id.toString())
       .then(message => console.log(message))
       .catch(err => console.log(err));

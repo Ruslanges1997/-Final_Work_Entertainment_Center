@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
 
   checkScroll() {
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    // console.log('[scroll]', scrollPosition);
     if (scrollPosition >= 0) {
       this.menuBurgerNav = true;
     }
@@ -57,7 +56,7 @@ export class HeaderComponent implements OnInit {
     }
     else if (user != null && user.role === 'user') {
       this.loginStatus = true;
-      this.loginName = 'Ofice';
+      this.loginName = 'Office';
       this.loginUrl = 'profile';
     }
 
@@ -67,7 +66,6 @@ export class HeaderComponent implements OnInit {
       this.loginUrl = '';
     }
   }
-
 
   menuBurgerNav: boolean = true;
   openMenuNav() {

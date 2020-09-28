@@ -9,8 +9,6 @@ export class Calculator implements ICalculator {
         public time: string,
         public date: string,
         public countPeoples: number,
-        // public calculatorArray: any,
-        // public count?: number,
         public namePeople: string,
         public phone: number,
         public priceGame?: number,
@@ -23,16 +21,3 @@ export class Calculator implements ICalculator {
         public email?: any,
     ) { }
 }
-// this.orderIDB,
-// this.timeB,
-// this.dateB.toString(),
-// this.counterPeopleB,
-// this.namePeopleOrder,
-// this.phoneNumber,
-// this.priceGamesTotal,
-// this.totalPriceProd,
-// this.totalAllPrice,
-// this.productOrders,
-// this.entertainmentOrders,
-// this.packageName,
-// this.userEmail

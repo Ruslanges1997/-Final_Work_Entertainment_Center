@@ -20,7 +20,6 @@ export class GalleryService {
     return this.fireCloud.collection('gallery').snapshotChanges();
   }
 
-
   deleteFireCloudImage(id: string): Promise<void> {
     return this.fireCloud.collection('gallery').doc(id).delete();
   }

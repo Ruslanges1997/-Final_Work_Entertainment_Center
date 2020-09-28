@@ -5,7 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   pure: false
 })
 export class SearchWorkerPipe implements PipeTransform {
-
   transform(value: Array<any>, seacrhParam: any): Array<any> {
     if (!seacrhParam) {
       return value;
@@ -15,5 +14,4 @@ export class SearchWorkerPipe implements PipeTransform {
     }
     return value.filter(categ => categ.professionWorker.toLowerCase().includes(seacrhParam.toLowerCase()));
   }
-
 }

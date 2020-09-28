@@ -28,6 +28,4 @@ export class OurTeamComponent implements OnInit {
       })
     })
   }
-
-
 }

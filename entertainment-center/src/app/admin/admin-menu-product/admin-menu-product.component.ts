@@ -27,7 +27,6 @@ export class AdminMenuProductComponent implements OnInit {
   productPrice: number;
   productImage: string;
   categoriesArr: Array<IMenuCategory> = [];
-  // menuCategoryAdminArr:IMenuCategory;
   adminProducts: Array<IProduct> = [];
   imageStatus: boolean;
   editStatus: boolean;
@@ -38,7 +37,6 @@ export class AdminMenuProductComponent implements OnInit {
     backdrop: true,
     ignoreBackdropClick: true
   };
-
   searchName: string;
 
   constructor(
@@ -96,7 +94,6 @@ export class AdminMenuProductComponent implements OnInit {
 
   addProductModal(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
-    // console.log(this.adminCategory)
   }
 
   addProduct(): void {
@@ -113,13 +110,13 @@ export class AdminMenuProductComponent implements OnInit {
     if (!this.editStatus) {
       delete newProd.id;
       this.prodService.postFireCloudProduct({ ...newProd })
-        .then(messege => console.log(messege))
-        .catch(err => console.log(err))
+        .then(messege => console.log())
+        .catch(err => console.log())
     }
     else {
       this.prodService.updateFireCloudProduct({ ...newProd })
-        .then(message => console.log(message))
-        .catch(err => console.log(err));
+        .then(message => console.log())
+        .catch(err => console.log());
       this.editStatus = false;
     }
     this.closeModal();
@@ -151,7 +148,6 @@ export class AdminMenuProductComponent implements OnInit {
       this.afStorage.ref(`images/menu-product/${image.metadata.name}`).getDownloadURL().subscribe(url => {
         this.productImage = url;
         this.imageStatus = true;
-        console.log(image.metadata.name)
       })
     })
   }
@@ -173,26 +169,19 @@ export class AdminMenuProductComponent implements OnInit {
   }
 
   deleteProduct(product: IProduct): void {
-    if (confirm('Are you sure')) {
-      this.afStorage.storage.refFromURL(this.productImage).delete();
-      this.prodService.deleteFireCloudProduct(product.id.toString())
-        .then(message => console.log(message))
-        .catch(err => console.log(err));
-    }
-  }
-
-  declineImage(): void {
-    this.modalRef.hide();
-  }
-
-  deleteImage(template: TemplateRef<any>): void {
-    this.modalRef = this.modalService.show(template, { class: 'modal-md' });
-  }
-
-  confirmImage(): void {
     this.afStorage.storage.refFromURL(this.productImage).delete();
-    // this.imageStatus = false;
-    this.closeModal();
+    this.prodService.deleteFireCloudProduct(product.id.toString())
+      .then(message => console.log(message))
+      .catch(err => console.log(err));
+
   }
+
+  // deleteOrder(order: any): void {
+  //   if (order.statusOrder == 'Виконано' || order.statusOrder == 'Скасовано') {
+  //     this.adminService.deleteFireCloudOrder(order.id.toString())
+  //       .then(messege => console.log(messege))
+  //       .catch(err => console.log(err));
+  //   }
+  // }
 
 }
