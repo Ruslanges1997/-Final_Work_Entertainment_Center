@@ -7,6 +7,9 @@
     outline: none;
     color: black;
     border: none;
+    &:hover {
+        color: $detailColor;
+    }
 }
 
 .count_btn {

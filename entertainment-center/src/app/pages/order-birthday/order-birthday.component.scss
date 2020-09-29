@@ -19,6 +19,7 @@
     }
 }
 
+
 .btn_package {
     outline-style: none;
     padding: 12px;
@@ -33,11 +34,9 @@
         cursor: pointer;
     }
 }
-
 .birthday_block {
-    border-radius: 10px;
-    @include widthOrHeight(300px, 400px);
-    background: black;
+    @include widthOrHeight(300px, 430px);
+    @include borBackroBorR(none, $bgColor, 10px);
     @include displayFlex(flex, none, column);
     overflow: hidden;
     color: $text_color;

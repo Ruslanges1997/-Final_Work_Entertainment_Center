@@ -82,7 +82,6 @@ export class CalculatorBirhdayComponent implements OnInit {
     if (localStorage.getItem('user')) {
       this.emailtOrders = JSON.parse(localStorage.getItem('user'));
       this.userEmail = this.emailtOrders.userEmail
-      console.log(this.userEmail)
     } else {
     }
   }

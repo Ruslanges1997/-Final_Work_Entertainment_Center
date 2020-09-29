@@ -28,10 +28,8 @@
     margin: 0px auto;
     padding: 5px;
     box-shadow: 20px 20px 15px rgb(33 37 41);
-    border: 1px solid #eeeff0;
-    background: $whiteColor;
-    border-radius: 20px;
     overflow: hidden;
+    @include borBackroBorR(1px solid #eeeff0, $whiteColor, 20px);
 }
 
 .time_btn {
@@ -39,9 +37,7 @@
     width: 300px;
     height: 40px;
     outline: 0;
-    border: 0;
-    background-color: $bgColor;
-    border-radius: 20px;
+    @include borBackroBorR(0, $bgColor, 20px);
     span {
         color: $whiteColor;
         text-align: center;
@@ -51,12 +47,10 @@
 
 .time_input {
     line-height: 30px;
-    border: 2px solid $bgColor;
-    background-color: $whiteColor;
     max-width: 60%;
     text-align: center;
-    border-radius: 20px;
     font-weight: 800;
+    @include borBackroBorR(2px solid $bgColor, $whiteColor, 20px);
 }
 
 .modal_time {
@@ -75,10 +69,8 @@
     line-height: 40px;
     min-height: 40px;
     text-align: center;
-    background: $whiteColor;
-    border: 1px solid #a4a4a4;
+    @include borBackroBorR(1px solid #a4a4a4, $whiteColor, 10px);
     box-sizing: border-box;
-    border-radius: 10px;
     margin: 10px 10px;
 }
 
@@ -100,18 +92,17 @@
     margin-top: 30px;
     text-align: center;
     button {
-        background: $bgColor;
+        @include borBackroBorR(none, $bgColor, 10px);
         @include widthOrHeight(100px, 50px);
-        border-radius: 10px;
         outline: none;
         color: $whiteColor;
     }
 }
 
 .count_btn-people {
-    border-radius: 20px;
     color: $whiteColor;
     background: $bgColor;
+    border-radius: 20px;
     outline: none;
 }
 .mat-input-element {
@@ -134,13 +125,12 @@
 .delateProduct {
     cursor: pointer;
     &:hover {
-        color: red;
+        color: $detailColor;
     }
 }
 .add-Product_Btn {
     color: $whiteColor;
-    background: #0f0e15;
-    border-radius: 20px;
+    @include borBackroBorR(none, #0f0e15, 20px);
     outline: none;
     @include widthOrHeight(100px, 30px);
     &:hover {
@@ -154,10 +144,9 @@
 .btn_add,
 .btn_back,
 .btn_next {
-    background-color: #0f0e15;
     outline: none;
     color: $whiteColor;
-    border-radius: 20px;
+    @include borBackroBorR(none, #0f0e15, 20px);
     @include widthOrHeight(100px, 35px);
     margin: 10px 50px;
     &:hover {
@@ -229,14 +218,12 @@ input::-webkit-inner-spin-button {
     margin: 2px 0px 0px 60px;
 }
 .orderBirthday {
-    @include displayFlex(flex, none, column);
-    background: $whiteColor;
     box-shadow: 20px 20px 15px rgb(33 37 41);
     padding: 10px 10px;
-    @include widthOrHeight(65%, 500px);
     overflow-y: scroll;
-    border: 1px solid #eeeff0;
-    border-radius: 20px;
+    @include displayFlex(flex, none, column);
+    @include widthOrHeight(65%, 500px);
+    @include borBackroBorR(1px solid #eeeff0, $whiteColor, 20px);
     h1 {
         text-align: center;
         text-align: center;
@@ -248,8 +235,7 @@ input::-webkit-inner-spin-button {
         @include widthOrHeight(98%, 50px);
         padding: 10px;
         margin: 10px 0px;
-        background: $whiteColor;
-        border-radius: 20px;
+        @include borBackroBorR(none, $whiteColor, 20px);
         align-items: center;
     }
     .order_menu {
@@ -339,7 +325,7 @@ input::-webkit-inner-spin-button {
     animation: opasity 0.8s linear;
 }
 input.ng-invalid {
-    border: 2px solid red;
+    border: 2px solid $detailColor;
 }
 input.ng-valid {
     border: 2px solid green;
@@ -353,10 +339,10 @@ input.ng-valid {
         margin: 10px 10px;
     }
     span {
-        color: red;
+        color: $detailColor;
     }
     &:hover {
-        color: red;
+        color: $detailColor;
     }
 }
 

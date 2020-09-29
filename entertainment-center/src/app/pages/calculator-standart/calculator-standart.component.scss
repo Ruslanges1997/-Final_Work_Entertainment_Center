@@ -18,10 +18,10 @@
     @include displayFlex(flex, none, column);
 }
 .count_btn-people {
-    border-radius: 20px;
     color: $whiteColor;
-    background: $bgColor;
     outline: none;
+    background: $bgColor;
+    border-radius: 20px;
 }
 .block_assortment {
     width: 90%;
@@ -29,9 +29,7 @@
     margin: 0px auto;
     padding: 5px;
     box-shadow: 20px 20px 15px rgb(33 37 41);
-    border: 1px solid #eeeff0;
-    background: $whiteColor;
-    border-radius: 20px;
+    @include borBackroBorR(1px solid #eeeff0, $whiteColor, 20px);
 }
 .data-time_block {
     @include displayFlex(flex, space-around, none);
@@ -56,9 +54,8 @@
     left: 0;
     top: 0;
     outline: 0;
-    border: 0;
     background-color: $bgColor;
-    border-radius: 20px;
+    @include borBackroBorR(0, $bgColor, 20px);
     span {
         color: $whiteColor;
         text-align: center;
@@ -67,11 +64,9 @@
 }
 .time_input {
     line-height: 30px;
-    border: 2px solid $bgColor;
-    background-color: $whiteColor;
     max-width: 60%;
     text-align: center;
-    border-radius: 20px;
+    @include borBackroBorR(2px solid $bgColor, $whiteColor, 20px);
     font-weight: 800;
 }
 
@@ -113,10 +108,9 @@ input::-webkit-inner-spin-button {
 }
 .btn_next,
 .btn_add {
-    background-color: #0f0e15;
     outline: none;
     color: $whiteColor;
-    border-radius: 20px;
+    @include borBackroBorR(none, $bgColor, 20px);
     @include widthOrHeight(100px, 40px);
     margin: 10px 10px;
     &:hover {
@@ -125,14 +119,12 @@ input::-webkit-inner-spin-button {
 }
 
 .orderBirthdayS {
-    @include displayFlex(flex, none, column);
-    background: $whiteColor;
     box-shadow: 20px 20px 15px rgb(33 37 41);
     padding: 10px 10px;
     width: 65%;
     height: fit-content;
-    border: 1px solid #eeeff0;
-    border-radius: 20px;
+    @include displayFlex(flex, none, column);
+    @include borBackroBorR(1px solid #eeeff0, $whiteColor, 20px);
     h1 {
         text-align: center;
         font-size: 30px;
@@ -144,8 +136,7 @@ input::-webkit-inner-spin-button {
         @include widthOrHeight(98%, 50px);
         padding: 10px;
         margin: 10px 0px;
-        background: $whiteColor;
-        border-radius: 20px;
+        @include borBackroBorR(none, $whiteColor, 20px);
         align-items: center;
     }
     .order_menuS {
@@ -178,10 +169,8 @@ input::-webkit-inner-spin-button {
     line-height: 40px;
     min-height: 40px;
     text-align: center;
-    background: #fff;
-    border: 1px solid #a4a4a4;
     box-sizing: border-box;
-    border-radius: 10px;
+    @include borBackroBorR(1px solid #a4a4a4, $whiteColor, 10px);
     margin: 10px 10px;
     .input_time {
         visibility: hidden;
@@ -223,7 +212,7 @@ input::-webkit-inner-spin-button {
     margin: 15px 0px;
 }
 .block_order_endS {
-    @include displayFlex(flex, none,column );
+    @include displayFlex(flex, none, column);
 }
 .boundary_lineS {
     border: 1px solid rgb(15 14 21 / 54%);
@@ -307,7 +296,7 @@ input.ng-valid {
     }
     .data-time_block,
     .info_people_orderS {
-        @include displayFlex(flex, none,column );
+        @include displayFlex(flex, none, column);
     }
     .count_btn-people {
         @include widthOrHeight(70px, 40px);
@@ -369,4 +358,3 @@ input.ng-valid {
         width: 40%;
     }
 }
-

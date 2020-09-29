@@ -14,3 +14,9 @@
     width: $w;
     height: $h;
 }
+
+@mixin borBackroBorR($b, $bck, $br) {
+    border: $b;
+    background: $bck;
+    border-radius: $br;
+}
