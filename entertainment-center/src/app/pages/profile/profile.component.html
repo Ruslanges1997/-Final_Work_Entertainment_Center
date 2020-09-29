@@ -5,10 +5,13 @@
                 <h1>Особистий кабінет</h1>
                 <div *ngIf="!switch">
                     <h3>{{firstName |titlecase}}</h3>
+                    <div class="detail">
+                        <button type="button" class="btn_primaryP  btn_out" (click)="signOut()">Sign Out</button>
+                    </div>
                     <h3> Ви ще не зробили ні одного замовлення.</h3>
                 </div>
             </div>
-         
+
             <div *ngIf="switch">
                 <div class="block_profile" *ngFor="let order of userOrders">
                     <div class="title_profile">

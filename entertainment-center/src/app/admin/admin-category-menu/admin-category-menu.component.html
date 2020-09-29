@@ -8,12 +8,10 @@
                 Category menu</button>
         </div>
     </div>
-
     <div class="form-group ">
         <input type="search" [(ngModel)]="searchName" name="searchName" class="form-control searchName"
             placeholder="filter category Name EN">
     </div>
-
     <table class="table table-hover  table-bordered">
         <thead>
             <tr>
@@ -32,7 +30,6 @@
                 <th>Delete</th>
             </tr>
         </thead>
-
         <tbody>
             <tr *ngFor="let category of menuCategoryAdminArr | search:searchName | orderBy: order:reverse; let i=index">
                 <td>{{category.id}}</td>

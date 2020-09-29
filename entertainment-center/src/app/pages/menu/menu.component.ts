@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-// import { MenuProductService } from '../../shared/services/menu-product.service';
 import { IProduct } from '../../shared/interfaces/menu-product.interface';
 import { ActivatedRoute, Router, NavigationEnd, Event } from '@angular/router';
 

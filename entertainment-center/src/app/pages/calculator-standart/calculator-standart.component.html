@@ -110,23 +110,8 @@
                                     <span class="info_birthday-one"> {{ timeB }}</span>
                                 </div>
                             </div>
-                            <!-- <h1 class="margin">Ресторан</h1> -->
-                            <!-- <div *ngFor="let menu of productOrders " class="orderBirthday_last margin">
-                            <span> {{ menu?.nameUA | titlecase }} </span>
-                            <span> {{ menu?.count }} шт </span>
-                            <app-counter [product]="menu" (changeCount)="detectChangeProd($event)"></app-counter>
-                            <span> {{ menu?.priceMenu *  menu?.count  }} грн </span>
-                            <div class="delateProduct " (click)="deleteProductMenu(menu)">
-                                X
-                            </div>
-                        </div> -->
-
-                            <!-- <span>Загальна ціна за Ресторан{{ totalPriceProd  }} </span> -->
                             <div class=" boundary_lineS"></div>
                             <h1>Розваги</h1>
-                            <!-- <div *ngFor="let game of entertainmentAray" class="orderBirthday_last margin">
-                                <span> {{ game?.nameGame| titlecase }}</span>
-                                <span> дві гри</span> -->
                             <table class="table  table_menu_game" style="text-align: center ; align-items: center;">
                                 <thead>
                                     <tr>
@@ -146,13 +131,6 @@
 
                                 </tbody>
                             </table>
-                            <!-- <span> {{ game?.count }} шт </span> -->
-                            <!-- <app-counter [product]="game" (changeCount)="detectChangeGame($event)"></app-counter> -->
-                            <!-- <span> {{ (game?.priceGame *  game?.count)  * counterPeople  }} грн </span> -->
-                            <!-- <div class="delateProduct " (click)="deleteProductGame(game)">
-                                X
-                            </div> -->
-                            <!-- </div> -->
                         </div>
                     </div>
 
@@ -161,20 +139,11 @@
                             <h4>Сума до оплати</h4>
                             <p>{{totalStandatr}} грн</p>
                         </div>
-                        <!--  <div class="total_card_price">
-                        <h4>Ціна за ігри</h4>
-                        <p>{{totalPriceEntertainment * counterPeople}} грн</p>
-                    </div>
-                    <div class="total_card_price">
-                        <h4> Загальна cума </h4>
-                        <p> {{totalAllPrice}} грн</p>
-                    </div> -->
                         <div>
                             <button type="button" class="btn_add" (click)="addBirthdayFire()"
                                 [disabled]="packageStandartForm.invalid">
                                 Замовити
                             </button>
-                            <!-- [disabled]='disAddBirFireBtn'  -->
                         </div>
                     </div>
                 </div>

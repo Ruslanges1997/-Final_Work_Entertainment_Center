@@ -9,7 +9,6 @@
     </div>
     <input type="search" [(ngModel)]="searchName" name="searchName" id="searchName" class="form-control searchName"
         placeholder="filter profession">
-    <!-- <input type="search" name="searchName" class="searchName" placeholder="filter profesion "> -->
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">
             <tr>
@@ -36,7 +35,6 @@
             </tr>
         </thead>
         <tbody>
-            <!-- :'case-insensitive' -->
             <tr *ngFor="let worker of ourTeamAdmin | searchWorker:searchName  | orderBy: order:reverse; let i=index">
                 <td>{{ worker.id}}</td>
                 <td>{{ worker.nameWorker }}</td>
@@ -59,7 +57,6 @@
     <div class="modal-header">
         <h4 class="modal-title pull-left">Our team</h4>
         <button type="button" class="close pull-right" (click)="closeModal()" aria-label="Close">
-
             <span aria-hidden="true">&times;</span>
         </button>
     </div>

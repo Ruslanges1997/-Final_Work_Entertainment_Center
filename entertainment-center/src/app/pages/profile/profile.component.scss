@@ -61,7 +61,11 @@
         color: white;
     }
 }
-
+.btn_out{
+    margin-left: 0%;
+    margin-top: 30px;
+    font-size: 20px;
+}
 .detail_titel {
     font-size: 20px;
     margin-left: 40px;
@@ -70,6 +74,9 @@
 @media screen and (max-width: 780px) {
     .block_profile {
         width: 500px;
+    }
+    .btn_out{
+        margin-left: 5%;
     }
 }
 
@@ -85,6 +92,9 @@
     }
     .btn_primaryP {
         margin-left: 23%;
+    }
+    .btn_out{
+        margin-left: 5%;
     }
 }
 

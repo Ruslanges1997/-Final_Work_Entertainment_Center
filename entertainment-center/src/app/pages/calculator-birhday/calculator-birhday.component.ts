@@ -289,7 +289,6 @@ export class CalculatorBirhdayComponent implements OnInit {
       this.namePeopleOrder !== undefined ||
       this.phoneNumber !== undefined ||
       this.phoneNumber !== null ||
-
       this.namePeopleOrder !== "") {
       this.disAddBirFireBtn = false;
     }

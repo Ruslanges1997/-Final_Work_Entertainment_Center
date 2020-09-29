@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -15,7 +14,6 @@ export class CounterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.product.count = 0
   }
 
   productCount(status: boolean): void {

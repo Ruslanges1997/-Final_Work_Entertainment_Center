@@ -25,7 +25,6 @@ export class AdminCategoryMenuComponent implements OnInit {
   ) {
     this.soretedAdminCategoryMenu = orderPipe.transform(this.menuCategoryAdminArr, 'name');
   }
-
   modalRef: BsModalRef;
   modalRefconfig = {
     backdrop: true,
