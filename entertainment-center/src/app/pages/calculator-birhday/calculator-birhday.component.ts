@@ -10,7 +10,6 @@ import { ICalculator } from '../../shared/interfaces/calculator-birthday.interfa
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { CalculatorService } from '../../shared/services/calculator.service';
 import { NgForm, } from '@angular/forms';
-
 @Component({
   selector: 'app-calculator-birhday',
   templateUrl: './calculator-birhday.component.html',
@@ -62,9 +61,7 @@ export class CalculatorBirhdayComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private router: Router,
     private entertainmentService: EntertainmentService,
-
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void {
     this.getEntertainment();
@@ -82,7 +79,9 @@ export class CalculatorBirhdayComponent implements OnInit {
     if (localStorage.getItem('user')) {
       this.emailtOrders = JSON.parse(localStorage.getItem('user'));
       this.userEmail = this.emailtOrders.userEmail
+      this.namePeopleOrder = this.emailtOrders.userFirstName
     } else {
+      this.namePeopleOrder = "";
     }
   }
 
@@ -243,25 +242,31 @@ export class CalculatorBirhdayComponent implements OnInit {
     }
   }
 
+  openConfirmModalGame(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template, this.modalRefconfig);
+  }
+
   deleteProductGame(game: any): void {
-    if (confirm('Are you sure')) {
-      const index = this.entertainmentOrders.findIndex(prod => prod.id === game.id);
-      this.entertainmentOrders.splice(index, 1);
-      this.disabledAddBtnFire();
-      this.updateBasketGame();
-    }
+    const index = this.entertainmentOrders.findIndex(prod => prod.id === game.id);
+    this.entertainmentOrders.splice(index, 1);
+    this.disabledAddBtnFire();
+    this.updateBasketGame();
+    this.closeModal();
     if (this.entertainmentOrders.length <= 0) {
       localStorage.removeItem('myEntertainment');
     }
   }
 
+  openConfirmModalMenu(template: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(template, this.modalRefconfig);
+  }
+
   deleteProductMenu(menu: any): void {
-    if (confirm('Are you sure')) {
-      const index = this.productOrders.findIndex(prod => prod.id === menu.id);
-      this.productOrders.splice(index, 1);
-      this.updateBasketProd();
-      this.disabledAddBtnFire();
-    }
+    const index = this.productOrders.findIndex(prod => prod.id === menu.id);
+    this.productOrders.splice(index, 1);
+    this.updateBasketProd();
+    this.disabledAddBtnFire();
+    this.closeModal();
     if (this.productOrders.length <= 0) {
       localStorage.removeItem('myOrder');
     }
@@ -303,6 +308,7 @@ export class CalculatorBirhdayComponent implements OnInit {
       this.router.navigateByUrl('/profile');
     }
   }
+
   addBirthdayFire(): void {
     this.getStausPriofile();
     const order = new Calculator(

@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   email: string;
   firstName: string;
   lastName: string;
-  switch: boolean ;
+  switch: boolean;
   userOrders: Array<any> = [];
   previousOrder: any;
   allPrice: number;
@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
     this.getOrders();
     this.getEmeilUser();
   }
-  
+
   private swichBlock(): void {
     if (this.userOrders.length > 0) {
       this.switch = true;

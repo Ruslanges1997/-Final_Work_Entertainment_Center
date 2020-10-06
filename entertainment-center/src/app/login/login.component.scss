@@ -1,4 +1,3 @@
-
 @import "../../stylings/mixin";
 .registrer_section {
     background-image: url(../../assets/images/home/fon_home.jpg);
@@ -7,7 +6,7 @@
     background-size: cover;
     text-transform: uppercase;
     padding-right: 10px;
-    @include widthOrHeight(100%, 84vh);
+    @include widthOrHeight(100%, 85vh);
     color: #ffffff;
 }
 
@@ -52,6 +51,14 @@ input {
     }
 }
 
+.active_invalide {
+    display: none;
+}
+.color_txt_invalide {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}
 .signin_active,
 .signup_active {
     a {
@@ -71,5 +78,21 @@ input {
     .login_card {
         width: 90%;
         margin-top: 70px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .login_card {
+        width: 90%;
+        margin: 5px auto;
+    }
+    .input_l {
+        height: 30px;
+    }
+    .label {
+        font-size: 15px;
+    }
+    .btn_primary {
+        height: 35px;
     }
 }

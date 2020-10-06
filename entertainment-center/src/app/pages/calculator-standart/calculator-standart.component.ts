@@ -76,7 +76,7 @@ export class CalculatorStandartComponent implements OnInit {
   openModalTime(template: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(template, this.modalRefconfig);
   }
- 
+
   countPeople(status: boolean): void {
     if (status && this.counterPeople <= 13) {
       if (this.counterPeople == 13) {
@@ -111,19 +111,21 @@ export class CalculatorStandartComponent implements OnInit {
     this.namePeopleOrder = "";
     this.timeB = '';
   }
-  
+
   private totalStand(): void {
     this.totalStandatr = this.totalPriceEntertainment * this.counterPeople
   }
- 
+
   private getEmeilUser() {
     if (localStorage.getItem('user')) {
       this.emailtOrders = JSON.parse(localStorage.getItem('user'));
       this.userEmail = this.emailtOrders.userEmail
+      this.namePeopleOrder = this.emailtOrders.userFirstName
     } else {
+      this.namePeopleOrder = "";
     }
   }
- 
+
   private getStausPriofile(): void {
     this.getEmeilUser();
     if (this.userEmail == 'admin') {
@@ -133,7 +135,7 @@ export class CalculatorStandartComponent implements OnInit {
       this.router.navigateByUrl('/profile');
     }
   }
- 
+
   addBirthdayFire(): void {
     this.getStausPriofile();
     const order = new CalculatorStandart(

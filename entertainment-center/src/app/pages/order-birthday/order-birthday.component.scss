@@ -3,7 +3,7 @@
 .birthday_section {
     background-image: url(../../../assets/images/home/fon_home1.jpg);
     @include positionSectionHome(cover, fixed, no-repeat);
-    min-height: 84vh;
+    min-height: 85vh;
     width: 100%;
     overflow: hidden;
 }
@@ -18,7 +18,6 @@
         font-size: 30px;
     }
 }
-
 
 .btn_package {
     outline-style: none;
@@ -96,5 +95,11 @@
     }
     .big_blok_birthday {
         @include displayFlex(flex, none, column);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .birthday_block {
+        @include widthOrHeight(90%, 560px);
     }
 }

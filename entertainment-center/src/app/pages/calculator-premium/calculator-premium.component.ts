@@ -89,6 +89,7 @@ export class CalculatorPremiumComponent implements OnInit {
     })
   }
 
+
   private getPizaa(): void {
     this.prodPizzaArr = this.productsArr.filter(name => name.nameUA == "Лазер-піца");
     this.prodJuiceArr = this.productsArr.filter(name => name.nameUA == "Яблучний сік");
@@ -134,15 +135,18 @@ export class CalculatorPremiumComponent implements OnInit {
     this.modalRef.hide();
   }
 
+
   private getEmeilUser() {
     if (localStorage.getItem('user')) {
       this.emailtOrders = JSON.parse(localStorage.getItem('user'));
       this.userEmail = this.emailtOrders.userEmail
+      this.namePeopleOrder = this.emailtOrders.userFirstName
     } else {
+      this.namePeopleOrder = "";
     }
   }
 
-  private getStausPriofile(): void {
+  private getStatusPriofile(): void {
     this.getEmeilUser();
     if (this.userEmail == 'admin') {
       this.router.navigateByUrl('/order-birthday');
@@ -153,7 +157,7 @@ export class CalculatorPremiumComponent implements OnInit {
   }
 
   addBirthdayPremiumFire(): void {
-    this.getStausPriofile();
+    this.getStatusPriofile();
     const order = new CalculatorPremium(
       this.orderIDB,
       this.timeB,
@@ -172,7 +176,6 @@ export class CalculatorPremiumComponent implements OnInit {
       this.statusOrder,
       this.userEmail
     );
-    localStorage.setItem('myProfile', JSON.stringify(order));
     delete order.id;
     this.calculatorService.postFireCloudOrderPremium({ ...order })
       .then(() => this.resetOrder())

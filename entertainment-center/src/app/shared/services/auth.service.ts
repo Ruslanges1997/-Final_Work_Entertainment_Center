@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   private currentUser: any;
   userStatusChanges: Subject<string> = new Subject<string>();
@@ -15,6 +16,7 @@ export class AuthService {
     private router: Router) {
   }
 
+  response: any;
   login(email: string, password: string): void {
     this.afAuth.signInWithEmailAndPassword(email, password)
       .then(user => {
@@ -45,6 +47,7 @@ export class AuthService {
         const user = {
           id: userResponse.user.uid,
           userEmail: userResponse.user.email,
+          userPassword: password,
           userFirstName: firstName,
           userLastName: lastName,
           role: 'user'
@@ -65,5 +68,4 @@ export class AuthService {
       this.userStatusChanges.next('Exit');
     });
   }
-
 }

@@ -71,7 +71,7 @@ export class AdminBirthdayComponent implements OnInit {
     if (order.statusOrder == 'Виконано' || order.statusOrder == 'Скасовано') {
       this.adminService.deleteFireCloudOrder(order.id.toString())
         .then(messege => console.log(messege))
-        .catch (err => console.log(err));
+        .catch(err => console.log(err));
     }
   }
 

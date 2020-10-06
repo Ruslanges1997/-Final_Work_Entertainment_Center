@@ -6,7 +6,8 @@
                     <a [routerLink]="[ '../order-birthday']" class="link_back">
                         <h1>
                             <span>
-                                <<< </span> Birthday </h1>
+                                <<< </span> Birthday
+                        </h1>
                     </a>
                     <ul class="order_progress_bar">
                         <li class="active">Час і Дата</li>
@@ -34,7 +35,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="count_people   ">
+                            <div class="count_people">
                                 <div class="text">
                                     <h2>Кількість гостей</h2>
                                 </div>
@@ -75,7 +76,6 @@
                             <button (click)="next()" [disabled]="timeDateForm.invalid" class="btn_next">Меню</button>
                         </div>
                     </form>
-
                     <form *ngIf="switch">
                         <div class="count_menu ">
                             <span>
@@ -133,7 +133,6 @@
                             <button (click)="nextTwo()" class="btn_back">Розваги</button>
                         </div>
                     </form>
-
                     <div *ngIf="switchTwo">
                         <table class="table  table_menu_game animation"
                             style="text-align: center ; align-items: center;">
@@ -160,7 +159,8 @@
                                     <td class="mobile_none">
                                         {{games?.priceGame * games?.count}} грн
                                     </td>
-                                    <td> <button type="button" [disabled]="disBtnAdd " class="add-Product_Btn btn_order"
+                                    <td>
+                                        <button type="button" [disabled]="disBtnAdd " class="add-Product_Btn btn_order"
                                             (click)="addToBasketEntertaiment(games)">Добавити
                                         </button>
                                     </td>
@@ -199,7 +199,6 @@
                                         </span>
                                     </div>
                                 </div>
-
                                 <div class="order_menu ">
                                     <h3>Дата святкування </h3>
                                     <span class="info_birthday-one"
@@ -235,8 +234,22 @@
                                             {{ menu?.priceMenu *  menu?.count  }} грн
                                         </td>
                                         <td>
-                                            <div class="delateProduct " (click)="deleteProductMenu(menu)">X</div>
+                                            <div class="delateProduct "
+                                                (click)="openConfirmModalMenu (confirmModalMenu)">X</div>
                                         </td>
+                                        <ng-template #confirmModalMenu>
+                                            <div class="modal_delete_order">
+                                                <div>
+                                                    <h2>Delete menu</h2>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <button type="button" class="btn_modal_delete close_modal"
+                                                        (click)="closeModal()">No</button>
+                                                    <button type="button" class="btn_modal_delete  delete_element"
+                                                        (click)="deleteProductMenu(menu)">Yes </button>
+                                                </div>
+                                            </div>
+                                        </ng-template>
                                     </tr>
                                 </tbody>
                             </table>
@@ -261,18 +274,34 @@
                                             </app-counter>
                                         </td>
                                         <td>
-                                            {{ (game?.priceGame *  game?.count)  * counterPeople  }} грн
+                                            {{ (game?.priceGame *  game?.count)  * counterPeople}} грн
                                         </td>
                                         <td>
-                                            <div class="delateProduct " (click)="deleteProductGame(game)">X</div>
+                                            <div class="delateProduct "
+                                                (click)="openConfirmModalGame(confirmModalGame)">X
+                                            </div>
                                         </td>
+                                        <ng-template #confirmModalGame>
+                                            <div class="modal_delete_order">
+                                                <div>
+                                                    <h2>Delete game</h2>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="modal-body">
+                                                        <button type="button" class="btn_modal_delete close_modal"
+                                                            (click)="closeModal()">No</button>
+                                                        <button type="button" class="btn_modal_delete delete_element"
+                                                            (click)="deleteProductGame(game)">Yes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class=" boundary_line"></div>
                         </div>
                     </div>
-
                     <div class="total_card">
                         <div class="total_card_price" style="display: flex; justify-content: space-between;">
                             <h4>Ціна за Ресторан</h4>
@@ -288,7 +317,8 @@
                         </div>
                         <div>
                             <button type="button" class="btn_add" [disabled]='disAddBirFireBtn'
-                                (click)="addBirthdayFire()"> Замовити
+                                (click)="addBirthdayFire()">
+                                Замовити
                             </button>
                         </div>
                     </div>
@@ -299,7 +329,7 @@
 </section>
 
 <ng-template #timeBirthday>
-    <div class="modal-header">
+    <div class="modal-header ">
         <h4 class="modal-title pull-left">Оберіть час початку свята</h4>
         <button type="button" class="close pull-right" aria-label="Close">
             <span aria-hidden="true" (click)="closeModal()">&times;</span>
