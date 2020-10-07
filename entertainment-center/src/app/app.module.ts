@@ -61,7 +61,9 @@ import { SearchPipe } from './shared/pipes/search.pipe';
 import { SearchWorkerPipe } from './shared/pipes/search-worker.pipe';
 import { SearchNameGamePipe } from './shared/pipes/search-name-game.pipe';
 import { NgxMaskModule, IConfig } from 'ngx-mask'
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { tosterConfig } from './toster-confiig';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -118,6 +120,8 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     MatInputModule,
     MatTabsModule,
     NgxMaskModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(tosterConfig),
   ],
 
   providers: [],

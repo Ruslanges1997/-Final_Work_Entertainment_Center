@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
 import { FormGroup, NgForm, Validators, FormBuilder } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
     private formBuilder: FormBuilder,
+    private toastr: ToastrService,
     private fireCloud: AngularFirestore) { }
 
   ngOnInit() {
@@ -65,6 +66,7 @@ export class LoginComponent implements OnInit {
               this.loginUrl = 'profile';
               this.form.reset();
             } else {
+
               this.submitted = false;
               this.visibility = false;
             }
@@ -90,6 +92,7 @@ export class LoginComponent implements OnInit {
       this.userPassword,
       this.firstName,
       this.lastName);
+    this.toastr.success('You have been successfully registered');
     this.switch = !this.switch
     this.loginUrl = 'profile';
     this.onReset();

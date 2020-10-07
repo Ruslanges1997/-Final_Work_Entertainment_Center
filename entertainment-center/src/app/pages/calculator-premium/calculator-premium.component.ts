@@ -9,7 +9,7 @@ import { IProduct } from 'src/app/shared/interfaces/menu-product.interface';
 import { MenuProductService } from '../../shared/services/menu-product.service';
 import { CalculatorService } from '../../shared/services/calculator.service';
 import { CalculatorPremium } from 'src/app/shared/models/calculator-premium.models';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-calculator-premium',
   templateUrl: './calculator-premium.component.html',
@@ -22,6 +22,7 @@ export class CalculatorPremiumComponent implements OnInit {
     private entertainmentService: EntertainmentService,
     private fireCloud: AngularFirestore,
     private actRoute: ActivatedRoute,
+    private toastr: ToastrService,
     private router: Router,
     private menuProductService: MenuProductService,
     private calculatorService: CalculatorService,
@@ -42,7 +43,7 @@ export class CalculatorPremiumComponent implements OnInit {
   orderIDB = 1;
   timeB: string;
   dateB: string;
-  counterPeopleB: number;
+  counterPeopleB: number = 2;
   totalPriceProd = 0;
   counterPeople = 2;
   totalPricePremium: number;
@@ -55,7 +56,7 @@ export class CalculatorPremiumComponent implements OnInit {
   userEmail = "admin";
   statusOrder = 'в обробці'
   countGamePackage = 3;
-  countPizzaPackage: number;
+  countPizzaPackage: number = 1;
   disBtnCounPeople: boolean = false;
   counterJuice = this.counterPeople;
   counterJuiceFinal = 1;
@@ -150,6 +151,7 @@ export class CalculatorPremiumComponent implements OnInit {
     this.getEmeilUser();
     if (this.userEmail == 'admin') {
       this.router.navigateByUrl('/order-birthday');
+      this.toastr.success('Замовлення відправлено');
     }
     else if (this.userEmail !== 'admin') {
       this.router.navigateByUrl('/profile');
@@ -191,5 +193,6 @@ export class CalculatorPremiumComponent implements OnInit {
     this.phoneNumber = null;
     this.namePeopleOrder = "";
     this.timeB = '';
+
   }
 }

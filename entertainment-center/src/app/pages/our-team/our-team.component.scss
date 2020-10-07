@@ -2,7 +2,7 @@
 @import "../../../stylings/mixin";
 .team_section {
     width: 100%;
-    min-height: 70vh;
+    min-height: 90vh;
     margin-top: 100px;
     background-image: url(../../../assets/images/home/fon_home1.jpg);
     @include positionSectionHome(cover, fixed, no-repeat);
@@ -32,7 +32,8 @@
     font-size: 18px;
 }
 @media screen and (max-width: 1000px) {
-    .team_section{
+    .team_section {
+        min-height: 82vh;
         margin-top: 0px;
     }
     .element_card {
@@ -45,14 +46,24 @@
             border-radius: 20px;
         }
     }
-    
+
     .title {
         color: grey;
         font-size: 18px;
     }
 }
 @media screen and (max-width: 600px) {
-    .team_section{
+    .team_section {
         margin-top: 0px;
+        min-height: 82vh;
+    }
+}
+@media screen and (max-width: 400px) {
+    .team_section {
+        // min-height: 82vh;
+        margin-top: 0px;
+    }
+    .card_game {
+        width: 90%;
     }
 }

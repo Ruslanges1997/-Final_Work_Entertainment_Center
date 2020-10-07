@@ -351,10 +351,33 @@ input.ng-valid {
     }
 }
 @media screen and (max-width: 400px) {
+    .orderBirthdayS h1 {
+        font-size: 25px;
+    }
     .block_assortment {
         overflow: scroll;
+        width: 98%;
+    }
+    .textS {
+        margin: 0px 10px;
     }
     .time_input {
         width: 40%;
+    }
+    .count_btn-people {
+        @include widthOrHeight(30px, 30px);
+    }
+    .count_peopleS {
+        font-size: 20px;
+    }
+    .margin_content {
+        margin: 10px 0px 0px 0px;
+    }
+    .btn_add{
+        @include widthOrHeight(100px, 50px);
+        font-size: 15px;
+    }
+    .total_cardS {
+        font-size: 15px;
     }
 }

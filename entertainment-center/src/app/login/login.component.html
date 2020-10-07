@@ -3,8 +3,8 @@
         <div class="rowE">
             <div class="login_card" *ngIf="!switch">
                 <ul class="links_sign">
-                    <li class="signin_active acti"><a style="color: red;">Sign in</a></li>
-                    <li class="signup_active acti"><a (click)="switchForm()">Sign up </a></li>
+                    <li class="signin_active  acti"><a style="color: red;">Sign in</a></li>
+                    <li class="signup_active "><a (click)="switchForm()">Sign up </a></li>
                 </ul>
 
                 <form [formGroup]="form" (ngSubmit)="loginUser()" class="form_login">
@@ -23,9 +23,10 @@
                     </div>
                     <div class="form-group">
                         <label class="label" for="userPasswordLogin">Password</label>
-                        <input type="password" formControlName="password" class="form-control input_l" id="userPasswordLogin"
-                            [(ngModel)]="userPasswordLogin" placeholder="Enter password" name="userPasswordLogin"
-                            pattern="^\d*\w*$" [ngClass]="{ 'is-invalid': submitted && l.password.errors }" />
+                        <input type="password" formControlName="password" class="form-control input_l"
+                            id="userPasswordLogin" [(ngModel)]="userPasswordLogin" placeholder="Enter password"
+                            name="userPasswordLogin" pattern="^\d*\w*$"
+                            [ngClass]="{ 'is-invalid': submitted && l.password.errors }" />
                         <div *ngIf="submitted && l.password.errors" class="invalid-feedback">
                             <div *ngIf="l.password.errors.required">Password is required</div>
                             <div *ngIf="l.password.errors?.pattern && l.password.touched ">
@@ -47,7 +48,7 @@
                                 <span>Sign in</span>
                             </a>
                         </li>
-                        <li routerLinkActive="active_link" class="signup_active  acti">
+                        <li routerLinkActive="active_link" class="signup_active  ">
                             <a style="color: red;">
                                 Sign up
                             </a>
@@ -57,8 +58,8 @@
                     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                         <div class=" form_group">
                             <label class="label" for="firstName">First Name</label>
-                            <input type="text" formControlName="firstName" class="form-control input_l" [(ngModel)]="firstName"
-                                name="firstName" id="firstName" pattern="^\D*$"
+                            <input type="text" formControlName="firstName" class="form-control input_l"
+                                [(ngModel)]="firstName" name="firstName" id="firstName" pattern="^\D*$"
                                 [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
                             <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                                 <div *ngIf="f.firstName.errors.required">First Name is required</div>
@@ -91,8 +92,8 @@
 
                         <div class=" form_group">
                             <label class="label" for="userPassword">Password</label>
-                            <input type="password" formControlName="password" class="form-control input_l" id="userPassword"
-                                [(ngModel)]="userPassword" name="userPassword" pattern="^\d*\w*$"
+                            <input type="password" formControlName="password" class="form-control input_l"
+                                id="userPassword" [(ngModel)]="userPassword" name="userPassword" pattern="^\d*\w*$"
                                 [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                                 <div *ngIf="f.password.errors.required">Password is required</div>

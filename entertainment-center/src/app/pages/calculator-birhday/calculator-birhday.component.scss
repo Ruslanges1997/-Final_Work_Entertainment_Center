@@ -510,12 +510,56 @@ input.ng-valid {
         width: 90%;
     }
 }
-
 @media screen and (max-width: 400px) {
+    .order_final{
+        width: 98%;
+    }
+    .orderBirthday h1 {
+        font-size: 25px;
+    }
     .block_assortment {
-        overflow: scroll;
+        overflow: hidden;
+        width: 98%;
+    }
+    .text {
+        margin: 0px 10px;
     }
     .time_input {
         width: 40%;
+    }
+    .count_btn-people {
+        @include widthOrHeight(25px, 25px);
+    }
+    .count_people {
+        font-size: 15px;
+        margin-left: -35px;
+        .text {
+            font-size: 15px;
+        }
+    }
+    .margin_content {
+        margin: 10px 0px 0px 0px;
+    }
+    .active {
+        font-size: 15px;
+    }
+    .order_progress_bar {
+        font-size: 15px;
+    }
+    .tbody_order {
+        font-size: 15px;
+    }
+    .add-Product_Btn {
+        width: 60px;
+        font-size: 10px;
+    }
+    .btn_add,
+    .btn_back,
+    .btn_next {
+        @include widthOrHeight(100px, 50px);
+        font-size: 15px;
+    }
+    .total_card {
+        font-size: 15px;
     }
 }

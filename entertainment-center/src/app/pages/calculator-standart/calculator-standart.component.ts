@@ -9,6 +9,7 @@ import { CalculatorStandart } from '../../shared/models/calculator-standart.mode
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ICalculatorStandart } from 'src/app/shared/interfaces/calculator-standart.interface';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-calculator-standart',
   templateUrl: './calculator-standart.component.html',
@@ -21,6 +22,7 @@ export class CalculatorStandartComponent implements OnInit {
     private entertainmentService: EntertainmentService,
     private router: Router,
     private calculatorService: CalculatorService,
+    private toastr: ToastrService,
     private fireCloud: AngularFirestore,
   ) { }
 
@@ -48,7 +50,7 @@ export class CalculatorStandartComponent implements OnInit {
   orderIDB = 1;
   timeB: string;
   dateB: string;
-  counterPeopleB: number;
+  counterPeopleB: number = 2;
   totalPriceProd = 0;
   counterPeople = 2;
   totalPriceEntertainment = 300;
@@ -130,6 +132,7 @@ export class CalculatorStandartComponent implements OnInit {
     this.getEmeilUser();
     if (this.userEmail == 'admin') {
       this.router.navigateByUrl('/order-birthday');
+      this.toastr.success('Замовлення відправлено');
     }
     else if (this.userEmail !== 'admin') {
       this.router.navigateByUrl('/profile');

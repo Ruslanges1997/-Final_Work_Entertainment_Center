@@ -129,13 +129,6 @@
                                             {{counterPeople}} шт
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <h1 class="text_game ">Розваги</h1>
-                                        </td>
-                                        <td></td>
-                                    </tr>
                                     <tr *ngFor="let menu of prodJuiceArr ">
                                         <td>
                                             {{ menu?.nameUA | titlecase }}
@@ -145,6 +138,14 @@
                                             {{counterJuiceFinal }} л
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <h1 class="text_game " >Розваги</h1>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                   
                                     <tr *ngFor="let game of entertainmentAray">
                                         <td>
                                             {{ game?.nameGame| titlecase }}

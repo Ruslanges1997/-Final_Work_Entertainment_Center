@@ -17,14 +17,14 @@
                         </a>
                     </li>
                     <li class=" li_header  " routerLinkActive="active_link">
-                        <a class="" [routerLink]="[ 'games' ]">
+                        <a class="" [routerLink]="[ 'games' ]" (click)="menuNavBarClose()">
                             <span>
                                 <h3> Entertainment</h3>
                             </span>
                         </a>
                     </li>
                     <li class=" li_header" routerLinkActive="active_link">
-                        <a class="link " [routerLink]="[ 'order-birthday']">
+                        <a class="link " [routerLink]="[ 'order-birthday']" (click)="menuNavBarClose()">
                             <span>
                                 <h3>Birthday</h3>
                             </span>
@@ -34,7 +34,7 @@
                         <a class="link " [routerLink]="[ 'calculator-premium']"> </a>
                     </li>
                     <li class=" li_header" routerLinkActive="active_link">
-                        <a class="link " [routerLink]="[ '/menu/pizza']">
+                        <a class="link " [routerLink]="[ '/menu/pizza']" (click)="menuNavBarClose()">
                             <span>
                                 <h3>Menu</h3>
                             </span>
@@ -51,12 +51,13 @@
                         </a>
                     </li>
                     <li class=" li_header" routerLinkActive="active_link">
-                        <a class="link " [routerLink]="['admin-login']" *ngIf="!loginStatus">
+                        <a class="link " [routerLink]="['admin-login']" *ngIf="!loginStatus"
+                            (click)="menuNavBarClose()">
                             <span>
                                 <h3>Exit</h3>
                             </span>
                         </a>
-                        <a [routerLink]="[ '/'+loginUrl ]" *ngIf="loginStatus">
+                        <a [routerLink]="[ '/'+loginUrl ]" *ngIf="loginStatus" (click)="menuNavBarClose()">
                             <span>
                                 <h3>{{ loginName|titlecase }}</h3>
                             </span>

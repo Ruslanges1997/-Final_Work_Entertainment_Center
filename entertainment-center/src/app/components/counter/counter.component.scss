@@ -43,3 +43,11 @@ input::-webkit-inner-spin-button {
         @include widthOrHeight(50px, 40px);
     }
 }
+@media screen and (max-width: 400px) {
+    .count_btn {
+        @include widthOrHeight(25px, 25px);
+    }
+    .count_number {
+        font-size: 15px;
+    }
+}

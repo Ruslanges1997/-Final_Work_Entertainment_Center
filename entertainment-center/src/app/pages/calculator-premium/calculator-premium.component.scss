@@ -361,3 +361,38 @@ input.ng-valid {
         width: 40%;
     }
 }
+
+@media screen and (max-width: 400px) {
+    .orderBirthdayP h1 {
+        font-size: 25px;
+    }
+    .block_assortmentP {
+        overflow: scroll;
+        width: 98%;
+    }
+    .textP {
+        margin: 0px 10px;
+    }
+    .time_input {
+        width: 40%;
+    }
+    .count_btn-people {
+        @include widthOrHeight(30px, 30px);
+    }
+    .count_peopleP {
+        font-size: 20px;
+    }
+    .margin_content {
+        margin: 10px 0px 0px 0px;
+    }
+    .btn_add{
+        @include widthOrHeight(100px, 50px);
+        font-size: 15px;
+    }
+    .total_cardP {
+        font-size: 15px;
+    }
+    .text_game {
+        margin-left: -55px;
+    }
+}

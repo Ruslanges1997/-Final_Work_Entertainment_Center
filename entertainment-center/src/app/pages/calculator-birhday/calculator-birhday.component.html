@@ -17,7 +17,7 @@
                     <form *ngIf="!switch " #timeDateForm="ngForm">
                         <div *ngIf="!switchTwo">
                             <div class="data-time_block ">
-                                <mat-form-field appearance="fill" class="kalentdar">
+                                <mat-form-field appearance="fill">
                                     <mat-label class="date_text">Виберіть дату святкування</mat-label>
                                     <input matInput [matDatepicker]="picker" [(ngModel)]="dateB"
                                         (dateChange)="addEvent('change', $event)" id="dateB" name="dateB" required>

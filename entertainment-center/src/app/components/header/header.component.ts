@@ -28,7 +28,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-
   loginName: string;
   loginUrl: string;
   mobileHhead: boolean;
@@ -37,7 +36,9 @@ export class HeaderComponent implements OnInit {
     this.updateCheckLogin()
     this.menuBurgerNav = true;
   }
-
+  menuNavBarClose(): void {
+    this.menuBurgerNav = true;
+  }
   private updateCheckLogin(): void {
     this.authService.userStatusChanges.subscribe(
       () => {
@@ -59,7 +60,6 @@ export class HeaderComponent implements OnInit {
       this.loginName = 'Office';
       this.loginUrl = 'profile';
     }
-
     else {
       this.loginStatus = false;
       this.loginName = '';

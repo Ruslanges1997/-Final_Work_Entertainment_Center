@@ -10,6 +10,7 @@ import { ICalculator } from '../../shared/interfaces/calculator-birthday.interfa
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { CalculatorService } from '../../shared/services/calculator.service';
 import { NgForm, } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-calculator-birhday',
   templateUrl: './calculator-birhday.component.html',
@@ -24,7 +25,7 @@ export class CalculatorBirhdayComponent implements OnInit {
   orderIDB = 1;
   timeB: string;
   dateB: string;
-  counterPeopleB: number;
+  counterPeopleB: number = 2;
   calculatorArr: Array<ICalculator> = [];
   counterPeople = 2;
   switch: boolean;
@@ -55,6 +56,7 @@ export class CalculatorBirhdayComponent implements OnInit {
   dateBirhdayArr: string[] = [];
 
   constructor(
+    private toastr: ToastrService,
     private modalService: BsModalService,
     private fireCloud: AngularFirestore,
     private calculatorService: CalculatorService,
@@ -303,6 +305,7 @@ export class CalculatorBirhdayComponent implements OnInit {
     this.getEmeilUser();
     if (this.userEmail == 'admin') {
       this.router.navigateByUrl('/order-birthday');
+      this.toastr.success('Замовлення відправлено');
     }
     else if (this.userEmail !== 'admin') {
       this.router.navigateByUrl('/profile');
