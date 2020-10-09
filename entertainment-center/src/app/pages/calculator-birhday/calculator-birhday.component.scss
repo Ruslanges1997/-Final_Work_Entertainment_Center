@@ -510,8 +510,13 @@ input.ng-valid {
         width: 90%;
     }
 }
-@media screen and (max-width: 400px) {
-    .order_final{
+@media screen and (max-width: 430px) {
+    .count_menu {
+        button {
+            @include widthOrHeight(45%, 50px);
+        }
+    }
+    .order_final {
         width: 98%;
     }
     .orderBirthday h1 {

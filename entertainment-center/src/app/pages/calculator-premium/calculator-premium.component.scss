@@ -342,6 +342,9 @@ input.ng-valid {
     .label_orderP {
         font-size: 20px;
     }
+    .time_input {
+        width: 40%;
+    }
     .total_cardP {
         width: 90%;
         margin-left: 5%;
@@ -353,16 +356,9 @@ input.ng-valid {
         width: 90%;
     }
 }
-@media screen and (max-width: 400px) {
-    .block_assortment {
-        overflow: scroll;
-    }
-    .time_input {
-        width: 40%;
-    }
-}
 
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 430px) {
     .orderBirthdayP h1 {
         font-size: 25px;
     }
@@ -385,7 +381,7 @@ input.ng-valid {
     .margin_content {
         margin: 10px 0px 0px 0px;
     }
-    .btn_add{
+    .btn_add {
         @include widthOrHeight(100px, 50px);
         font-size: 15px;
     }

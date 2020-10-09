@@ -311,6 +311,7 @@ input.ng-valid {
         @include widthOrHeight(150px, 55px);
     }
     .time_input {
+        width: 40%;
         height: 100%;
     }
 }
@@ -350,7 +351,7 @@ input.ng-valid {
         width: 90%;
     }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 430px) {
     .orderBirthdayS h1 {
         font-size: 25px;
     }

@@ -25,7 +25,7 @@ export class AdminEntertainmentComponent implements OnInit {
   uploadProgress: Observable<number>;
   editStatus: boolean;
   imageStatus: boolean;
-  searchName:string;
+  searchName: string;
   soretedAdminEntertainment: Array<IEntertainment> = [];
   adminEntertainment: Array<IEntertainment> = [];
   constructor(
@@ -84,7 +84,7 @@ export class AdminEntertainmentComponent implements OnInit {
       this.entertainmentService.postFireCloudEntertainment({ ...newEntertainment })
         .then(message => console.log(message))
         .catch(err => console.log(err));
-    } 
+    }
     else {
       this.entertainmentService.updateFireCloudEntertainment({ ...newEntertainment })
         .then(message => console.log(message))

@@ -7,7 +7,7 @@
                 </button>
                 <ul class="navbar_nav  ">
                     <li class=" li_header" routerLinkActive="active_link">
-                        <a routerLink="home">
+                        <a routerLink="home" (click)="menuNavBarClose()">
                             <span>
                                 <h3>Lazer Park</h3>
                             </span>
@@ -43,7 +43,7 @@
                         <a class="link " [routerLink]="[ '/menu/burger']"></a>
                         <a class="link " [routerLink]="[ '/menu/drinks']"> </a>
                     </li>
-                    <li class=" li_header" routerLinkActive="active_link">
+                    <li class=" li_header" routerLinkActive="active_link" (click)="menuNavBarClose()">
                         <a class="link " [routerLink]="[ 'our-team']">
                             <span>
                                 <h3>Our Team</h3>
